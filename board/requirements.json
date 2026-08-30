@@ -25,6 +25,7 @@
   "derivation": {
     "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
     "quotations_verified": 24,
+    "where_the_quotations_are": "Every one of them is in this file: fixed_requirements[].brief_evidence and brief_spec_rows[].brief_evidence. The count above is the sum of those two lists, so it is recomputable from this repository alone - re-read BRIEF.md and check each string is a substring of it. brief_spec_rows carries the quotations behind the README's spec table, which would otherwise cite the brief with the evidence left in a build script.",
     "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
   },
   "fixed_requirements": [
@@ -97,6 +98,58 @@
       "id": "REQ-14",
       "requirement": "The repository stays a consumer of the shared PCBA_AutoDesignAndTest toolkit; board-specific logic does not accumulate in the toolkit.",
       "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "brief_spec_rows": [
+    {
+      "aspect": "Board function",
+      "value": "General-purpose CAN-FD node for a 24 V industrial system",
+      "brief_evidence": "Design a general-purpose CAN-FD node for a 24 V industrial system."
+    },
+    {
+      "aspect": "Controller",
+      "value": "A modern MCU with CAN-FD (no family, part or package named)",
+      "brief_evidence": "Use a modern MCU with CAN-FD, an external CAN-FD transceiver"
+    },
+    {
+      "aspect": "Bus PHY",
+      "value": "External CAN-FD transceiver, separate from the MCU",
+      "brief_evidence": "an external CAN-FD transceiver, switchable 120-ohm termination"
+    },
+    {
+      "aspect": "Bus termination",
+      "value": "Switchable 120-ohm termination",
+      "brief_evidence": "switchable 120-ohm termination, ESD protection at the bus connector"
+    },
+    {
+      "aspect": "Bus protection",
+      "value": "ESD protection at the bus connector",
+      "brief_evidence": "ESD protection at the bus connector, reverse-polarity and transient protection on the 24 V input"
+    },
+    {
+      "aspect": "24 V input protection",
+      "value": "Reverse-polarity and transient protection on the 24 V input",
+      "brief_evidence": "reverse-polarity and transient protection on the 24 V input, and an efficient local regulator."
+    },
+    {
+      "aspect": "Local power conversion",
+      "value": "An efficient local regulator (topology, input source, rails and ratings unstated)",
+      "brief_evidence": "and an efficient local regulator. Provide four digital inputs"
+    },
+    {
+      "aspect": "Digital inputs",
+      "value": "Four",
+      "brief_evidence": "Provide four digital inputs and four low-side outputs for demonstration loads."
+    },
+    {
+      "aspect": "Outputs",
+      "value": "Four low-side outputs, for demonstration loads",
+      "brief_evidence": "four low-side outputs for demonstration loads. The CAN connector must place CANH/CANL adjacent"
+    },
+    {
+      "aspect": "CAN connector arrangement and protection zone",
+      "value": "CANH/CANL adjacent at the connector; protection and termination kept near the connector",
+      "brief_evidence": "The CAN connector must place CANH/CANL adjacent and keep protection/termination near the connector."
     }
   ],
   "open_decisions": [

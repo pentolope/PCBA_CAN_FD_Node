@@ -1,0 +1,16 @@
+{
+  "repo": "PCBA_CAN_FD_Node",
+  "title": "CAN-FD Sensor/Control Node",
+  "category": "industrial-network",
+  "difficulty": 2,
+  "detail": 3,
+  "layers": "2 or 4",
+  "stress": [
+    "CAN differential pair",
+    "24V input protection",
+    "termination",
+    "MCU clocking"
+  ],
+  "benchmark_id": 6,
+  "brief_file": "BRIEF.md"
+}

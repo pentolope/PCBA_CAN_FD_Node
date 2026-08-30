@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "repo": "PCBA_CAN_FD_Node",
+  "board_id": "can_fd_node",
+  "benchmark_id": 6,
+  "title": "CAN-FD Sensor/Control Node",
+  "description": "The split between what BRIEF.md fixes and what it leaves open. Every fixed_requirements entry carries the verbatim brief text that substantiates it, bound to the recorded brief digest. An open_decisions entry is a choice for the design agent: record it in 'chosen' with 'rationale', and never move it into fixed_requirements. Missing details are design freedom, not permission to fabricate unstated user requirements.",
+  "brief": {
+    "path": "../BRIEF.md",
+    "sha256": "3897ccfaae068a75cbd3eae3186d01ac4c7f7dafd298f4a1a979556b659bc86c",
+    "authority": "supplied by the benchmark; authoritative; preserved byte for byte and never edited"
+  },
+  "metadata": {
+    "category": "industrial-network",
+    "difficulty": 2,
+    "detail": 3,
+    "layers": "2 or 4",
+    "stressors": [
+      "CAN differential pair",
+      "24V input protection",
+      "termination",
+      "MCU clocking"
+    ]
+  },
+  "derivation": {
+    "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
+    "quotations_verified": 24,
+    "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
+  },
+  "fixed_requirements": [
+    {
+      "id": "REQ-01",
+      "requirement": "The board is a general-purpose CAN-FD node intended for a 24 V industrial system.",
+      "brief_evidence": "Design a general-purpose CAN-FD node for a 24 V industrial system."
+    },
+    {
+      "id": "REQ-02",
+      "requirement": "The controller is a modern MCU that provides CAN-FD.",
+      "brief_evidence": "for a 24 V industrial system. Use a modern MCU with CAN-FD"
+    },
+    {
+      "id": "REQ-03",
+      "requirement": "The bus physical layer is an external CAN-FD transceiver, i.e. a device separate from the MCU.",
+      "brief_evidence": "an external CAN-FD transceiver, switchable 120-ohm termination"
+    },
+    {
+      "id": "REQ-04",
+      "requirement": "The board provides 120-ohm bus termination that is switchable, not permanently fitted.",
+      "brief_evidence": "switchable 120-ohm termination, ESD protection at the bus connector"
+    },
+    {
+      "id": "REQ-05",
+      "requirement": "ESD protection is provided at the bus connector.",
+      "brief_evidence": "ESD protection at the bus connector, reverse-polarity and transient protection on the 24 V input"
+    },
+    {
+      "id": "REQ-06",
+      "requirement": "The 24 V input has reverse-polarity protection.",
+      "brief_evidence": "reverse-polarity and transient protection on the 24 V input, and an efficient local regulator."
+    },
+    {
+      "id": "REQ-07",
+      "requirement": "The 24 V input has transient protection.",
+      "brief_evidence": "ESD protection at the bus connector, reverse-polarity and transient protection on the 24 V input"
+    },
+    {
+      "id": "REQ-08",
+      "requirement": "The board includes an efficient local regulator. The brief does not state the regulator's input source, topology or output rails.",
+      "brief_evidence": "and an efficient local regulator. Provide four digital inputs"
+    },
+    {
+      "id": "REQ-09",
+      "requirement": "The board provides four digital inputs.",
+      "brief_evidence": "Provide four digital inputs and four low-side outputs for demonstration loads."
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "The board provides four low-side outputs, intended to drive demonstration loads.",
+      "brief_evidence": "four low-side outputs for demonstration loads. The CAN connector must place CANH/CANL adjacent"
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "The CAN connector places CANH and CANL on adjacent pins.",
+      "brief_evidence": "The CAN connector must place CANH/CANL adjacent and keep protection/termination near the connector."
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Bus protection and termination are placed near the CAN connector.",
+      "brief_evidence": "adjacent and keep protection/termination near the connector."
+    },
+    {
+      "id": "REQ-13",
+      "requirement": "Where the brief is silent, the design agent makes and documents reasonable engineering decisions instead of inventing hidden user requirements; stated requirements are authoritative.",
+      "brief_evidence": "Treat stated requirements as authoritative; where the brief leaves choices open, make and document reasonable engineering decisions rather than inventing hidden user requirements."
+    },
+    {
+      "id": "REQ-14",
+      "requirement": "The repository stays a consumer of the shared PCBA_AutoDesignAndTest toolkit; board-specific logic does not accumulate in the toolkit.",
+      "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "open_decisions": [
+    {
+      "id": "OPEN-01",
+      "decision": "Which MCU (vendor, family, part number, package, memory, pin count) provides the CAN-FD controller.",
+      "why_open": "The brief asks only for 'a modern MCU with CAN-FD' and names no vendor, family, part or package.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-02",
+      "decision": "Which external CAN-FD transceiver is used, and which of its optional features (silent/standby mode, wake, bus-fault reporting, split/biasing pin) the design relies on.",
+      "why_open": "The brief requires an external CAN-FD transceiver but names no device and no feature set.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-03",
+      "decision": "MCU clock source - internal oscillator, crystal, or oscillator module - its frequency, and the frequency-tolerance budget over temperature and life.",
+      "why_open": "'MCU clocking' is listed as a stressor in the metadata, but the brief states no clock source, frequency or tolerance.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-04",
+      "decision": "Arbitration-phase and data-phase bit rates, sample points and the resulting bit-timing/oscillator-tolerance margin.",
+      "why_open": "The brief names no bit rate, bus length, or node count for the CAN-FD network.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-05",
+      "decision": "How termination is switched (jumper, DIP switch, solder link, electronically controlled) and whether it is a single resistor or split termination with a common-mode capacitor.",
+      "why_open": "The brief fixes the value as 120 ohm and requires it to be switchable, but does not state the switching mechanism or the termination topology.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-06",
+      "decision": "Bus ESD protection device class and its ratings - clamping voltage, contact/air discharge level, and line capacitance budget against CAN-FD data-phase edges.",
+      "why_open": "The brief requires ESD protection at the bus connector but states no immunity level, device type or capacitance limit.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-07",
+      "decision": "The 24 V front-end topology: reverse-polarity method (series diode, P-FET, ideal-diode controller), transient clamp choice, fusing or current limiting, and input filtering.",
+      "why_open": "The brief names the two protections but not the circuit, the transient energy or surge level to survive, or whether fusing is required.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-08",
+      "decision": "Regulator topology - linear, switching, or a pre-built module - and, if the chosen topology switches, its switching frequency; plus what 'efficient' means quantitatively for this board and what the regulator's input source is.",
+      "why_open": "The brief calls for 'an efficient local regulator' with no efficiency target, topology, input source, or load condition stated.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-09",
+      "decision": "Rail voltages and the current budget for MCU, transceiver, inputs and outputs, including whether the transceiver and MCU share a rail or need separate ones.",
+      "why_open": "The brief names no supply rail other than the 24 V input and gives no current budget.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-10",
+      "decision": "Digital input conditioning: expected input signal type and levels, whether inputs must tolerate 24 V field signals, thresholds, filtering, protection and any isolation.",
+      "why_open": "The brief states the quantity (four) but nothing about input levels, source type, isolation or protection.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-11",
+      "decision": "Low-side output switch type and ratings: the load types the outputs are specified to drive (resistive, lamp, inductive), device technology, voltage/current capability, any turn-off clamping the chosen load type requires, and any diagnostics or short-circuit protection.",
+      "why_open": "The brief states the quantity (four) and that the loads are for demonstration, but no load type, current, or voltage.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-12",
+      "decision": "Connector selection for the CAN bus, the 24 V power input, and the digital I/O - type, pin count, pitch, current rating, keying, and whether power and bus share a connector.",
+      "why_open": "The brief fixes only that CANH and CANL are adjacent on the CAN connector; no connector family, pin count or pinout is stated.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-13",
+      "decision": "Layer count (2 vs 4), stackup, whether the CANH/CANL pair has a continuous reference plane, and whether it is routed to a controlled differential impedance target.",
+      "why_open": "The metadata says only '2 or 4' layers; the brief states no stackup, dielectric or impedance requirement.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-14",
+      "decision": "Board outline, dimensions, mounting-hole pattern, keepouts, and any enclosure or rail-mount intent.",
+      "why_open": "The brief is silent on mechanical form entirely, apart from the CAN connector's pin adjacency and the protection/termination placement zone.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-15",
+      "decision": "Programming/debug interface, firmware update path, and any status indicators or bus-activity/fault LEDs.",
+      "why_open": "The brief does not mention debug access, bootloading, or indicators.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-16",
+      "decision": "Whether a bus shield/drain connection, common-mode choke, or dedicated bus filtering is provided, and how the bus reference relates to board ground.",
+      "why_open": "The brief requires ESD protection at the connector but says nothing about shielding, common-mode filtering, or grounding scheme.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-17",
+      "decision": "Operating temperature range, EMC/immunity targets, and whether any compliance regime applies.",
+      "why_open": "The brief gives an industrial context but states no environmental range or compliance requirement.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-18",
+      "decision": "Fabrication and assembly constraints: fab vendor and its process capability, assembly side(s), component-height limits, test points and functional-test hooks.",
+      "why_open": "The brief states no manufacturing vendor, process, or test strategy.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-19",
+      "decision": "Whether the transceiver is inhibited from driving the bus during MCU reset, before firmware is loaded, or until rails have settled - and, if so, by what means and on what justification.",
+      "why_open": "The brief names the transceiver but imposes no bus-safety, fail-silent or power-sequencing requirement, so whether such inhibition is needed is the design agent's call.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-20",
+      "decision": "What board markings and documentation, if any, identify the termination selector state, the 24 V input polarity and the I/O channel numbering.",
+      "why_open": "The brief imposes no silkscreen, labelling or user-documentation requirement on the board.",
+      "chosen": null,
+      "rationale": null
+    }
+  ]
+}

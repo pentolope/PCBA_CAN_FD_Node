@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "CanFdNode")(type "KiCad")(uri "${KIPRJMOD}/library/CanFdNode.kicad_sym")(options "")(descr ""))
+)

@@ -1,0 +1,147 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 1e-06,
+      "stop_s": 0.002
+    }
+  ],
+  "assumptions": {
+    "CIN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "every capacitance on the input rail as one ideal capacitor at the low end of its tolerance, with no ESR and no ESL - the reservoir is an electrolytic whose ESR the omission of makes the dip shallower than it is"
+    },
+    "RBLOCK": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the reverse-blocking device as its datasheet on-resistance at the gate drive its clamp gives it; it sits in the return, which is where this element sits too"
+    },
+    "RFIELD": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "all four field outputs at their rated current at once, as one resistance sized at the declared input minimum"
+    },
+    "RFUSE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the resettable fuse at its maximum resistance one hour after reflow"
+    },
+    "RLOGIC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the converter's input draw as a fixed resistance at the bounded maximum"
+    },
+    "RWIRE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the supply and its wiring as the declared budget; a stiffer supply drops less"
+    },
+    "SUPPLY": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the external supply at the bottom of the declared input range, as an ideal source"
+    },
+    "SWITCHON": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the instant every output is enabled together, as an ideal switch; firmware that staggers them sees less than this"
+    }
+  },
+  "description": "every field output turns on at once at its rated current, and the field supply and the converter's input are watched while the step lands",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "SUPPLY",
+      "nodes": [
+        "source",
+        "return"
+      ],
+      "value": 18.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RWIRE",
+      "nodes": [
+        "source",
+        "terminal"
+      ],
+      "value": 0.2
+    },
+    {
+      "kind": "resistor",
+      "name": "RBLOCK",
+      "nodes": [
+        "return",
+        "0"
+      ],
+      "value": 0.09
+    },
+    {
+      "kind": "capacitor",
+      "name": "CIN",
+      "nodes": [
+        "terminal",
+        "0"
+      ],
+      "value": 3.949e-05
+    },
+    {
+      "kind": "resistor",
+      "name": "RLOGIC",
+      "nodes": [
+        "terminal",
+        "0"
+      ],
+      "value": 405.2679305783932
+    },
+    {
+      "kind": "resistor",
+      "name": "RFUSE",
+      "nodes": [
+        "terminal",
+        "field"
+      ],
+      "value": 0.1
+    },
+    {
+      "kind": "resistor",
+      "name": "RFIELD",
+      "nodes": [
+        "field",
+        "sink"
+      ],
+      "value": 18.0
+    },
+    {
+      "kind": "vsource_pulse",
+      "name": "SWITCHON",
+      "nodes": [
+        "sink",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 0.0001,
+        "fall_s": 4e-09,
+        "period_s": 0.004,
+        "rise_s": 4e-09,
+        "v1": 18.0,
+        "v2": 0.0,
+        "width_s": 0.002
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 17.0
+      },
+      "kind": "tran_min_voltage",
+      "name": "field_supply_minimum",
+      "node": "field"
+    },
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 4.5
+      },
+      "kind": "tran_min_voltage",
+      "name": "converter_input_minimum",
+      "node": "terminal"
+    }
+  ],
+  "name": "field_outputs_switching_on_together"
+}

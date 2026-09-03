@@ -1,0 +1,285 @@
+{
+  "documents": {
+    "1n4148w_semtech": {
+      "applies_to": [
+        "1N4148W"
+      ],
+      "bytes": 271760,
+      "document_id": "1N4148W SOD-123 switching diode",
+      "file": "datasheets/1n4148w_semtech.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "54de8e4089bb8221cf6cf191ee3acc2bdb20c9933cf59e7b5de3ef4ee291ce3f",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/8abd7fc00ebe41ffb03ad1383c10753b.pdf"
+    },
+    "b1100_diodes": {
+      "applies_to": [
+        "B1100-13-F"
+      ],
+      "bytes": 597508,
+      "document_id": "Diodes Incorporated B170/B - B1100/B, DS30018 Rev. 15-2, June 2022",
+      "file": "datasheets/b1100_diodes.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "bb2ebed332baff12b8b69ea21019b00f00cede3fb76c961ba84fa29ac5c7de38",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/53f31132fb725db38e9b9ec760d65c73.pdf"
+    },
+    "bzt52c12_mdd": {
+      "applies_to": [
+        "BZT52C12"
+      ],
+      "bytes": 1865637,
+      "document_id": "MDD BZT52 series 500 mW zener diodes",
+      "file": "datasheets/bzt52c12_mdd.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "08e6b35c15019212ad07755560542157b65da781130b575d7d10c2ae6e875c1a",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/61190d79e0f948958471ae8476bcd111.pdf"
+    },
+    "elcap_rvt_jieerrui": {
+      "applies_to": [
+        "RVT63V47M6X8"
+      ],
+      "bytes": 311611,
+      "document_id": "RVT series SMD aluminium electrolytic capacitor specification",
+      "file": "datasheets/elcap_rvt_jieerrui.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "db821e37625cf3df279b73e7ec256926473f3a1488b13eae09505beeb0c5cf91",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/b62932148c4d9d6f60e49356f14710e8.pdf"
+    },
+    "esdcan05_st": {
+      "applies_to": [
+        "ESDCAN05-2BWY"
+      ],
+      "bytes": 1008860,
+      "document_id": "ESDCANxx-2BWY datasheet DS12789 Rev 2, November 2018",
+      "file": "datasheets/esdcan05_st.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "c99d878894232408d02f8d0cd19ee41ff31f30dc34e3c314fc277c76c96f7dee",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_STMicroelectronics-ESDCAN05-2BWY_C1973137.pdf"
+    },
+    "header1x2_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X2P-L11.5"
+      ],
+      "bytes": 223637,
+      "file": "datasheets/header1x2_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "001f4bbb7eb27a0ffef5dd5b18d0ec1bda6f54b4ad6c8f9102d96cd07d52cbe4",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2110191530_Shenzhen-Kinghelm-Elec-KH-2-54PH180-1X2P-L11-5_C2905434.pdf"
+    },
+    "header1x5_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X5P-L11.5"
+      ],
+      "bytes": 226222,
+      "file": "datasheets/header1x5_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3bc2ce00ab6d9dc8e45b2222ccf5677a092bb7c8f4e0a365a07104f958596a81",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201121530_Shenzhen-Kinghelm-Elec-KH-2-54PH180-1X5P-L11-5_C2932699.pdf"
+    },
+    "ht75rxx_holtek": {
+      "applies_to": [
+        "HT75R33-1A"
+      ],
+      "bytes": 1159036,
+      "document_id": "Holtek HT75Rxx-1 30V 150mA LDO, Rev. 1.01, 2025-12-03",
+      "file": "datasheets/ht75rxx_holtek.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "009b90a895884be911ac67b3781f0134f76d845c2f351e15dfefda153de54438",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/59abfa7ca0c1b0cd081d8e8f60c28ed0.pdf"
+    },
+    "ind_swpa5040_sunlord": {
+      "applies_to": [
+        "SWPA5040S470MT"
+      ],
+      "bytes": 7802649,
+      "document_id": "Sunlord SWPA series wire wound SMD power inductors, revised 2023/06/01",
+      "file": "datasheets/ind_swpa5040_sunlord.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "435da2e32ce68b2df1fe14b42aa26f5e841b281aaf423890a3e8c03912e0e2b0",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2310251551_Sunlord-SWPA5040S470MT_C86617.pdf"
+    },
+    "jumper_shunt_boomele": {
+      "applies_to": [
+        "2.54Short Circuit Cap Closed"
+      ],
+      "bytes": 471513,
+      "document_id": "BOOMELE 2.54 mm closed short-circuit cap drawing",
+      "file": "datasheets/jumper_shunt_boomele.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "88c020b97674fce07826c79ba681699597dda2c35c3f81bf76b56742a32e0f3d",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2303231100_BOOMELE-Boom-Precision-Elec-2-54_C100114.pdf"
+    },
+    "kt0603r_kento": {
+      "applies_to": [
+        "KT-0603R"
+      ],
+      "bytes": 610865,
+      "document_id": "Hubei KENTO KT-0603R specification",
+      "file": "datasheets/kt0603r_kento.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "a3bac1cc9c59cb306ad03512945cce12c87bb54252abc223b796e1d20d41d4a1",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/011ec3e8cb1e825f6961d29bc4db4c7a.pdf"
+    },
+    "mlcc_yageo_cc": {
+      "applies_to": [
+        "CC0603JRNPO9BN150",
+        "CC0603KRX7R0BB472",
+        "CC0603KRX7R0BB103",
+        "CC0603KRX7R0BB104",
+        "CC0603KRX7R8BB105",
+        "CC0805KKX7R7BB106",
+        "CC1206KKX7R0BB105"
+      ],
+      "bytes": 1131214,
+      "document_id": "YAGEO CC series multilayer ceramic capacitor specification",
+      "file": "datasheets/mlcc_yageo_cc.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "61a606825ab314ea318cfb5362848a62fdffb851efa9818d642e9a541c56a648",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf"
+    },
+    "mp2459_mps": {
+      "applies_to": [
+        "MP2459GJ-Z"
+      ],
+      "bytes": 718639,
+      "document_id": "MP2459 0.5A 55V 480kHz step-down converter, Rev. 1.1, 2021-05-21",
+      "file": "datasheets/mp2459_mps.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "913244409e01e17ed9378057862d8444914f702d848f3a24f00f537cf1d6f160",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_Monolithic-Power-Systems-MP2459GJ-Z_C39578.pdf"
+    },
+    "nce6003x_nce": {
+      "applies_to": [
+        "NCE6003X"
+      ],
+      "bytes": 310282,
+      "document_id": "Wuxi NCE Power NCE6003X 60V 3A N-channel MOSFET",
+      "file": "datasheets/nce6003x_nce.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "5790d276996d65761eaa3a9ab03ea6bcc5e3932f0e5e22de74bc55e6e139a04b",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201121630_Wuxi-NCE-Power-Semiconductor-NCE6003X_C2934580.pdf"
+    },
+    "pptc_1812l200_lute": {
+      "applies_to": [
+        "1812L200/33GR"
+      ],
+      "bytes": 1225979,
+      "document_id": "LUTE 1812L series surface mount resettable fuses, Revision 2020",
+      "file": "datasheets/pptc_1812l200_lute.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "4a6d47229be2750c22771f7456a9f7eaa6d210ead6f58e5c8b5b719a16fe9413",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2309271034_LUTE-1812L200-33GR_C18198343.pdf"
+    },
+    "res_rmcf_stackpole": {
+      "applies_to": [
+        "RMCF2512FT60R4"
+      ],
+      "bytes": 661063,
+      "document_id": "Stackpole RMCF/RMCP series thick film chip resistors",
+      "file": "datasheets/res_rmcf_stackpole.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "02b1cab0be991471ab0c10cd78ad1939382d1598f3dc5e4395466e1692d24ec8",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/cc8d4427ec8b6553eb327eea67662c30.pdf"
+    },
+    "res_uniroyal": {
+      "applies_to": [
+        "0603WAF1000T5E",
+        "0603WAF4700T5E",
+        "0603WAF2701T5E",
+        "0603WAF1002T5E",
+        "0603WAF2002T5E",
+        "0603WAF2372T5E",
+        "0603WAF5102T5E",
+        "0603WAF1003T5E",
+        "0603WAF1243T5E",
+        "0603WAF4703T5E",
+        "0603WAF5602T5E"
+      ],
+      "bytes": 467557,
+      "document_id": "Uniroyal chip resistor series specification",
+      "file": "datasheets/res_uniroyal.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "11cd644d5d8a34a6d12775afb80bf58d8fc11f0c3b700dbd0f7a59942ceaa5ef",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
+    },
+    "smaj_mdd": {
+      "applies_to": [
+        "SMAJ30CA"
+      ],
+      "bytes": 1223116,
+      "document_id": "MDD SMAJ5.0(C)A through SMAJ440(C)A, 400 W transient voltage suppressor",
+      "file": "datasheets/smaj_mdd.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "2bd81a6a2db3710efef792b2457c4265e285519cb58796af13d365b7a3f34e49",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/57d80c866df506764ddd60be335ccdff.pdf"
+    },
+    "smf_jingdao": {
+      "applies_to": [
+        "SMF30A"
+      ],
+      "bytes": 97783,
+      "document_id": "Jingdao SMF series 200 W SOD-123FL transient voltage suppressor",
+      "file": "datasheets/smf_jingdao.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "815402489fb370678b50ec2cc9ec01b51917b7d4b54d25eae2ef6e473fde1ecf",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/e2079ce6902d97aebf17ffdc9542d2e7.pdf"
+    },
+    "stm32g431_st": {
+      "applies_to": [
+        "STM32G431KBT6"
+      ],
+      "bytes": 2769660,
+      "document_id": "STM32G431x6/x8/xB datasheet DS12589 Rev 2, October 2019",
+      "file": "datasheets/stm32g431_st.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "cabefb21b47dc4c12494b3d9283e3ed1b83925036a65194580b8ebe68adeb71e",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/3f23d741047d660d2a0e8aabbc953854.pdf"
+    },
+    "tcan1042_ti": {
+      "applies_to": [
+        "TCAN1042HGVDR"
+      ],
+      "bytes": 1356386,
+      "document_id": "TCAN1042H/HG/HGV/HV, SLLSES7D, March 2016, revised October 2021",
+      "file": "datasheets/tcan1042_ti.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "c11d91597c93d528e457474ff9188607d0e31daacbb17b34b952282040b6c4ac",
+      "url": "https://www.ti.com/lit/ds/symlink/tcan1042h.pdf"
+    },
+    "term_db128v_dorabo": {
+      "applies_to": [
+        "DB128V-5.08-2P-GN-S",
+        "DB128V-5.08-3P-GN-S",
+        "DB128V-5.08-5P-GN-S"
+      ],
+      "bytes": 378662,
+      "document_id": "DORABO DB128V-5.08-XXP-C-S customer drawing, rev T0-1, 2022-10-27",
+      "file": "datasheets/term_db128v_dorabo.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "c1272cc5b6fb62ce5f694f7c4ecc1b8e2ae63b64510059d490f3fe66ff68dcb8",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2301061509_DORABO-DB128V-5-08-2P-GN-S_C2915639.pdf"
+    },
+    "wst6066a_winsok": {
+      "applies_to": [
+        "WST6066A"
+      ],
+      "bytes": 665091,
+      "document_id": "Winsok WST6066A 60V N-channel MOSFET",
+      "file": "datasheets/wst6066a_winsok.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "f9bce77534265a4fdb18e32c330639f00d2dd0ba19a477fc294e78c71fe17223",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/fa81b0d9ae88480fa681d4eacf953c2b.pdf"
+    },
+    "xtal_8mhz_yxc": {
+      "applies_to": [
+        "XL1EL89CMI-111YLC-8M"
+      ],
+      "bytes": 72812,
+      "document_id": "YXC YSX531SL crystal unit specification",
+      "file": "datasheets/xtal_8mhz_yxc.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "e476f3d81f4ed7abc16ced1dc1e3f93c69a6d53e7fcbdc6903b91e9d25acd5be",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2403291503_YXC-Crystal-Oscillators-XL1EL89CMI-111YLC-8M_C19711736.pdf"
+    }
+  },
+  "schema_version": 1
+}

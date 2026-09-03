@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "board_id": "can_fd_node",
+  "constraint_version": "layout-stage-2026-09-02",
+  "release_profile": "jlcpcb-2layer-assembled",
+  "generated_utc": "2026-09-03T01:48:11.698059+00:00",
+  "source_closure_sha256": "fac92d78c71886d3de4cbca1ca03caf7538554efb8e608a9f8e86fb985d6c028",
+  "source_closure_files": 17,
+  "tools": {
+    "kicad": "10.0.5",
+    "kicad_cli": "kicad-cli"
+  },
+  "toolkit": {
+    "commit": "3516aa6fceecbcb8bcd5147ac4b6fabe5524512e",
+    "working_tree_dirty": false,
+    "detail": "git HEAD of the toolkit checkout that executed this validation"
+  },
+  "commands": [
+    "kicad-cli sch erc --output erc.json --format json --severity-all --severity-exclusions --exit-code-violations can_fd_node.kicad_sch",
+    "kicad-cli pcb drc --output drc.json --format json --severity-all --severity-exclusions --all-track-errors --schematic-parity --refill-zones --save-board --exit-code-violations can_fd_node.kicad_pcb",
+    "kicad-cli pcb export gerbers --output export --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask can_fd_node.kicad_pcb",
+    "kicad-cli pcb export drill --output export --format excellon --excellon-separate-th --drill-origin plot can_fd_node.kicad_pcb",
+    "kicad-cli pcb export pos --output cpl.csv --format csv --units mm --side both --exclude-dnp can_fd_node.kicad_pcb",
+    "kicad-cli sch export bom --output bom.csv --fields ${QUANTITY},Reference,Value,Footprint,LCSC --labels Quantity,Designator,Comment,Footprint,LCSC Part # --group-by Value,Footprint,LCSC --exclude-dnp --ref-range-delimiter  can_fd_node.kicad_sch",
+    "zip can_fd_node-fabrication.zip"
+  ],
+  "artifacts": {
+    "bom.csv": "eddb7af9275294405e3000e47dc8fb2517b814306e1546bc1fdd36577c1b4ebb",
+    "can_fd_node-fabrication.zip": "74a04223e3c16105f2b60610e6b0f013c7fc6e2d2399daef2f4af9e702323903",
+    "cpl.csv": "b36a63977ca23097a0d60b0399dd7ba6ed791dd2c0f6b185c3a4d2ff31c321d1",
+    "gerbers/can_fd_node-B_Cu.gbr": "263eb0d131d0317e0f736f03388cf6ed6eaff3c3d73cea019d695d70f437edf3",
+    "gerbers/can_fd_node-B_Mask.gbr": "458eea10eb79d08e5a67a66809ce67dd498b693c3bf711f9002b2744ab240a26",
+    "gerbers/can_fd_node-B_Silkscreen.gbr": "ae078ad26677e29622cb2aa370bd87e0ce00bafe39258166012906ca583e1d4c",
+    "gerbers/can_fd_node-Edge_Cuts.gbr": "e6b276f026cab6ff848e1802e82d2daa33126c65c682452c56fcc232b11fdc3e",
+    "gerbers/can_fd_node-F_Cu.gbr": "556ffef24c42789bbdd4122e5327a9ca98868c4a6f6fea9c8f63e9c25fea1e81",
+    "gerbers/can_fd_node-F_Mask.gbr": "dfc0cb6d87669effef72b9206e2305d19f6a34c46e40e507efd737698a290702",
+    "gerbers/can_fd_node-F_Paste.gbr": "3389fb999478f4dce110748c5bcdb9577f07650ba910da9f5518cd8bc2eb95bd",
+    "gerbers/can_fd_node-F_Silkscreen.gbr": "64c2a5e2fac9a04b59d9f843ac75c2da5b50238a15dfa166ed1ad3186882215c",
+    "gerbers/can_fd_node-NPTH.drl": "6b6f55147629708659923eae793fe141522a243647522cf0b5656156b10e094f",
+    "gerbers/can_fd_node-PTH.drl": "750eee7fbc8c95d67954b7c6940bb91791e20d3f8188ca3f51ed432fa8abd106",
+    "gerbers/can_fd_node-job.gbrjob": "f4d5c5644aef3305bb80f505406424f3b07bd2e4aab86921372249bb26587e56",
+    "reports/drc.json": "be7b35bea70f0a384644b24bbfcf1bfe888694031dd257a68a76e92657389e53",
+    "reports/erc.json": "4bb94cf39325131652d469eecbf88e6755a450f2903ee6bf0301514176bb559c"
+  },
+  "excluded_layers": []
+}

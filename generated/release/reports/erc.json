@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.kicad.org/erc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-09-02T19:48:08",
+  "ignored_checks": [],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.5",
+  "sheets": [
+    {
+      "path": "/",
+      "uuid_path": "/0cb3c22e-a19e-549c-8a48-d4d48c45e118",
+      "violations": []
+    }
+  ],
+  "source": "can_fd_node.kicad_sch",
+  "source_sha256": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
+  "source_closure_sha256": "fac92d78c71886d3de4cbca1ca03caf7538554efb8e608a9f8e86fb985d6c028"
+}

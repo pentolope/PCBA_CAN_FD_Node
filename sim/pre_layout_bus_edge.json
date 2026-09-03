@@ -1,0 +1,91 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 4.9999999999999995e-11,
+      "stop_s": 2e-07
+    }
+  ],
+  "assumptions": {
+    "CBUS": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the protector, the transceiver's own bus pin and the declared cable budget as one capacitance; the cable is a budget, not a measurement, and no transmission line is modelled"
+    },
+    "DRIVER": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "one side of the transceiver's dominant drive, as an ideal step at the declared data-phase rate; a real driver has a finite slew the datasheet states only as a typical"
+    },
+    "RDRIVE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's own series resistance, bounded from its datasheet: a Thevenin source that still reaches the stated minimum differential output into the load the datasheet characterises, having reached the stated maximum into a near-open one"
+    },
+    "RTERM": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "this node's own termination leg at the top of its tolerance, referred to the reference because the centre capacitor holds the split node there at these frequencies"
+    }
+  },
+  "description": "one bus conductor driven at the declared data-phase rate through the driver's own series resistance, into the termination leg, the protection and the capacitance the cable is budgeted for",
+  "elements": [
+    {
+      "kind": "vsource_pulse",
+      "name": "DRIVER",
+      "nodes": [
+        "drive",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 1e-08,
+        "fall_s": 3.9999999999999996e-13,
+        "period_s": 4e-07,
+        "rise_s": 3.9999999999999996e-13,
+        "v1": 0.0,
+        "v2": 0.75,
+        "width_s": 2e-07
+      }
+    },
+    {
+      "kind": "resistor",
+      "name": "RDRIVE",
+      "nodes": [
+        "drive",
+        "bus"
+      ],
+      "value": 70.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RTERM",
+      "nodes": [
+        "bus",
+        "0"
+      ],
+      "value": 61.004
+    },
+    {
+      "kind": "capacitor",
+      "name": "CBUS",
+      "nodes": [
+        "bus",
+        "0"
+      ],
+      "value": 1.335e-10
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 0.3143239901071723
+      },
+      "kind": "tran_max_voltage",
+      "name": "bus_settled_level",
+      "node": "bus"
+    },
+    {
+      "kind": "tran_min_voltage",
+      "name": "bus_released_level",
+      "node": "bus"
+    }
+  ],
+  "name": "bus_conductor_edge_into_its_own_load"
+}

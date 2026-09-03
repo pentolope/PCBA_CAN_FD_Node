@@ -1,0 +1,121 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 2.5e-07,
+      "stop_s": 0.001
+    }
+  ],
+  "assumptions": {
+    "CFILTER": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the input filter at the top of its tolerance, which is the slowest, with no dielectric loss and no DC bias derating"
+    },
+    "CPIN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller pin's own capacitance at the datasheet's typical, which is the only figure it states"
+    },
+    "FIELD": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "a field signal at the bottom of the declared supply range, as an ideal source with no series resistance of its own; a real field driver is slower and the wiring adds resistance"
+    },
+    "RLOWER": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the lower divider element at the bottom of its tolerance, which lowers the level the pin reaches"
+    },
+    "RSERIES": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the series element that bounds injection, at the top of its tolerance"
+    },
+    "RUPPER": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the upper divider element at the top of its tolerance, which charges the filter slowest"
+    }
+  },
+  "description": "one field input driven from the bottom of the declared supply range, through the divider, the filter and the series element that feeds the controller pin",
+  "elements": [
+    {
+      "kind": "vsource_pulse",
+      "name": "FIELD",
+      "nodes": [
+        "terminal",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 5e-05,
+        "fall_s": 2e-09,
+        "period_s": 0.002,
+        "rise_s": 2e-09,
+        "v1": 0.0,
+        "v2": 18.0,
+        "width_s": 0.001
+      }
+    },
+    {
+      "kind": "resistor",
+      "name": "RUPPER",
+      "nodes": [
+        "terminal",
+        "divider"
+      ],
+      "value": 101000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RLOWER",
+      "nodes": [
+        "divider",
+        "0"
+      ],
+      "value": 19800.0
+    },
+    {
+      "kind": "capacitor",
+      "name": "CFILTER",
+      "nodes": [
+        "divider",
+        "0"
+      ],
+      "value": 1.1000000000000001e-08
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIES",
+      "nodes": [
+        "divider",
+        "pin"
+      ],
+      "value": 10100.0
+    },
+    {
+      "kind": "capacitor",
+      "name": "CPIN",
+      "nodes": [
+        "pin",
+        "0"
+      ],
+      "value": 5e-12
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 2.3330999999999995
+      },
+      "kind": "tran_max_voltage",
+      "name": "receiver_high_level",
+      "node": "pin"
+    },
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.9801
+      },
+      "kind": "tran_min_voltage",
+      "name": "receiver_low_level",
+      "node": "pin"
+    }
+  ],
+  "name": "field_input_edge_through_its_divider_and_filter"
+}

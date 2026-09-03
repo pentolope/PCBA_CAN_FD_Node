@@ -1,0 +1,107 @@
+{
+  "analyses": [
+    {
+      "kind": "op"
+    }
+  ],
+  "assumptions": {
+    "CLAMP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the logic rail at the top of the regulator's accuracy plus the clamp diode's datasheet forward voltage, as an ideal source: a diode is not a linear element and the rail it clamps to is held by the regulator"
+    },
+    "FIELD": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the field terminal at the declared maximum, as an ideal source"
+    },
+    "RCLAMP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the clamp's dynamic resistance, small enough that the node sits at the declared clamp level; the datasheet states none"
+    },
+    "RLOWER": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the lower divider element at the top of its tolerance"
+    },
+    "RSERIES": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the series element that bounds injection, at the bottom of its tolerance"
+    },
+    "RUPPER": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the upper divider element at the bottom of its tolerance, which drives the most into the clamp"
+    }
+  },
+  "description": "one field input at the declared maximum with its clamp to the logic rail conducting, and what the controller pin sees",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "FIELD",
+      "nodes": [
+        "terminal",
+        "0"
+      ],
+      "value": 30.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RUPPER",
+      "nodes": [
+        "terminal",
+        "divider"
+      ],
+      "value": 99000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RLOWER",
+      "nodes": [
+        "divider",
+        "0"
+      ],
+      "value": 20200.0
+    },
+    {
+      "kind": "vsource_dc",
+      "name": "CLAMP",
+      "nodes": [
+        "clamp",
+        "0"
+      ],
+      "value": 4.048
+    },
+    {
+      "kind": "resistor",
+      "name": "RCLAMP",
+      "nodes": [
+        "divider",
+        "clamp"
+      ],
+      "value": 1.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIES",
+      "nodes": [
+        "divider",
+        "pin"
+      ],
+      "value": 9900.0
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 5.5
+      },
+      "kind": "op_voltage",
+      "name": "controller_pin_level",
+      "node": "pin"
+    },
+    {
+      "kind": "op_voltage",
+      "name": "divider_node_level",
+      "node": "divider"
+    }
+  ],
+  "name": "field_input_at_the_top_of_its_declared_range"
+}

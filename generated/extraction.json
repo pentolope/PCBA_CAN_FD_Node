@@ -1,0 +1,615 @@
+{
+  "board_file": "can_fd_node.kicad_pcb",
+  "board_file_sha256": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
+  "kind": "board-path-dc-extraction",
+  "notes": [
+    "geometry-derived DC resistance only; no inductance and no capacitance is claimed here",
+    "the board file digest above is what these numbers describe; a board edited afterwards is a different board"
+  ],
+  "paths": [
+    {
+      "hops": [
+        {
+          "from_pad": "F1.2",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 9.1
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "VFIELD",
+          "path_length_mm": 9.1,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.003860559
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "VFIELD:F1.2->TP2.1",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "TP2.1",
+          "via_count_in_path": 0
+        },
+        {
+          "from_pad": "TP2.1",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "B.Cu": 11.5,
+            "F.Cu": 24.24
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "VFIELD",
+          "path_length_mm": 35.74,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [
+                {
+                  "detail": "via barrel resistance is omitted; no supported model covers the 2 traversed via(s)"
+                }
+              ],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "lower_bound",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.015162238
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "VFIELD:TP2.1->J3.1",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "J3.1",
+          "via_count_in_path": 2
+        }
+      ],
+      "kind": "board-path-dc-chain",
+      "meaning": "series DC resistance from the first pad to the last, summed over the hops between the pads the conductor runs through; each hop is its own path-scoped traversal and carries its own claim",
+      "net": "VFIELD",
+      "pads": [
+        "F1.2",
+        "TP2.1",
+        "J3.1"
+      ],
+      "path_length_mm": 44.84,
+      "resistance_ohm": 0.019022797,
+      "resistance_uncertainty_ohm": 0.0,
+      "via_barrel_allowance_ohm": 0.003068054,
+      "via_count_in_path": 2
+    },
+    {
+      "hops": [
+        {
+          "from_pad": "Q2.3",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 3.5625
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO1",
+          "path_length_mm": 3.5625,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.002518908
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO1:Q2.3->D9.1",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "D9.1",
+          "via_count_in_path": 0
+        },
+        {
+          "from_pad": "D9.1",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 10.0
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO1",
+          "path_length_mm": 10.0,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.00707062
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO1:D9.1->J3.2",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "J3.2",
+          "via_count_in_path": 0
+        }
+      ],
+      "kind": "board-path-dc-chain",
+      "meaning": "series DC resistance from the first pad to the last, summed over the hops between the pads the conductor runs through; each hop is its own path-scoped traversal and carries its own claim",
+      "net": "DO1",
+      "pads": [
+        "Q2.3",
+        "D9.1",
+        "J3.2"
+      ],
+      "path_length_mm": 13.5625,
+      "resistance_ohm": 0.009589528,
+      "resistance_uncertainty_ohm": 0.0,
+      "via_barrel_allowance_ohm": 0.0,
+      "via_count_in_path": 0
+    },
+    {
+      "hops": [
+        {
+          "from_pad": "Q3.3",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 3.5625
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO2",
+          "path_length_mm": 3.5625,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.002518908
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO2:Q3.3->D10.1",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "D10.1",
+          "via_count_in_path": 0
+        },
+        {
+          "from_pad": "D10.1",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 10.0
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO2",
+          "path_length_mm": 10.0,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.00707062
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO2:D10.1->J3.3",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "J3.3",
+          "via_count_in_path": 0
+        }
+      ],
+      "kind": "board-path-dc-chain",
+      "meaning": "series DC resistance from the first pad to the last, summed over the hops between the pads the conductor runs through; each hop is its own path-scoped traversal and carries its own claim",
+      "net": "DO2",
+      "pads": [
+        "Q3.3",
+        "D10.1",
+        "J3.3"
+      ],
+      "path_length_mm": 13.5625,
+      "resistance_ohm": 0.009589528,
+      "resistance_uncertainty_ohm": 0.0,
+      "via_barrel_allowance_ohm": 0.0,
+      "via_count_in_path": 0
+    },
+    {
+      "hops": [
+        {
+          "from_pad": "Q4.3",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 3.5625
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO3",
+          "path_length_mm": 3.5625,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.002518908
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO3:Q4.3->D11.1",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "D11.1",
+          "via_count_in_path": 0
+        },
+        {
+          "from_pad": "D11.1",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 10.0
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO3",
+          "path_length_mm": 10.0,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.00707062
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO3:D11.1->J3.4",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "J3.4",
+          "via_count_in_path": 0
+        }
+      ],
+      "kind": "board-path-dc-chain",
+      "meaning": "series DC resistance from the first pad to the last, summed over the hops between the pads the conductor runs through; each hop is its own path-scoped traversal and carries its own claim",
+      "net": "DO3",
+      "pads": [
+        "Q4.3",
+        "D11.1",
+        "J3.4"
+      ],
+      "path_length_mm": 13.5625,
+      "resistance_ohm": 0.009589528,
+      "resistance_uncertainty_ohm": 0.0,
+      "via_barrel_allowance_ohm": 0.0,
+      "via_count_in_path": 0
+    },
+    {
+      "hops": [
+        {
+          "from_pad": "Q5.3",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 3.5625
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO4",
+          "path_length_mm": 3.5625,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.002518908
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO4:Q5.3->D12.1",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "D12.1",
+          "via_count_in_path": 0
+        },
+        {
+          "from_pad": "D12.1",
+          "kind": "path-scoped-dc",
+          "length_by_layer_mm": {
+            "F.Cu": 10.0
+          },
+          "length_uncertainty_mm": 0.0,
+          "meaning": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+          "net": "DO4",
+          "path_length_mm": 10.0,
+          "resistance_claim": {
+            "evidence": {
+              "applicability": {
+                "detail": "model applies to this scope",
+                "status": "applicable"
+              },
+              "assumptions": [],
+              "evidence_class": "geometry-derived",
+              "omitted_contributions": [],
+              "phenomenon": "interconnect_dc",
+              "provenance": {
+                "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+                "source": "pcbqa.extract path-scoped traversal"
+              }
+            },
+            "kind": "claim",
+            "knowledge": "exact",
+            "knowledge_basis": {
+              "detail": "copper geometry and sourced physical parameters determine the modelled resistance and its knowledge shape",
+              "kind": "derived"
+            },
+            "quantity": {
+              "value": 0.00707062
+            },
+            "requirement": null,
+            "scope": {
+              "identity": "DO4:D12.1->J3.5",
+              "level": "path"
+            },
+            "significance": "series DC resistance over the traced copper traversal between the two named pads; stubs the current never crosses are excluded, and any alternate copper path refuses this model entirely",
+            "units": "ohm"
+          },
+          "resistance_uncertainty_ohm": 0.0,
+          "resistivity_ohm_m": 1.7241e-08,
+          "resistivity_source": "IEC 60028 international annealed copper standard, 20 C",
+          "to_pad": "J3.5",
+          "via_count_in_path": 0
+        }
+      ],
+      "kind": "board-path-dc-chain",
+      "meaning": "series DC resistance from the first pad to the last, summed over the hops between the pads the conductor runs through; each hop is its own path-scoped traversal and carries its own claim",
+      "net": "DO4",
+      "pads": [
+        "Q5.3",
+        "D12.1",
+        "J3.5"
+      ],
+      "path_length_mm": 13.5625,
+      "resistance_ohm": 0.009589528,
+      "resistance_uncertainty_ohm": 0.0,
+      "via_barrel_allowance_ohm": 0.0,
+      "via_count_in_path": 0
+    }
+  ],
+  "physical_inputs": {
+    "board_thickness_mm": {
+      "applicability": "the board's own declared fabrication requirement; through-via barrel estimates only",
+      "digest": "903c0e7d893cb5e95a33850cda14b3eb565698ff4195fc23b234f269ad2aeeb9",
+      "source": "board fabrication requirements (board_thickness_mm)",
+      "source_type": "derived",
+      "units": "mm",
+      "value": 1.6
+    },
+    "copper_thickness_mm": {
+      "B.Cu": {
+        "applicability": "external 1 oz finished copper",
+        "digest": "953f02eab19f914ef0017b2ebb614de43d16ebc857a424d6cce2afdc09e5da65",
+        "source": "finished_copper_external_1oz_mil",
+        "source_type": "approved-evidence",
+        "units": "mm",
+        "value": 0.04064
+      },
+      "F.Cu": {
+        "applicability": "external 1 oz finished copper",
+        "digest": "953f02eab19f914ef0017b2ebb614de43d16ebc857a424d6cce2afdc09e5da65",
+        "source": "finished_copper_external_1oz_mil",
+        "source_type": "approved-evidence",
+        "units": "mm",
+        "value": 0.04064
+      }
+    }
+  },
+  "via_barrel_resistance_ohm": {
+    "assumption": "a through barrel the board's own thickness, of the declared drill diameter, plated 0.018 mm - the fabricator's approved capabilities state finished copper for the layers and nothing about the hole wall",
+    "basis": "assumed",
+    "units": "ohm",
+    "value": 0.001534027
+  }
+}

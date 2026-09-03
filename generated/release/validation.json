@@ -1,0 +1,1469 @@
+{
+  "schema_version": 2,
+  "generated_utc": "2026-09-03T01:49:39.738556+00:00",
+  "source_closure_sha256": "fac92d78c71886d3de4cbca1ca03caf7538554efb8e608a9f8e86fb985d6c028",
+  "manifest": {
+    "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/board/manifest.json",
+    "sha256": "3583b807fe72866020262a8f4fae6f0c995c1436d119a12c2319423a69bd2645",
+    "board_id": "can_fd_node",
+    "constraint_version": "layout-stage-2026-09-02"
+  },
+  "tooling": {
+    "environment_ok": true,
+    "kicad_cli": "/usr/bin/kicad-cli",
+    "validation_implementation": {
+      "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest",
+      "commit": "3516aa6fceecbcb8bcd5147ac4b6fabe5524512e",
+      "working_tree_dirty": false,
+      "detail": "git HEAD of the toolkit checkout that executed this validation"
+    },
+    "kicad_version": "10.0.5",
+    "components": [
+      {
+        "name": "python",
+        "version": "3.12.3",
+        "path": "/usr/bin/python3",
+        "ok": true,
+        "detail": "requires >= 3.11"
+      },
+      {
+        "name": "pcbnew",
+        "version": "10.0.5-10.0.5~ubuntu24.04.1",
+        "path": "/usr/lib/python3/dist-packages/pcbnew.py",
+        "ok": true,
+        "detail": "all required APIs present"
+      },
+      {
+        "name": "shapely",
+        "version": "2.0.3",
+        "path": "/usr/lib/python3/dist-packages/shapely/__init__.py",
+        "ok": true,
+        "detail": "required predicates behave as expected",
+        "ownership": "distribution package; never installed or pinned by this framework"
+      },
+      {
+        "name": "ngspice",
+        "version": "ngspice-42 : Circuit level simulation program",
+        "path": "/usr/bin/ngspice",
+        "ok": true,
+        "detail": "binary backend available",
+        "ownership": "distribution package"
+      },
+      {
+        "name": "kicad-cli",
+        "version": "10.0.5",
+        "path": "/usr/bin/kicad-cli",
+        "ok": true,
+        "detail": "responds to --version"
+      }
+    ]
+  },
+  "summary": {
+    "counts": {
+      "PASS": 22,
+      "NOT_APPLICABLE": 14
+    },
+    "blocking": [],
+    "verdict": "ACCEPTED"
+  },
+  "gates": [
+    {
+      "gate": "ARCH.CONTENTS",
+      "title": "Production archive contains only approved fabrication data",
+      "status": "PASS",
+      "reason": "archive contains exactly the approved fabrication artifacts",
+      "measurements": {
+        "entries": 11,
+        "by_artifact": {
+          "Copper,L2,Bot": 1,
+          "Soldermask,Bot": 1,
+          "Legend,Bot": 1,
+          "Profile,NP": 1,
+          "Copper,L1,Top": 1,
+          "Soldermask,Top": 1,
+          "Paste,Top": 1,
+          "Legend,Top": 1,
+          "Drill/nonplated": 1,
+          "Drill/plated": 1,
+          "JobFile": 1
+        }
+      },
+      "limits": {
+        "archive.allow": {
+          "id": "archive.allow",
+          "value": [
+            {
+              "file_function": "Copper,L1,Top",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Copper,L2,Bot",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Soldermask,Top",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Soldermask,Bot",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Legend,Top",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Legend,Bot",
+              "min_count": 1,
+              "require_payload": false
+            },
+            {
+              "file_function": "Paste,Top",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Profile,NP",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Drill/plated",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "Drill/nonplated",
+              "min_count": 1,
+              "require_payload": true
+            },
+            {
+              "file_function": "JobFile",
+              "min_count": 1,
+              "require_payload": true
+            }
+          ],
+          "units": "file function",
+          "kind": "policy",
+          "manifest_key": "archive.allow",
+          "provenance": "manifest.json#archive.allow@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": [
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/release/can_fd_node-fabrication.zip",
+          "name": "can_fd_node-fabrication.zip",
+          "sha256": "74a04223e3c16105f2b60610e6b0f013c7fc6e2d2399daef2f4af9e702323903"
+        }
+      ]
+    },
+    {
+      "gate": "ARCH.PROVENANCE",
+      "title": "The committed fabrication artifacts are the ones the record describes",
+      "status": "PASS",
+      "reason": "all 16 committed artifact(s) match the digests recorded for them, nothing else is in the release directories, and they were generated from the source closure the design still has",
+      "measurements": {
+        "fabrication_manifest": "fabrication.json",
+        "artifacts_recorded": 16,
+        "artifacts_present": 16,
+        "source_closure_sha256": "fac92d78c71886d3de4cbca1ca03caf7538554efb8e608a9f8e86fb985d6c028",
+        "recorded_source_closure_sha256": "fac92d78c71886d3de4cbca1ca03caf7538554efb8e608a9f8e86fb985d6c028"
+      },
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": [
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/release/fabrication.json",
+          "name": "fabrication.json",
+          "sha256": "044b1eb2d6e8f0c5d6c6054cd4d57bcfc9560657bcb74b58ec672e5866312c3e"
+        }
+      ]
+    },
+    {
+      "gate": "BOM.NATIVE_PARITY",
+      "title": "Packaged BOM matches the native schematic",
+      "status": "PASS",
+      "reason": "the schematic, the board and the packaged BOM agree on all 89 populated parts",
+      "measurements": {
+        "bom_lines": 40,
+        "schematic_symbols": 89,
+        "board_footprints": 102,
+        "schematic_populated": 89,
+        "board_not_in_bom_export": [
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "TP1",
+          "TP2",
+          "TP3",
+          "TP4",
+          "TP5",
+          "TP6",
+          "TP7",
+          "TP8",
+          "TP9"
+        ],
+        "uncomparable_fields": [
+          "MPN",
+          "Manufacturer"
+        ]
+      },
+      "limits": {
+        "assembly.required_part_fields": {
+          "id": "assembly.required_part_fields",
+          "value": [
+            "LCSC"
+          ],
+          "units": "field name",
+          "kind": "policy",
+          "manifest_key": "assembly.required_part_fields",
+          "provenance": "manifest.json#assembly.required_part_fields@3583b807fe72"
+        },
+        "assembly.compared_part_fields": {
+          "id": "assembly.compared_part_fields",
+          "value": [
+            "LCSC",
+            "MPN",
+            "Manufacturer"
+          ],
+          "units": "field name",
+          "kind": "policy",
+          "manifest_key": "assembly.compared_part_fields",
+          "provenance": "manifest.json#assembly.compared_part_fields@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": [
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/release/bom.csv",
+          "name": "bom.csv",
+          "sha256": "eddb7af9275294405e3000e47dc8fb2517b814306e1546bc1fdd36577c1b4ebb"
+        },
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/can_fd_node.kicad_sch",
+          "name": "can_fd_node.kicad_sch",
+          "sha256": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd"
+        }
+      ]
+    },
+    {
+      "gate": "CONTRACT.CONNECTOR",
+      "title": "Connector mating contract is consistent everywhere",
+      "status": "PASS",
+      "reason": "every connector matches its contract in board, model and docs",
+      "measurements": {
+        "supply_input": {
+          "reference": "J1",
+          "footprint_id": "CanFdNode:TerminalBlock_DB128V-5.08_1x02_P5.08mm",
+          "value": "DB128V-5.08-2P-GN-S",
+          "description": "DORABO DB128V-5.08 2-position screw terminal, 5.08 mm pitch, 1.60 mm holes",
+          "side": "front",
+          "positions": 2,
+          "mechanical_pads": 0,
+          "dnp": false,
+          "excluded_from_bom": false,
+          "models": [],
+          "rows": 1,
+          "pitch_mm": 5.08
+        },
+        "bus_connector": {
+          "reference": "J2",
+          "footprint_id": "CanFdNode:TerminalBlock_DB128V-5.08_1x03_P5.08mm",
+          "value": "DB128V-5.08-3P-GN-S",
+          "description": "DORABO DB128V-5.08 3-position screw terminal, 5.08 mm pitch, 1.60 mm holes",
+          "side": "front",
+          "positions": 3,
+          "mechanical_pads": 0,
+          "dnp": false,
+          "excluded_from_bom": false,
+          "models": [],
+          "rows": 1,
+          "pitch_mm": 5.08
+        },
+        "field_output_connector": {
+          "reference": "J3",
+          "footprint_id": "CanFdNode:TerminalBlock_DB128V-5.08_1x05_P5.08mm",
+          "value": "DB128V-5.08-5P-GN-S",
+          "description": "DORABO DB128V-5.08 5-position screw terminal, 5.08 mm pitch, 1.60 mm holes",
+          "side": "front",
+          "positions": 5,
+          "mechanical_pads": 0,
+          "dnp": false,
+          "excluded_from_bom": false,
+          "models": [],
+          "rows": 1,
+          "pitch_mm": 5.08
+        },
+        "field_input_connector": {
+          "reference": "J4",
+          "footprint_id": "CanFdNode:TerminalBlock_DB128V-5.08_1x05_P5.08mm",
+          "value": "DB128V-5.08-5P-GN-S",
+          "description": "DORABO DB128V-5.08 5-position screw terminal, 5.08 mm pitch, 1.60 mm holes",
+          "side": "front",
+          "positions": 5,
+          "mechanical_pads": 0,
+          "dnp": false,
+          "excluded_from_bom": false,
+          "models": [],
+          "rows": 1,
+          "pitch_mm": 5.08
+        },
+        "programming_header": {
+          "reference": "J5",
+          "footprint_id": "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical",
+          "value": "KH-2.54PH180-1X5P-L11.5",
+          "description": "Through hole straight pin header, 1x05, 2.54mm pitch, single row",
+          "side": "front",
+          "positions": 5,
+          "mechanical_pads": 0,
+          "dnp": false,
+          "excluded_from_bom": false,
+          "models": [
+            "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.step"
+          ],
+          "rows": 1,
+          "pitch_mm": 2.54
+        },
+        "termination_link_canh": {
+          "reference": "J6",
+          "footprint_id": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+          "value": "KH-2.54PH180-1X2P-L11.5",
+          "description": "Through hole straight pin header, 1x02, 2.54mm pitch, single row",
+          "side": "front",
+          "positions": 2,
+          "mechanical_pads": 0,
+          "dnp": false,
+          "excluded_from_bom": false,
+          "models": [
+            "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.step"
+          ],
+          "rows": 1,
+          "pitch_mm": 2.54
+        },
+        "termination_link_canl": {
+          "reference": "J7",
+          "footprint_id": "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical",
+          "value": "KH-2.54PH180-1X2P-L11.5",
+          "description": "Through hole straight pin header, 1x02, 2.54mm pitch, single row",
+          "side": "front",
+          "positions": 2,
+          "mechanical_pads": 0,
+          "dnp": false,
+          "excluded_from_bom": false,
+          "models": [
+            "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.step"
+          ],
+          "rows": 1,
+          "pitch_mm": 2.54
+        }
+      },
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "CONTRACT.PLACEMENT",
+      "title": "Component placement and orientation contracts",
+      "status": "PASS",
+      "reason": "every placement contract holds",
+      "measurements": {
+        "FIELD_CONNECTORS": {
+          "members": 2,
+          "radius_min_mm": 70.358,
+          "radius_max_mm": 99.2283
+        },
+        "TERMINATION_LINKS": {
+          "members": 2,
+          "radius_min_mm": 121.8543,
+          "radius_max_mm": 138.222
+        },
+        "OUTPUT_SWITCHES": {
+          "members": 4,
+          "radius_min_mm": 75.3872,
+          "radius_max_mm": 84.4382
+        },
+        "OUTPUT_CLAMPS": {
+          "members": 4,
+          "radius_min_mm": 72.5088,
+          "radius_max_mm": 82.1759
+        },
+        "OUTPUT_GATE_NETWORKS": {
+          "members": 8,
+          "radius_min_mm": 78.8113,
+          "radius_max_mm": 90.2555
+        },
+        "INPUT_CLAMPS": {
+          "members": 4,
+          "radius_min_mm": 99.498,
+          "radius_max_mm": 111.3257
+        },
+        "INPUT_DIVIDERS": {
+          "members": 12,
+          "radius_min_mm": 96.3948,
+          "radius_max_mm": 116.7869
+        },
+        "INPUT_FILTERS": {
+          "members": 4,
+          "radius_min_mm": 103.0039,
+          "radius_max_mm": 114.6894
+        },
+        "TERMINATION_LEGS": {
+          "members": 2,
+          "radius_min_mm": 125.9936,
+          "radius_max_mm": 133.6909
+        },
+        "PROBES": {
+          "members": 9,
+          "radius_min_mm": 96.1054,
+          "radius_max_mm": 131.4959
+        },
+        "MOUNTING": {
+          "members": 4,
+          "radius_min_mm": 58.1249,
+          "radius_max_mm": 153.4682
+        }
+      },
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "CPL.NATIVE_PARITY",
+      "title": "Packaged CPL matches the native design",
+      "status": "PASS",
+      "reason": "all 89 populated parts agree between the native design and the packaged CPL",
+      "measurements": {
+        "cpl_rows": 89,
+        "schematic_populated": 89,
+        "coordinate_frame": {
+          "frame": "absolute page origin",
+          "offset_mm": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "limits": {
+        "artifacts.position_tolerance_mm": {
+          "id": "artifacts.position_tolerance_mm",
+          "value": 0.01,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "artifacts.position_tolerance_mm",
+          "provenance": "manifest.json#artifacts.position_tolerance_mm@3583b807fe72"
+        },
+        "geometry.rotation_match_deg": {
+          "id": "geometry.rotation_match_deg",
+          "value": 0.1,
+          "units": "deg",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.rotation_match_deg.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.rotation_match_deg.value@3583b807fe72"
+        },
+        "artifacts.cpl_origin": {
+          "id": "artifacts.cpl_origin",
+          "value": {
+            "frame": "absolute page origin",
+            "offset_mm": [
+              0.0,
+              0.0
+            ]
+          },
+          "units": "frame",
+          "kind": "policy",
+          "manifest_key": "artifacts.cpl_origin",
+          "provenance": "manifest.json#artifacts.cpl_origin@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": [
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/release/cpl.csv",
+          "name": "cpl.csv",
+          "sha256": "b36a63977ca23097a0d60b0399dd7ba6ed791dd2c0f6b185c3a4d2ff31c321d1"
+        }
+      ]
+    },
+    {
+      "gate": "CPL.ORIENTATION",
+      "title": "Placement angles come from a reviewed, evidence-backed registry",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare release_generation.cpl_orientation; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "DRC.AUTHORITATIVE",
+      "title": "Fresh DRC on the exact final board",
+      "status": "PASS",
+      "reason": "DRC clean: exit 0, schema https://schemas.kicad.org/drc.v1.json validated, no ignored checks, severities ['error', 'warning', 'exclusion'], all 7 required options used, source 7a3f87bec992",
+      "measurements": {
+        "command": "kicad-cli pcb drc --format json -o drc_authoritative.json --severity-all --severity-exclusions --all-track-errors --schematic-parity --refill-zones --save-board --exit-code-violations can_fd_node.kicad_pcb",
+        "command_sha256": "aa15088326406134f1cae9928cad5e313366357539fafcb4151151cc0dd6baac",
+        "required_options": [
+          "--severity-all",
+          "--severity-exclusions",
+          "--all-track-errors",
+          "--schematic-parity",
+          "--refill-zones",
+          "--save-board",
+          "--exit-code-violations"
+        ],
+        "exit_status": 0,
+        "violations_exit_code": 5,
+        "source": "can_fd_node.kicad_pcb",
+        "source_sha256": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
+        "checked_copy_sha256": "3cb5bf49843400543d419ea6ff21bb887d57cbd2e4f2bf7fe279994a422b5245",
+        "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
+        "constraint_manifest_sha256": "3583b807fe72866020262a8f4fae6f0c995c1436d119a12c2319423a69bd2645",
+        "kicad_version": "10.0.5",
+        "generated_utc": "2026-09-03T01:49:27.917539+00:00",
+        "report_meta": {
+          "schema": "https://schemas.kicad.org/drc.v1.json",
+          "date": "2026-09-02T19:49:27",
+          "kicad_version": "10.0.5",
+          "source": "can_fd_node.kicad_pcb",
+          "ignored_checks": [],
+          "included_severities": [
+            "error",
+            "warning",
+            "exclusion"
+          ],
+          "coordinate_units": "mm"
+        },
+        "coordinate_units": "mm",
+        "locations_stored_in": "mm",
+        "report_findings_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "counts": {},
+        "waived": 0,
+        "waivers_live": 0,
+        "waivers_rejected": 0,
+        "waivers_used": []
+      },
+      "limits": {
+        "geometry.waiver_location_mm": {
+          "id": "geometry.waiver_location_mm",
+          "value": 0.001,
+          "units": "mm",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": [
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260903T014925Z-3c10f763/work/drc_authoritative.json",
+          "name": "drc_authoritative.json",
+          "sha256": "d7df577bd87c87bae2e5177b12b36160ac7e6424810a657f98c12487925c9123"
+        }
+      ]
+    },
+    {
+      "gate": "DRC.CONSTRAINT_FLOOR",
+      "title": "No design rule is weaker than the floor the board declared",
+      "status": "PASS",
+      "reason": "every one of the 16 declared design-rule floors is still carried by the project",
+      "measurements": {
+        "project": "can_fd_node.kicad_pro",
+        "checked": 16
+      },
+      "limits": {
+        "drc.floor.min_clearance": {
+          "id": "drc.floor.min_clearance",
+          "value": 0.15,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_clearance",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_clearance@3583b807fe72"
+        },
+        "drc.floor.min_copper_edge_clearance": {
+          "id": "drc.floor.min_copper_edge_clearance",
+          "value": 0.3,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_copper_edge_clearance",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_copper_edge_clearance@3583b807fe72"
+        },
+        "drc.floor.min_hole_clearance": {
+          "id": "drc.floor.min_hole_clearance",
+          "value": 0.25,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_hole_clearance",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_clearance@3583b807fe72"
+        },
+        "drc.floor.min_hole_to_hole": {
+          "id": "drc.floor.min_hole_to_hole",
+          "value": 0.25,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_hole_to_hole",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_to_hole@3583b807fe72"
+        },
+        "drc.floor.min_through_hole_diameter": {
+          "id": "drc.floor.min_through_hole_diameter",
+          "value": 0.25,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_through_hole_diameter",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_through_hole_diameter@3583b807fe72"
+        },
+        "drc.floor.min_track_width": {
+          "id": "drc.floor.min_track_width",
+          "value": 0.15,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_track_width",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_track_width@3583b807fe72"
+        },
+        "drc.floor.min_via_annular_width": {
+          "id": "drc.floor.min_via_annular_width",
+          "value": 0.1,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_via_annular_width",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_annular_width@3583b807fe72"
+        },
+        "drc.floor.min_via_diameter": {
+          "id": "drc.floor.min_via_diameter",
+          "value": 0.45,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.rules.min_via_diameter",
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_diameter@3583b807fe72"
+        },
+        "drc.floor.Bus.clearance": {
+          "id": "drc.floor.Bus.clearance",
+          "value": 0.2,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.clearance",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.clearance@3583b807fe72"
+        },
+        "drc.floor.Bus.track_width": {
+          "id": "drc.floor.Bus.track_width",
+          "value": 0.3,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.track_width",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.track_width@3583b807fe72"
+        },
+        "drc.floor.Bus.via_diameter": {
+          "id": "drc.floor.Bus.via_diameter",
+          "value": 0.6,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.via_diameter",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.via_diameter@3583b807fe72"
+        },
+        "drc.floor.Bus.via_drill": {
+          "id": "drc.floor.Bus.via_drill",
+          "value": 0.3,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.via_drill",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.via_drill@3583b807fe72"
+        },
+        "drc.floor.Default.clearance": {
+          "id": "drc.floor.Default.clearance",
+          "value": 0.15,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Default.clearance",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.clearance@3583b807fe72"
+        },
+        "drc.floor.Default.track_width": {
+          "id": "drc.floor.Default.track_width",
+          "value": 0.25,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Default.track_width",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.track_width@3583b807fe72"
+        },
+        "drc.floor.Default.via_diameter": {
+          "id": "drc.floor.Default.via_diameter",
+          "value": 0.6,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Default.via_diameter",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_diameter@3583b807fe72"
+        },
+        "drc.floor.Default.via_drill": {
+          "id": "drc.floor.Default.via_drill",
+          "value": 0.3,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "checks.drc.constraint_floor.net_classes.Default.via_drill",
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_drill@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "DRC.NO_SUPPRESSED_RULES",
+      "title": "No design rule is silently disabled",
+      "status": "PASS",
+      "reason": "no rule is disabled outside the approved list",
+      "measurements": {
+        "drc_ignored_rules": [],
+        "drc_exclusions": 0,
+        "erc_ignored_rules": [],
+        "erc_exclusions": 0
+      },
+      "limits": {
+        "checks.drc.forbidden_severities": {
+          "id": "checks.drc.forbidden_severities",
+          "value": [
+            "ignore"
+          ],
+          "units": "severity",
+          "kind": "policy",
+          "manifest_key": "checks.drc.forbidden_severities",
+          "provenance": "manifest.json#checks.drc.forbidden_severities@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": [
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/can_fd_node.kicad_pro",
+          "name": "can_fd_node.kicad_pro",
+          "sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221"
+        }
+      ]
+    },
+    {
+      "gate": "ERC.AUTHORITATIVE",
+      "title": "Fresh ERC on the exact final schematic",
+      "status": "PASS",
+      "reason": "ERC clean: exit 0, schema https://schemas.kicad.org/erc.v1.json validated, no ignored checks, severities ['error', 'warning', 'exclusion'], all 3 required options used, source 689e152e4ad4",
+      "measurements": {
+        "command": "kicad-cli sch erc --format json -o erc_authoritative.json --severity-all --severity-exclusions --exit-code-violations can_fd_node.kicad_sch",
+        "command_sha256": "aa36c4ea73923843a21fff5a4e117275a4357751cd8c1b465283c767169a334d",
+        "required_options": [
+          "--severity-all",
+          "--severity-exclusions",
+          "--exit-code-violations"
+        ],
+        "exit_status": 0,
+        "violations_exit_code": 5,
+        "source": "can_fd_node.kicad_sch",
+        "source_sha256": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
+        "checked_copy_sha256": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
+        "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
+        "constraint_manifest_sha256": "3583b807fe72866020262a8f4fae6f0c995c1436d119a12c2319423a69bd2645",
+        "kicad_version": "10.0.5",
+        "generated_utc": "2026-09-03T01:49:29.933070+00:00",
+        "report_meta": {
+          "schema": "https://schemas.kicad.org/erc.v1.json",
+          "date": "2026-09-02T19:49:29",
+          "kicad_version": "10.0.5",
+          "source": "can_fd_node.kicad_sch",
+          "ignored_checks": [],
+          "included_severities": [
+            "error",
+            "warning",
+            "exclusion"
+          ],
+          "coordinate_units": "mm"
+        },
+        "coordinate_units": "mm",
+        "locations_stored_in": "mm",
+        "report_findings_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "counts": {},
+        "waived": 0,
+        "waivers_live": 0,
+        "waivers_rejected": 0,
+        "waivers_used": []
+      },
+      "limits": {
+        "geometry.waiver_location_mm": {
+          "id": "geometry.waiver_location_mm",
+          "value": 0.001,
+          "units": "mm",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": [
+        {
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260903T014925Z-3c10f763/work/erc_authoritative.json",
+          "name": "erc_authoritative.json",
+          "sha256": "875982fe8bfc8bed52b665249242c61272be97321ddfd0994ea2e90305dfab4a"
+        }
+      ]
+    },
+    {
+      "gate": "FAB.LAYER_IDENTITY",
+      "title": "Every copper layer identifiable from filenames, without X2 metadata",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare fabrication_naming; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "NET.TOPOLOGY",
+      "title": "Critical-net topology and length matching",
+      "status": "PASS",
+      "reason": "every critical net meets its topology contract",
+      "measurements": {
+        "BUS_PAIR": {
+          "nets": 2,
+          "per_net": [
+            {
+              "net": "CANH",
+              "max_path_mm": 21.213,
+              "min_path_mm": 21.213,
+              "vias": 0,
+              "layers": [
+                "F.Cu"
+              ],
+              "branch_points": 6,
+              "total_track_copper_mm": 28.851
+            },
+            {
+              "net": "CANL",
+              "max_path_mm": 21.213,
+              "min_path_mm": 21.213,
+              "vias": 0,
+              "layers": [
+                "F.Cu"
+              ],
+              "branch_points": 6,
+              "total_track_copper_mm": 28.851
+            }
+          ],
+          "spread_mm": 0.0
+        },
+        "FIELD_OUTPUT_PATHS": {
+          "nets": 4,
+          "per_net": [
+            {
+              "net": "DO1",
+              "max_path_mm": 13.562,
+              "min_path_mm": 13.562,
+              "vias": 0,
+              "layers": [
+                "F.Cu"
+              ],
+              "branch_points": 2,
+              "total_track_copper_mm": 13.562
+            },
+            {
+              "net": "DO2",
+              "max_path_mm": 13.562,
+              "min_path_mm": 13.562,
+              "vias": 0,
+              "layers": [
+                "F.Cu"
+              ],
+              "branch_points": 2,
+              "total_track_copper_mm": 13.562
+            },
+            {
+              "net": "DO3",
+              "max_path_mm": 13.562,
+              "min_path_mm": 13.562,
+              "vias": 0,
+              "layers": [
+                "F.Cu"
+              ],
+              "branch_points": 2,
+              "total_track_copper_mm": 13.563
+            },
+            {
+              "net": "DO4",
+              "max_path_mm": 13.562,
+              "min_path_mm": 13.562,
+              "vias": 0,
+              "layers": [
+                "F.Cu"
+              ],
+              "branch_points": 2,
+              "total_track_copper_mm": 13.562
+            }
+          ],
+          "spread_mm": 0.0
+        },
+        "SWITCH_NODE": {
+          "nets": 1,
+          "per_net": [
+            {
+              "net": "SW_NODE",
+              "max_path_mm": 9.937,
+              "min_path_mm": 9.937,
+              "vias": 0,
+              "layers": [
+                "F.Cu"
+              ],
+              "branch_points": 5,
+              "total_track_copper_mm": 16.162
+            }
+          ],
+          "spread_mm": 0.0
+        }
+      },
+      "limits": {
+        "geometry.polygon_chord_error_mm": {
+          "id": "geometry.polygon_chord_error_mm",
+          "value": 0.001,
+          "units": "mm",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@3583b807fe72"
+        },
+        "net_topology.BUS_PAIR.max_vias_per_net": {
+          "id": "net_topology.BUS_PAIR.max_vias_per_net",
+          "value": 0,
+          "units": "vias",
+          "kind": "policy",
+          "manifest_key": "net_topology.rules.0.max_vias_per_net",
+          "provenance": "manifest.json#net_topology.rules.0.max_vias_per_net@3583b807fe72"
+        },
+        "net_topology.FIELD_OUTPUT_PATHS.max_vias_per_net": {
+          "id": "net_topology.FIELD_OUTPUT_PATHS.max_vias_per_net",
+          "value": 0,
+          "units": "vias",
+          "kind": "policy",
+          "manifest_key": "net_topology.rules.1.max_vias_per_net",
+          "provenance": "manifest.json#net_topology.rules.1.max_vias_per_net@3583b807fe72"
+        },
+        "net_topology.SWITCH_NODE.max_vias_per_net": {
+          "id": "net_topology.SWITCH_NODE.max_vias_per_net",
+          "value": 0,
+          "units": "vias",
+          "kind": "policy",
+          "manifest_key": "net_topology.rules.2.max_vias_per_net",
+          "provenance": "manifest.json#net_topology.rules.2.max_vias_per_net@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "PROV.FIXTURE_INTEGRITY",
+      "title": "Frozen fixture matches its canonical digests",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare fixture.hash_file; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "PROV.REPORT_FRESHNESS",
+      "title": "Committed reports match the current sources",
+      "status": "PASS",
+      "reason": "all 2 committed report(s) bind the canonical digest of all 17 source inputs, and every one still matches",
+      "measurements": {
+        "source_closure_files": 17,
+        "source_closure_sha256": "fac92d78c71886d3de4cbca1ca03caf7538554efb8e608a9f8e86fb985d6c028",
+        "source_sha256": {
+          "pcb": "7a3f87bec992d667",
+          "schematic": "689e152e4ad4433e"
+        },
+        "reports_required": [],
+        "reports_examined": 2,
+        "reports_examined_files": [
+          "generated/release/reports/drc.json",
+          "generated/release/reports/erc.json"
+        ]
+      },
+      "limits": {
+        "reports.source_closure": {
+          "id": "reports.source_closure",
+          "value": [
+            "*.kicad_sch",
+            "*.kicad_pcb",
+            "*.kicad_pro",
+            "*.kicad_dru",
+            "constraints/*.json",
+            "sim/*.json",
+            "fab/*.json",
+            "components/*.json",
+            "evidence/index.json"
+          ],
+          "units": "path glob",
+          "kind": "policy",
+          "manifest_key": "reports.source_closure",
+          "provenance": "manifest.json#reports.source_closure@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "PROV.SOURCE_CLOSURE",
+      "title": "Everything the result was derived from is inside the source closure",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare release_generation.cpl_orientation.reproduction_inputs; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "ROUTE.ANGLE_STYLE",
+      "title": "Routing obeys the permitted angle style",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare routing.permitted_turn_degrees; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "ROUTE.GEOMETRY_HYGIENE",
+      "title": "No duplicate, dangling or crossing copper",
+      "status": "PASS",
+      "reason": "no duplicate, dangling or crossing copper",
+      "measurements": {
+        "issues": {}
+      },
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "ROUTE.PROVENANCE",
+      "title": "The routed board in the tree is the candidate that was accepted",
+      "status": "PASS",
+      "reason": "the adopted board is the accepted candidate of 1 recorded attempt(s), every attempt started from the same declared source, and each of the 1 post-router transform(s) states what it changed",
+      "measurements": {
+        "record": "generated/routing.json",
+        "board_sha256": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
+        "attempts": 1,
+        "accepted_attempt": 1,
+        "post_router_transforms": [
+          "tidied"
+        ]
+      },
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "ROUTE.TINY_SEGMENTS",
+      "title": "No unjustified sub-minimum track fragments",
+      "status": "PASS",
+      "reason": "98 short fragments are all pad/via entry geometry",
+      "measurements": {
+        "segments_total": 771,
+        "below_limit_total": 98,
+        "below_limit_justified_pad_or_via_entry": 98,
+        "below_limit_unjustified": 0
+      },
+      "limits": {
+        "routing.min_segment_mm": {
+          "id": "routing.min_segment_mm",
+          "value": 0.1,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "routing.min_segment_mm",
+          "provenance": "manifest.json#routing.min_segment_mm@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "SIM.MODEL_PROVENANCE",
+      "title": "Board-derived simulation models describe the board being validated",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare simulation.models; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "SIM.SCENARIOS",
+      "title": "Declared circuit simulations run and their assertions hold",
+      "status": "PASS",
+      "reason": "6 scenario(s) ran and all 9 declared assertion(s) hold",
+      "measurements": {
+        "scenarios_executed": 6,
+        "assertions_evaluated": 9,
+        "assertions_met": 9
+      },
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "SIM.STAGE_COVERAGE",
+      "title": "Every design stage the board requires simulation for is covered",
+      "status": "PASS",
+      "reason": "all 2 required stage(s) are covered by a scenario that ran and asserted",
+      "measurements": {
+        "required_stages": 2,
+        "declared_stages": [
+          "post_layout",
+          "pre_layout"
+        ],
+        "scenarios_per_stage": {
+          "post_layout": 1,
+          "pre_layout": 5
+        }
+      },
+      "limits": {
+        "simulation.required_stages": {
+          "id": "simulation.required_stages",
+          "value": [
+            "pre_layout",
+            "post_layout"
+          ],
+          "units": "stage name",
+          "kind": "policy",
+          "manifest_key": "simulation.required_stages",
+          "provenance": "manifest.json#simulation.required_stages@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "STACK.GERBER_PARITY",
+      "title": "Shipped copper layers match a fresh export of the same board",
+      "status": "PASS",
+      "reason": "2 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
+      "measurements": {
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260903T014925Z-3c10f763/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260903T014925Z-3c10f763/work/design/can_fd_node.kicad_pcb",
+        "fresh_export_exit": 0,
+        "shipped_copper_layers": [
+          "copper,l1,top",
+          "copper,l2,bot"
+        ],
+        "fresh_copper_layers": [
+          "copper,l1,top",
+          "copper,l2,bot"
+        ],
+        "per_layer": {
+          "copper,l1,top": {
+            "shipped_file": "can_fd_node-F_Cu.gbr",
+            "shipped_area_mm2": 1204.6177,
+            "fresh_area_mm2": 1204.6177,
+            "symmetric_difference_mm2": 0.0
+          },
+          "copper,l2,bot": {
+            "shipped_file": "can_fd_node-B_Cu.gbr",
+            "shipped_area_mm2": 5248.5352,
+            "fresh_area_mm2": 5248.5352,
+            "symmetric_difference_mm2": 0.0
+          }
+        }
+      },
+      "limits": {
+        "artifacts.gerber_export_flags": {
+          "id": "artifacts.gerber_export_flags",
+          "value": [
+            "--layers",
+            "F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
+            "--no-protel-ext",
+            "--use-drill-file-origin",
+            "--subtract-soldermask"
+          ],
+          "units": "cli option",
+          "kind": "policy",
+          "manifest_key": "artifacts.gerber_export_flags",
+          "provenance": "manifest.json#artifacts.gerber_export_flags@3583b807fe72"
+        },
+        "geometry.layer_symmetric_difference_mm2": {
+          "id": "geometry.layer_symmetric_difference_mm2",
+          "value": 0.05,
+          "units": "mm2",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.layer_symmetric_difference_mm2.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "STACK.NATIVE_VS_MANIFEST",
+      "title": "Board stackup matches the frozen constraints",
+      "status": "PASS",
+      "reason": "native stackup agrees with the frozen constraints",
+      "measurements": {
+        "native_stackup": [
+          {
+            "index": 1,
+            "canonical": "F.Cu",
+            "user_name": "F.Cu",
+            "zone_nets": [
+              "V24"
+            ]
+          },
+          {
+            "index": 2,
+            "canonical": "B.Cu",
+            "user_name": "B.Cu",
+            "zone_nets": [
+              "GND"
+            ]
+          }
+        ],
+        "copper_layers": 2
+      },
+      "limits": {
+        "stackup.expected": {
+          "id": "stackup.expected",
+          "value": [
+            {
+              "plane_net": "V24",
+              "role": "plane"
+            },
+            {
+              "plane_net": "GND",
+              "role": "plane"
+            }
+          ],
+          "units": "layer roles",
+          "kind": "policy",
+          "manifest_key": "stackup.expected",
+          "provenance": "manifest.json#stackup.expected@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "VIA.ANNULUS_MASK_OVERLAP",
+      "title": "No via annulus intersects a mask opening",
+      "status": "PASS",
+      "reason": "no via annulus reaches a mask opening",
+      "measurements": {
+        "vias_total": 131,
+        "annulus_contacts": 0,
+        "annulus_strict_overlaps": 0,
+        "annulus_tangencies": 0
+      },
+      "limits": {
+        "geometry.contact_mm": {
+          "id": "geometry.contact_mm",
+          "value": 1e-06,
+          "units": "mm",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.contact_mm.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@3583b807fe72"
+        },
+        "geometry.polygon_chord_error_mm": {
+          "id": "geometry.polygon_chord_error_mm",
+          "value": 0.001,
+          "units": "mm",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "VIA.IN_PAD_CONTACT",
+      "title": "No via contacts a pad that receives solder",
+      "status": "PASS",
+      "reason": "no via contacts a solderable pad",
+      "measurements": {
+        "partial_overlap_populated_strict": 0,
+        "partial_tangency_populated": 0,
+        "centres_inside_openings": 0,
+        "centres_inside_populated": 0,
+        "centres_inside_unpopulated": 0,
+        "partial_overlap_populated": 0,
+        "populated_pad_contacts_total": 0
+      },
+      "limits": {
+        "via_mask.populated_pad_attributes": {
+          "id": "via_mask.populated_pad_attributes",
+          "value": [
+            "SMD"
+          ],
+          "units": "pad attribute",
+          "kind": "policy",
+          "manifest_key": "via_mask.pad_contact.populated_pad_attributes",
+          "provenance": "manifest.json#via_mask.pad_contact.populated_pad_attributes@3583b807fe72"
+        },
+        "via_mask.mask_dam_rule": {
+          "id": "via_mask.mask_dam_rule",
+          "value": "contact",
+          "units": "policy",
+          "kind": "policy",
+          "manifest_key": "via_mask.mask_dam_rule",
+          "provenance": "manifest.json#via_mask.mask_dam_rule@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "VIA.MASK_CLEARANCE_PROCESS",
+      "title": "Via to mask opening meets the fab process limit",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare via_mask.process.limit_mm; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "VIA.MASK_CLEARANCE_TARGET",
+      "title": "Via to mask opening meets the project target",
+      "status": "PASS",
+      "reason": "all 131 vias clear 0.15 mm (annulus_to_opening_mm)",
+      "measurements": {
+        "vias_total": 131,
+        "vias_below_limit": 0
+      },
+      "limits": {
+        "design_target_mm": {
+          "id": "design_target_mm",
+          "value": 0.15,
+          "units": "mm",
+          "kind": "policy",
+          "manifest_key": "via_mask.design_target_mm",
+          "provenance": "manifest.json#via_mask.design_target_mm@3583b807fe72"
+        },
+        "geometry.polygon_chord_error_mm": {
+          "id": "geometry.polygon_chord_error_mm",
+          "value": 0.001,
+          "units": "mm",
+          "kind": "tolerance",
+          "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@3583b807fe72"
+        },
+        "via_mask.metric": {
+          "id": "via_mask.metric",
+          "value": "annulus_to_opening_mm",
+          "units": "field name",
+          "kind": "policy",
+          "manifest_key": "via_mask.metric",
+          "provenance": "manifest.json#via_mask.metric@3583b807fe72"
+        }
+      },
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "VIA.NATIVE_GERBER_AGREEMENT",
+      "title": "Every via agrees between the native board and the export",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare via_mask.process.limit_mm; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "STACK.PHYSICAL",
+      "title": "The physical stackup supports the analysis this board asks for",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare timing.physical_stackup; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "TIMING.PATH_INTEGRITY",
+      "title": "Declared electrical paths exist, end to end, across every component",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare timing.interfaces; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "TIMING.INTERCONNECT_DELAY",
+      "title": "Passive PCB propagation delay of each declared path is within its limit",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare timing.interfaces; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "TIMING.INTERCONNECT_SKEW",
+      "title": "Passive PCB arrival spread within each declared endpoint group",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare timing.interfaces; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "TIMING.SETUP_HOLD",
+      "title": "Device-aware setup and hold margin at each declared receiver",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare timing.device_timing; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "PROV.TIMING_MODELS",
+      "title": "Every timing model file is present and inside the source closure",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare timing.models; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,703 @@
+{
+  "archive": {
+    "allow": [
+      {
+        "file_function": "Copper,L1,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Copper,L2,Bot",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Soldermask,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Soldermask,Bot",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Legend,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Legend,Bot",
+        "min_count": 1,
+        "require_payload": false
+      },
+      {
+        "file_function": "Paste,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Profile,NP",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Drill/plated",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Drill/nonplated",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "JobFile",
+        "min_count": 1,
+        "require_payload": true
+      }
+    ],
+    "zip": "generated/release/can_fd_node-fabrication.zip"
+  },
+  "artifacts": {
+    "bom": "generated/release/bom.csv",
+    "cpl": "generated/release/cpl.csv",
+    "cpl_fields": {
+      "designator": "Ref",
+      "rotation": "Rot",
+      "side": "Side",
+      "x": "PosX",
+      "y": "PosY"
+    },
+    "cpl_origin": {
+      "frame": "absolute page origin",
+      "offset_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    "fabrication_manifest": "generated/release/fabrication.json",
+    "gerber_dir": "generated/release/gerbers",
+    "gerber_export_flags": [
+      "--layers",
+      "F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
+      "--no-protel-ext",
+      "--use-drill-file-origin",
+      "--subtract-soldermask"
+    ],
+    "position_tolerance_mm": 0.01,
+    "reports_dir": "generated/release/reports",
+    "validation_report": "generated/release/validation.json"
+  },
+  "assembly": {
+    "bom_fields": {
+      "LCSC": "LCSC Part #",
+      "designators": "Designator",
+      "footprint": "Footprint",
+      "quantity": "Quantity",
+      "value": "Comment"
+    },
+    "compared_part_fields": [
+      "LCSC",
+      "MPN",
+      "Manufacturer"
+    ],
+    "required_part_fields": [
+      "LCSC"
+    ],
+    "schematic_export": {
+      "dnp_label": "DNP",
+      "exclude_label": "ExcludeFromBOM",
+      "fields": [
+        "Reference",
+        "Value",
+        "Footprint",
+        "${DNP}",
+        "${EXCLUDE_FROM_BOM}",
+        "LCSC",
+        "MPN",
+        "Manufacturer"
+      ],
+      "flags": [],
+      "footprint_label": "Footprint",
+      "labels": [
+        "Reference",
+        "Value",
+        "Footprint",
+        "DNP",
+        "ExcludeFromBOM",
+        "LCSC",
+        "MPN",
+        "Manufacturer"
+      ],
+      "reference_label": "Reference",
+      "true_tokens": [
+        "1",
+        "true",
+        "yes",
+        "x",
+        "dnp"
+      ],
+      "value_label": "Value"
+    },
+    "schematic_fields": [
+      "LCSC",
+      "MPN",
+      "Manufacturer"
+    ]
+  },
+  "board_id": "can_fd_node",
+  "board_origin_mm": [
+    0.0,
+    0.0
+  ],
+  "checks": {
+    "drc": {
+      "constraint_floor": {
+        "net_classes": {
+          "Bus": {
+            "clearance": 0.2,
+            "track_width": 0.3,
+            "via_diameter": 0.6,
+            "via_drill": 0.3
+          },
+          "Default": {
+            "clearance": 0.15,
+            "track_width": 0.25,
+            "via_diameter": 0.6,
+            "via_drill": 0.3
+          }
+        },
+        "rules": {
+          "min_clearance": 0.15,
+          "min_copper_edge_clearance": 0.3,
+          "min_hole_clearance": 0.25,
+          "min_hole_to_hole": 0.25,
+          "min_through_hole_diameter": 0.25,
+          "min_track_width": 0.15,
+          "min_via_annular_width": 0.1,
+          "min_via_diameter": 0.45
+        }
+      },
+      "extra_flags": [],
+      "forbidden_severities": [
+        "ignore"
+      ],
+      "permitted_ignored_rules": []
+    },
+    "erc": {
+      "extra_flags": []
+    }
+  },
+  "connector_contracts": [
+    {
+      "id": "supply_input",
+      "pin_map": {
+        "1": "V24",
+        "2": "RTN"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J1",
+      "required_pitch_mm": 5.08,
+      "required_positions": 2,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "bus_connector",
+      "pin_map": {
+        "1": "GND",
+        "2": "CANL",
+        "3": "CANH"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J2",
+      "required_pitch_mm": 5.08,
+      "required_positions": 3,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "field_output_connector",
+      "pin_map": {
+        "1": "VFIELD",
+        "2": "DO1",
+        "3": "DO2",
+        "4": "DO3",
+        "5": "DO4"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J3",
+      "required_pitch_mm": 5.08,
+      "required_positions": 5,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "field_input_connector",
+      "pin_map": {
+        "1": "GND",
+        "2": "DI1",
+        "3": "DI2",
+        "4": "DI3",
+        "5": "DI4"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J4",
+      "required_pitch_mm": 5.08,
+      "required_positions": 5,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "programming_header",
+      "pin_map": {
+        "1": "+3V3",
+        "2": "SWD_DIO",
+        "3": "SWD_CLK",
+        "4": "NRST",
+        "5": "GND"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J5",
+      "required_pitch_mm": 2.54,
+      "required_positions": 5,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "termination_link_canh",
+      "pin_map": {
+        "1": "TERM_H",
+        "2": "TERM_SPLIT"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J6",
+      "required_pitch_mm": 2.54,
+      "required_positions": 2,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "termination_link_canl",
+      "pin_map": {
+        "1": "TERM_L",
+        "2": "TERM_SPLIT"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J7",
+      "required_pitch_mm": 2.54,
+      "required_positions": 2,
+      "required_rows": 1,
+      "required_side": "front"
+    }
+  ],
+  "connector_gender_tokens": {
+    "plug": [
+      "plug",
+      "header",
+      "male"
+    ],
+    "receptacle": [
+      "receptacle",
+      "socket",
+      "female"
+    ]
+  },
+  "constraint_version": "layout-stage-2026-09-02",
+  "documentation_globs": [
+    "BRIEF.md"
+  ],
+  "fixture": {
+    "attributes_file": ".gitattributes"
+  },
+  "geometry_profile": {
+    "tolerances": {
+      "clearance_match_mm": {
+        "units": "mm",
+        "value": 0.01
+      },
+      "contact_mm": {
+        "units": "mm",
+        "value": 1e-06
+      },
+      "coordinate_match_mm": {
+        "units": "mm",
+        "value": 0.002
+      },
+      "dimension_match_mm": {
+        "units": "mm",
+        "value": 0.002
+      },
+      "layer_symmetric_difference_mm2": {
+        "units": "mm2",
+        "value": 0.05
+      },
+      "polygon_chord_error_mm": {
+        "units": "mm",
+        "value": 0.001
+      },
+      "rotation_match_deg": {
+        "units": "deg",
+        "value": 0.1
+      },
+      "waiver_location_mm": {
+        "units": "mm",
+        "value": 0.001
+      }
+    },
+    "version": "geom-1"
+  },
+  "net_topology": {
+    "rules": [
+      {
+        "id": "BUS_PAIR",
+        "load_pad_regex": "^U2\\.[67]$",
+        "max_vias_per_net": 0,
+        "net_regex": "^CAN[HL]$",
+        "permitted_layers": [
+          "F.Cu"
+        ],
+        "source_pad_regex": "^J2\\.[23]$"
+      },
+      {
+        "id": "FIELD_OUTPUT_PATHS",
+        "load_pad_regex": "^J3\\.[2-5]$",
+        "max_vias_per_net": 0,
+        "net_regex": "^DO\\d$",
+        "permitted_layers": [
+          "F.Cu"
+        ],
+        "source_pad_regex": "^Q[2-5]\\.3$"
+      },
+      {
+        "id": "SWITCH_NODE",
+        "load_pad_regex": "^L1\\.1$",
+        "max_vias_per_net": 0,
+        "net_regex": "^SW_NODE$",
+        "permitted_layers": [
+          "F.Cu"
+        ],
+        "source_pad_regex": "^U3\\.6$"
+      }
+    ]
+  },
+  "placement_rules": [
+    {
+      "count": 2,
+      "id": "FIELD_CONNECTORS",
+      "reference_regex": "^J[34]$"
+    },
+    {
+      "count": 2,
+      "id": "TERMINATION_LINKS",
+      "reference_regex": "^J[67]$"
+    },
+    {
+      "count": 4,
+      "id": "OUTPUT_SWITCHES",
+      "reference_regex": "^Q[2-5]$"
+    },
+    {
+      "count": 4,
+      "id": "OUTPUT_CLAMPS",
+      "reference_regex": "^D(9|1[0-2])$"
+    },
+    {
+      "count": 8,
+      "id": "OUTPUT_GATE_NETWORKS",
+      "reference_regex": "^R(2[6-9]|3[0-3])$"
+    },
+    {
+      "count": 4,
+      "id": "INPUT_CLAMPS",
+      "reference_regex": "^D[5-8]$"
+    },
+    {
+      "count": 12,
+      "id": "INPUT_DIVIDERS",
+      "reference_regex": "^R(1[4-9]|2[0-5])$"
+    },
+    {
+      "count": 4,
+      "id": "INPUT_FILTERS",
+      "reference_regex": "^C2[1-4]$"
+    },
+    {
+      "count": 2,
+      "id": "TERMINATION_LEGS",
+      "reference_regex": "^R(9|10)$"
+    },
+    {
+      "count": 9,
+      "id": "PROBES",
+      "reference_regex": "^TP[1-9]$"
+    },
+    {
+      "count": 4,
+      "id": "MOUNTING",
+      "reference_regex": "^H[1-4]$"
+    }
+  ],
+  "project_root": "..",
+  "release_generation": {
+    "archive": {
+      "zip": "can_fd_node-fabrication.zip"
+    },
+    "bom": {
+      "field_map": {
+        "LCSC": "LCSC Part #",
+        "designators": "Designator",
+        "footprint": "Footprint",
+        "quantity": "Quantity",
+        "value": "Comment"
+      },
+      "fields": [
+        "${QUANTITY}",
+        "Reference",
+        "Value",
+        "Footprint",
+        "LCSC"
+      ],
+      "flags": [
+        "--exclude-dnp",
+        "--ref-range-delimiter",
+        ""
+      ],
+      "group_by": [
+        "Value",
+        "Footprint",
+        "LCSC"
+      ],
+      "labels": [
+        "Quantity",
+        "Designator",
+        "Comment",
+        "Footprint",
+        "LCSC Part #"
+      ],
+      "output": "bom.csv"
+    },
+    "cpl": {
+      "field_map": {
+        "designator": "Ref",
+        "rotation": "Rot",
+        "side": "Side",
+        "x": "PosX",
+        "y": "PosY"
+      },
+      "flags": [
+        "--format",
+        "csv",
+        "--units",
+        "mm",
+        "--side",
+        "both",
+        "--exclude-dnp"
+      ],
+      "origin": {
+        "frame": "absolute page origin",
+        "offset_mm": [
+          0.0,
+          0.0
+        ]
+      },
+      "output": "cpl.csv"
+    },
+    "drc": {
+      "output": "drc.json"
+    },
+    "drill": {
+      "flags": [
+        "--format",
+        "excellon",
+        "--excellon-separate-th",
+        "--drill-origin",
+        "plot"
+      ]
+    },
+    "erc": {
+      "output": "erc.json"
+    },
+    "lock_file_globs": [
+      "*.lck",
+      "~*.lck",
+      ".#*",
+      "*-lock",
+      "*.kicad_prl-lock"
+    ]
+  },
+  "release_profile": {
+    "id": "jlcpcb-2layer-assembled",
+    "mandatory_gates": [
+      "ARCH.CONTENTS",
+      "ARCH.PROVENANCE",
+      "BOM.NATIVE_PARITY",
+      "CONTRACT.CONNECTOR",
+      "CONTRACT.PLACEMENT",
+      "CPL.NATIVE_PARITY",
+      "DRC.AUTHORITATIVE",
+      "DRC.CONSTRAINT_FLOOR",
+      "DRC.NO_SUPPRESSED_RULES",
+      "ERC.AUTHORITATIVE",
+      "NET.TOPOLOGY",
+      "PROV.REPORT_FRESHNESS",
+      "ROUTE.GEOMETRY_HYGIENE",
+      "ROUTE.PROVENANCE",
+      "ROUTE.TINY_SEGMENTS",
+      "SIM.SCENARIOS",
+      "SIM.STAGE_COVERAGE",
+      "STACK.GERBER_PARITY",
+      "STACK.NATIVE_VS_MANIFEST",
+      "VIA.ANNULUS_MASK_OVERLAP",
+      "VIA.IN_PAD_CONTACT",
+      "VIA.MASK_CLEARANCE_TARGET"
+    ],
+    "required_evidence": [
+      "evidence/index.json",
+      "fab/selection.json",
+      "generated/requirements.json",
+      "generated/routing.json"
+    ]
+  },
+  "reports": {
+    "closure_field": "source_closure_sha256",
+    "date_field": "date",
+    "files": [
+      "generated/release/reports/erc.json",
+      "generated/release/reports/drc.json"
+    ],
+    "require_source_hash": true,
+    "source_closure": [
+      "*.kicad_sch",
+      "*.kicad_pcb",
+      "*.kicad_pro",
+      "*.kicad_dru",
+      "constraints/*.json",
+      "sim/*.json",
+      "fab/*.json",
+      "components/*.json",
+      "evidence/index.json"
+    ],
+    "source_field": "source",
+    "source_hash_field": "source_sha256",
+    "tolerance_seconds": 0
+  },
+  "routing": {
+    "acceptance_gates": [
+      "ERC.AUTHORITATIVE",
+      "DRC.AUTHORITATIVE",
+      "DRC.NO_SUPPRESSED_RULES",
+      "DRC.CONSTRAINT_FLOOR",
+      "NET.TOPOLOGY",
+      "ROUTE.GEOMETRY_HYGIENE",
+      "ROUTE.TINY_SEGMENTS",
+      "ROUTE.PROVENANCE",
+      "CONTRACT.PLACEMENT",
+      "CONTRACT.CONNECTOR",
+      "STACK.NATIVE_VS_MANIFEST",
+      "VIA.ANNULUS_MASK_OVERLAP",
+      "VIA.IN_PAD_CONTACT",
+      "SIM.SCENARIOS",
+      "SIM.STAGE_COVERAGE"
+    ],
+    "hygiene": {
+      "forbid_dangling": true,
+      "forbid_duplicate_geometry": true,
+      "forbid_net_crossings": true
+    },
+    "min_segment_mm": 0.1,
+    "provenance": "generated/routing.json",
+    "short_segment_justification": {
+      "allow_pad_or_via_entry": true
+    }
+  },
+  "schema_version": 2,
+  "simulation": {
+    "extracted_models": {
+      "paths": {
+        "field_supply_copper_fuse_to_probe": {
+          "from_pad": "F1.2",
+          "net": "VFIELD",
+          "to_pad": "TP2.1"
+        },
+        "field_supply_copper_probe_to_contact": {
+          "from_pad": "TP2.1",
+          "net": "VFIELD",
+          "to_pad": "J3.1"
+        }
+      },
+      "physical_inputs": "fab/physical_inputs.json"
+    },
+    "required_stages": [
+      "pre_layout",
+      "post_layout"
+    ],
+    "stages": {
+      "post_layout": [
+        "sim/post_layout_field_load_step.json"
+      ],
+      "pre_layout": [
+        "sim/pre_layout_bus_edge.json",
+        "sim/pre_layout_field_load_step.json",
+        "sim/pre_layout_input_edge.json",
+        "sim/pre_layout_input_overrange.json",
+        "sim/pre_layout_safe_state.json"
+      ]
+    }
+  },
+  "sources": {
+    "pcb": "can_fd_node.kicad_pcb",
+    "project": "can_fd_node.kicad_pro",
+    "schematic": "can_fd_node.kicad_sch"
+  },
+  "stackup": {
+    "expected": [
+      {
+        "plane_net": "V24",
+        "role": "plane"
+      },
+      {
+        "plane_net": "GND",
+        "role": "plane"
+      }
+    ]
+  },
+  "tools": {
+    "kicad_cli": "kicad-cli"
+  },
+  "via_mask": {
+    "contact_semantics": "annulus_contacts counts zero-distance tangency as contact; annulus_strict_overlaps counts positive shared area only",
+    "design_target_mm": 0.15,
+    "mask_dam_rule": "contact",
+    "metric": "annulus_to_opening_mm",
+    "pad_contact": {
+      "populated_pad_attributes": [
+        "SMD"
+      ],
+      "require_paste": true
+    }
+  },
+  "waivers": []
+}

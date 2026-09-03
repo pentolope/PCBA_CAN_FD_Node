@@ -3,12 +3,12 @@
   "board_id": "can_fd_node",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-03T08:54:19.363778+00:00",
-  "source_closure_sha256": "a4eaf73fb5412f959ec62a22c2ee4d904d313819532418e68c72e2ebf5e82f0c",
+  "generated_utc": "2026-09-03T16:28:56.425394+00:00",
+  "source_closure_sha256": "04387b18f1f61d57557ace41ada3611994364caeb967e43e3ed6dc3bda337872",
   "source_closure_files": 17,
   "source_closure": {
     "<configuration>": "e7df6925e51f9bb501f702da46cb8d1b492d7b878408177a739c3f0341181df6",
-    "<toolkit>": "a0f53eb0a0245d7c12d10c3f31f39af1ba53cc43+clean",
+    "<toolkit>": "0c051f23f5cb7c08360e7db4ab231ec321a4459c+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
     "can_fd_node.kicad_sch": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
@@ -30,7 +30,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "a0f53eb0a0245d7c12d10c3f31f39af1ba53cc43",
+    "commit": "0c051f23f5cb7c08360e7db4ab231ec321a4459c",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -45,21 +45,21 @@
   ],
   "artifacts": {
     "bom.csv": "eddb7af9275294405e3000e47dc8fb2517b814306e1546bc1fdd36577c1b4ebb",
-    "can_fd_node-fabrication.zip": "3d49323831942c4dacfe43eb6a42391579ff301d00d66b6dca8ff2ac96acc4b2",
+    "can_fd_node-fabrication.zip": "81b22e2de33fe21a430c8347ab221072659f4b8b1cb626ea8c425e83647b5cf0",
     "cpl.csv": "b36a63977ca23097a0d60b0399dd7ba6ed791dd2c0f6b185c3a4d2ff31c321d1",
-    "gerbers/can_fd_node-B_Cu.gbr": "6875107cddcbc9a3b43e8f22f6c9cb4819ce0e260d312d3bb92313485a7765e6",
-    "gerbers/can_fd_node-B_Mask.gbr": "a0977ea1cf272ee474540966574e2037c7079390b38a02b9b3204ef07afab4a2",
-    "gerbers/can_fd_node-B_Silkscreen.gbr": "3bf3b765710205f01c7f4aaf3fd691c6d280dc4bb0dc6942e4c3322aa1c07de3",
-    "gerbers/can_fd_node-Edge_Cuts.gbr": "7cc35689525382eb47b09797608a9b147e155e1412aacbbb713ef682cb9a0f8b",
-    "gerbers/can_fd_node-F_Cu.gbr": "6e60aab2e1a774c21cdd3a4882321535b90c9a4f6d27e65d12b166d2afd62326",
-    "gerbers/can_fd_node-F_Mask.gbr": "e3053baca975676dcd5e8c9fa9fb541859b96e437ee571b2aa98467bc946cac8",
-    "gerbers/can_fd_node-F_Paste.gbr": "7df2732c13a722979d861ac24ef135ce1eccda734eef0147c5a4a371f7c28fe5",
-    "gerbers/can_fd_node-F_Silkscreen.gbr": "315225068ede9f2b09552bc9597c902d9fcbcfc1f8c1b38c0fd7f1cec8f36db4",
-    "gerbers/can_fd_node-NPTH.drl": "1f8b9e03fd6a8f56ac6176fab4fac13d63ba8858088e7e9309199bf12df78874",
-    "gerbers/can_fd_node-PTH.drl": "a269c4e6fff10a0756101c5c09494d0793544383190eb9b1a68410d407582fb4",
-    "gerbers/can_fd_node-job.gbrjob": "a5338a73db75cfd22baf7ea315eb9ca42f38bb751e6df4d4c4379001bce978ae",
-    "reports/drc.json": "d77a5db431dab5305654a7e406714871f93284b96730fcb2ca097dd7f63bd05c",
-    "reports/erc.json": "c81b733c3a48ff391aad410553c70427fd3ef2708c41910c92fd6b60bfe6beb3"
+    "gerbers/can_fd_node-B_Cu.gbr": "69f40ffbaf373a6d476ee01d5da8ac629a35d4064f7d78155f8627949f057458",
+    "gerbers/can_fd_node-B_Mask.gbr": "b5b44e8a40bff14bdc33cf229b6e74dd9cc00b63e4f61c93714943147c1967fe",
+    "gerbers/can_fd_node-B_Silkscreen.gbr": "ffa5a59c7256e2868839271e1c3f6f8b337f946deb0693d1f9cb83cec92ce854",
+    "gerbers/can_fd_node-Edge_Cuts.gbr": "6f1d2b7654991b7b367340ec0692fab97626a2d7a010bbca5ec780a7af617692",
+    "gerbers/can_fd_node-F_Cu.gbr": "c676f3dfab6de2a4b228bb6a6e87e126f44e1b7504887bbc823936345d5b14a4",
+    "gerbers/can_fd_node-F_Mask.gbr": "2e7bc37d437ed9c736e3e0ee0a92e6824c43cf48152cc8e764a807e952423fce",
+    "gerbers/can_fd_node-F_Paste.gbr": "188f83978a0ae38c39afd0d473473f1189310da077eee2e20b5f450278ea64e1",
+    "gerbers/can_fd_node-F_Silkscreen.gbr": "4fb4b0b541cce7f959c296cafbe7cc4b2f933876618cd152769a00a8e3d4ca38",
+    "gerbers/can_fd_node-NPTH.drl": "db0b78216cd429d73de201febed4de903ddc7fa3ac3958e98e0bdc7b368aeea7",
+    "gerbers/can_fd_node-PTH.drl": "4596136c855dde5a2439a8798c01f88c633c5cef181098c084832ad28129c7c7",
+    "gerbers/can_fd_node-job.gbrjob": "6b77d02816457609a15dbfe9320a3cc9e23426cd45312fe77e6efb6131dde5e8",
+    "reports/drc.json": "4094c7afdb7a5a6739277a5b14f8007053ddae78050a90c817633d1b0c41591e",
+    "reports/erc.json": "16432cd2c307a78da1b327895ee089fe1777201b0dac46edebb0bd5731f5f22b"
   },
   "excluded_layers": []
 }

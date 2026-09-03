@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/drc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-03T10:28:54",
+  "date": "2026-09-03T15:11:56",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -14,11 +14,12 @@
   "unconnected_items": [],
   "violations": [],
   "source_sha256": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
-  "source_closure_sha256": "04387b18f1f61d57557ace41ada3611994364caeb967e43e3ed6dc3bda337872",
+  "source_closure_sha256": "d9f73f55313a9ad3614761d511575b56a72da362f5ecd7adb2b0640009547ea3",
   "source_closure": {
     "<configuration>": "e7df6925e51f9bb501f702da46cb8d1b492d7b878408177a739c3f0341181df6",
-    "<toolkit>": "0c051f23f5cb7c08360e7db4ab231ec321a4459c+clean",
+    "<toolkit>": "7f51066b4095042726be2be3824c3b9ff2f5158a+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
+    "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
     "can_fd_node.kicad_sch": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
     "components/jlcpcb.json": "0428721444bb0f7d13f727e656f0186eb4bc9e67cdfedd42d10c0a5a10d3f54e",
@@ -27,11 +28,21 @@
     "fab/physical_inputs.json": "331dcc719e6c93268f757ca494914039820ace42dcbacae5b867034088a113af",
     "fab/requirements.json": "903c0e7d893cb5e95a33850cda14b3eb565698ff4195fc23b234f269ad2aeeb9",
     "fab/selection.json": "a6743c97c605b44abf2a4a3baa309c09598b6970faebb0b7d0c1cd3158061f5e",
+    "fp-lib-table": "004d7ee0614f9c131c91cfcf4b5e785063c3a3da65ff8b7a4f4fc9654e615c6c",
+    "library/CanFdNode.kicad_sym": "4cec094ceba6931227f1105f465ecdfd0c2c5f14570eae4bf5c45999d544eee7",
+    "library/CanFdNode.pretty/Crystal_YXC_YSX531SL_5.0x3.2mm.kicad_mod": "faf2cf5d2aac9956685d6c1d50e6170b855f86383573c38298adf6d0fcf89463",
+    "library/CanFdNode.pretty/D_SOD-123FL_1.2x1.2mm_P3.2mm.kicad_mod": "0804cc3f421dba4797577a7856ef12ec181fcfef89f09a69b3ee85a94784256f",
+    "library/CanFdNode.pretty/Inductor_Sunlord_SWPA5040.kicad_mod": "3f22ee82463e565b6df5665cd8fdf8d37aa3fe2b8000f0a4793bb9619ec85cac",
+    "library/CanFdNode.pretty/PTC_1812_LUTE_1812L.kicad_mod": "86b2f15ea0acad64046ae288652f007a28be01afbefcddcf204e37ea37bcb83b",
+    "library/CanFdNode.pretty/TerminalBlock_DB128V-5.08_1x02_P5.08mm.kicad_mod": "8be92b6488583579c59d7ffce16214605393fac045dedfc46a80731a5003a2c9",
+    "library/CanFdNode.pretty/TerminalBlock_DB128V-5.08_1x03_P5.08mm.kicad_mod": "6746e96a9ee63a3ca2c8cc530b6f2e400c9acd86aea07bde89a596649c42ef00",
+    "library/CanFdNode.pretty/TerminalBlock_DB128V-5.08_1x05_P5.08mm.kicad_mod": "7b9f5ea07e24c18b3870160336d89e58b51df5cb1be00fdfc82c43ae4cebc190",
     "sim/post_layout_field_load_step.json": "7d3d402b04bfc0d799e1a3cba829f2ae6ffed780f3a11f6b292b4e025016d1c6",
     "sim/pre_layout_bus_edge.json": "0793a3b123cf357ba8649b53144ffd59a44d14e66e1b0a3eaa6bc11d751d9a82",
     "sim/pre_layout_field_load_step.json": "a81fb1376369cdf8f28f0fe08e778b987f6a3d8f422e75daff1ea2cc7242baa6",
     "sim/pre_layout_input_edge.json": "dbe08aeadbe4f83f5723a61ea16a873301a385d856782da685b7c6cf429746fd",
     "sim/pre_layout_input_overrange.json": "5396d776344a036edc1cfb59a88bc640837a9481c6705dec650be79c033590cd",
-    "sim/pre_layout_safe_state.json": "c48356ef86cc13fc6da13958163e75555be9d1c1bdca4b13f7d359ec344587a7"
+    "sim/pre_layout_safe_state.json": "c48356ef86cc13fc6da13958163e75555be9d1c1bdca4b13f7d359ec344587a7",
+    "sym-lib-table": "a4628ee7f19d819f9d8bd8c1460dd0acef272e9c0de759c0139ac6d50cc2dfc2"
   }
 }

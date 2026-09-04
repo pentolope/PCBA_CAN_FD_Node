@@ -244,7 +244,7 @@ def routing_search():
                     for channel in range(1, netlist.OUTPUT_COUNT + 1)]},
         "orderings": ["inside_out", "original", "mps"],
         "clearances_mm": [0.30],
-        "attempts": 9,
+        "attempts": 3,
         "grid_step_mm": 0.1,
         "options": {
             "track_width_mm": layout.TRACK_WIDTH_MM,

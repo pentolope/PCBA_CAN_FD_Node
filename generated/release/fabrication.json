@@ -3,12 +3,12 @@
   "board_id": "can_fd_node",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-04T21:24:21.346119+00:00",
-  "source_closure_sha256": "2df763ee4e46e0ebf87e3e616ae872458902774ef4551398205aea510c80b328",
+  "generated_utc": "2026-09-04T23:32:09.574861+00:00",
+  "source_closure_sha256": "8146bff047ad01c973cfe4e5a86b582ccea520fb817fa44c9148c4183a722a9e",
   "source_closure_files": 28,
   "source_closure": {
     "<configuration>": "9eb4f771d7e64a4ad88c5faad78dd575146f31bad6dcd089d89a1cf970992906",
-    "<toolkit>": "b929c435bdf933f9eee20d7587e1b3bf1238e27b+clean",
+    "<toolkit>": "9761247ddddda9747ce717287ae2893e30498274+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
@@ -41,7 +41,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "b929c435bdf933f9eee20d7587e1b3bf1238e27b",
+    "commit": "9761247ddddda9747ce717287ae2893e30498274",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -70,8 +70,8 @@
     "gerbers/can_fd_node-NPTH.drl": "b1456f1dfbad85780ec4f3810c8ae4fb047860081427d6cd9784498c551c4fd0",
     "gerbers/can_fd_node-PTH.drl": "707d35a1551d5aebbd25df66627c5338530374aa063f84ece7312e5af3f87b68",
     "gerbers/can_fd_node-job.gbrjob": "869b97a6a193c1345457e5cbbcbb81920422a39946c592e77b822c24e281a6f1",
-    "reports/drc.json": "319caf7a9c039a784680e2e6d4ec1a5ee21b8c270db9e2086bb9622b571686ad",
-    "reports/erc.json": "cee21455cdaf4aa70067f97ffd73ae774968b73f577e49e60eff0b1e33b92d3e"
+    "reports/drc.json": "40ec960208417ac610c212e19fec5767e58ca4679f946a5177c2ae3b8143cf4e",
+    "reports/erc.json": "2f41330a3e91b8996cdb8b91bbaa41451e2022810e0fa3cececb5bb715285807"
   },
   "excluded_layers": []
 }

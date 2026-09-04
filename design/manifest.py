@@ -223,6 +223,58 @@ def extracted_models():
     }
 
 
+def routing_search():
+    """The candidate search the toolkit runs, with this loop's own figures.
+
+    The reserved nets are the pours and the copper this repository draws
+    because its geometry is a requirement: the reference, the two supply
+    pours, the bus pair, the termination's centre, the switch node and
+    the field outputs. 0.30 mm is the routing margin, not the rule: the
+    router lands its diagonals short of the figure it works to, and the
+    board is judged at the declared floor. `keep_input_copper` is what
+    stops the router treating drawn copper as its own previous output
+    and ripping the requirement out.
+    """
+    return {
+        "nets": {"reserved": [netlist.GROUND_NET, netlist.INPUT_RAIL_NET,
+                              netlist.FIELD_SUPPLY_NET,
+                              netlist.SUPPLY_RETURN_NET,
+                              "CANH", "CANL", "TERM_SPLIT", "SW_NODE"]
+                 + ["DO%d" % channel
+                    for channel in range(1, netlist.OUTPUT_COUNT + 1)]},
+        "orderings": ["inside_out", "original", "mps"],
+        "clearances_mm": [0.30],
+        "attempts": 9,
+        "grid_step_mm": 0.1,
+        "options": {
+            "track_width_mm": layout.TRACK_WIDTH_MM,
+            "via_size_mm": layout.VIA_DIAMETER_MM,
+            "via_drill_mm": layout.VIA_DRILL_MM,
+            "board_edge_clearance_mm": 0.45,
+            "hole_to_hole_clearance_mm": 0.3,
+            "same_net_pad_clearance_mm": 0.3,
+            "no_power_tap_neckdown": True,
+            "keep_input_copper": True,
+        },
+        "acceptance": {"require_zero": ["errors", "warnings",
+                                        "unconnected",
+                                        "schematic_parity"]},
+    }
+
+
+def routing_transforms():
+    """The tidy passes a candidate takes before it is judged, by name.
+
+    The same repairs this repository's own loop made, now run by the
+    toolkit: `split_tees` is the junction split the checker needs, and
+    every removal keeps only while connectivity is unchanged.
+    """
+    return {"passes": ["snap_to_via", "snap_to_pad_anchor",
+                       "collapse_degenerate", "fold_subfloor",
+                       "restore_widths", "restore_vias",
+                       "split_tees", "dedupe", "prune"]}
+
+
 def document():
     project = netlist.PROJECT_NAME
     classes = {entry["name"]: {key: value
@@ -279,6 +331,8 @@ def document():
                         "forbid_net_crossings": True,
                         "forbid_dangling": True},
             "provenance": "generated/routing.json",
+            "search": routing_search(),
+            "transforms": routing_transforms(),
         },
         "via_mask": {
             "pad_contact": {"populated_pad_attributes": ["SMD"],

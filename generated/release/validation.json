@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-09-04T16:31:49.946905+00:00",
-  "source_closure_sha256": "e82f63de3bfb0615f141be6cea3d367cf2ea82c0bb7f6d38767a60c7ab98ecf4",
+  "generated_utc": "2026-09-04T21:24:37.179525+00:00",
+  "source_closure_sha256": "2df763ee4e46e0ebf87e3e616ae872458902774ef4551398205aea510c80b328",
   "manifest": {
     "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/board/manifest.json",
-    "sha256": "cce95d0dd3bc5dcda213c0af8888a598454945ae9e9b37986da3e22e2442b07d",
+    "sha256": "ed793db6da1c85d4b0e5fbff34535bf9855f004581d29208b7b897d30b75d099",
     "board_id": "can_fd_node",
     "constraint_version": "layout-stage-2026-09-02"
   },
@@ -13,7 +13,7 @@
     "kicad_cli": "/usr/bin/kicad-cli",
     "validation_implementation": {
       "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/tooling/PCBA_AutoDesignAndTest",
-      "commit": "7fa035ead507892a9f3ad1b451d36fd4fef28537",
+      "commit": "b929c435bdf933f9eee20d7587e1b3bf1238e27b",
       "working_tree_dirty": false,
       "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
@@ -60,8 +60,8 @@
   },
   "summary": {
     "counts": {
-      "PASS": 22,
-      "NOT_APPLICABLE": 16
+      "PASS": 23,
+      "NOT_APPLICABLE": 15
     },
     "blocking": [],
     "verdict": "ACCEPTED"
@@ -151,7 +151,7 @@
           "units": "file function",
           "kind": "policy",
           "manifest_key": "archive.allow",
-          "provenance": "manifest.json#archive.allow@cce95d0dd3bc"
+          "provenance": "manifest.json#archive.allow@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -173,8 +173,8 @@
         "fabrication_manifest": "fabrication.json",
         "artifacts_recorded": 16,
         "artifacts_present": 16,
-        "source_closure_sha256": "e82f63de3bfb0615f141be6cea3d367cf2ea82c0bb7f6d38767a60c7ab98ecf4",
-        "recorded_source_closure_sha256": "e82f63de3bfb0615f141be6cea3d367cf2ea82c0bb7f6d38767a60c7ab98ecf4"
+        "source_closure_sha256": "2df763ee4e46e0ebf87e3e616ae872458902774ef4551398205aea510c80b328",
+        "recorded_source_closure_sha256": "2df763ee4e46e0ebf87e3e616ae872458902774ef4551398205aea510c80b328"
       },
       "limits": {},
       "finding_count": 0,
@@ -183,7 +183,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/release/fabrication.json",
           "name": "fabrication.json",
-          "sha256": "9600f5b8fbb2ef3b478d86e6fbe1c2047537f4f2471a6b9236250eeb2144cda7"
+          "sha256": "c18f802886897937aab88a6719a4d3ff2e6e596555b3210bee4d3ba266dee4d3"
         }
       ]
     },
@@ -226,7 +226,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "assembly.required_part_fields",
-          "provenance": "manifest.json#assembly.required_part_fields@cce95d0dd3bc"
+          "provenance": "manifest.json#assembly.required_part_fields@ed793db6da1c"
         },
         "assembly.compared_part_fields": {
           "id": "assembly.compared_part_fields",
@@ -238,7 +238,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "assembly.compared_part_fields",
-          "provenance": "manifest.json#assembly.compared_part_fields@cce95d0dd3bc"
+          "provenance": "manifest.json#assembly.compared_part_fields@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -462,7 +462,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "artifacts.position_tolerance_mm",
-          "provenance": "manifest.json#artifacts.position_tolerance_mm@cce95d0dd3bc"
+          "provenance": "manifest.json#artifacts.position_tolerance_mm@ed793db6da1c"
         },
         "geometry.rotation_match_deg": {
           "id": "geometry.rotation_match_deg",
@@ -470,7 +470,7 @@
           "units": "deg",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.rotation_match_deg.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.rotation_match_deg.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.rotation_match_deg.value@ed793db6da1c"
         },
         "artifacts.cpl_origin": {
           "id": "artifacts.cpl_origin",
@@ -484,7 +484,7 @@
           "units": "frame",
           "kind": "policy",
           "manifest_key": "artifacts.cpl_origin",
-          "provenance": "manifest.json#artifacts.cpl_origin@cce95d0dd3bc"
+          "provenance": "manifest.json#artifacts.cpl_origin@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -531,12 +531,12 @@
         "source_sha256": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
         "checked_copy_sha256": "3cb5bf49843400543d419ea6ff21bb887d57cbd2e4f2bf7fe279994a422b5245",
         "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
-        "constraint_manifest_sha256": "cce95d0dd3bc5dcda213c0af8888a598454945ae9e9b37986da3e22e2442b07d",
+        "constraint_manifest_sha256": "ed793db6da1c85d4b0e5fbff34535bf9855f004581d29208b7b897d30b75d099",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-04T16:31:37.606300+00:00",
+        "generated_utc": "2026-09-04T21:24:24.699660+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-09-04T10:31:37",
+          "date": "2026-09-04T15:24:24",
           "kicad_version": "10.0.5",
           "source": "can_fd_node.kicad_pcb",
           "ignored_checks": [],
@@ -563,16 +563,16 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@ed793db6da1c"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T163134Z-afde6c93/work/drc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T212421Z-c9bff433/work/drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "741618274eeca347c6088c2f951b5e605f38c8dd2b5f6c0979c38a9d0742c650"
+          "sha256": "3e72317406d564fc3d1ef0176b3359e562f9fefcce219aa4bcfe6ad07680e618"
         }
       ]
     },
@@ -592,7 +592,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_clearance@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_clearance@ed793db6da1c"
         },
         "drc.floor.min_copper_edge_clearance": {
           "id": "drc.floor.min_copper_edge_clearance",
@@ -600,7 +600,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_copper_edge_clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_copper_edge_clearance@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_copper_edge_clearance@ed793db6da1c"
         },
         "drc.floor.min_hole_clearance": {
           "id": "drc.floor.min_hole_clearance",
@@ -608,7 +608,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_hole_clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_clearance@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_clearance@ed793db6da1c"
         },
         "drc.floor.min_hole_to_hole": {
           "id": "drc.floor.min_hole_to_hole",
@@ -616,7 +616,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_hole_to_hole",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_to_hole@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_hole_to_hole@ed793db6da1c"
         },
         "drc.floor.min_through_hole_diameter": {
           "id": "drc.floor.min_through_hole_diameter",
@@ -624,7 +624,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_through_hole_diameter",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_through_hole_diameter@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_through_hole_diameter@ed793db6da1c"
         },
         "drc.floor.min_track_width": {
           "id": "drc.floor.min_track_width",
@@ -632,7 +632,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_track_width",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_track_width@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_track_width@ed793db6da1c"
         },
         "drc.floor.min_via_annular_width": {
           "id": "drc.floor.min_via_annular_width",
@@ -640,7 +640,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_via_annular_width",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_annular_width@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_annular_width@ed793db6da1c"
         },
         "drc.floor.min_via_diameter": {
           "id": "drc.floor.min_via_diameter",
@@ -648,7 +648,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.rules.min_via_diameter",
-          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_diameter@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.rules.min_via_diameter@ed793db6da1c"
         },
         "drc.floor.Bus.clearance": {
           "id": "drc.floor.Bus.clearance",
@@ -656,7 +656,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.clearance@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.clearance@ed793db6da1c"
         },
         "drc.floor.Bus.track_width": {
           "id": "drc.floor.Bus.track_width",
@@ -664,7 +664,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.track_width",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.track_width@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.track_width@ed793db6da1c"
         },
         "drc.floor.Bus.via_diameter": {
           "id": "drc.floor.Bus.via_diameter",
@@ -672,7 +672,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.via_diameter",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.via_diameter@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.via_diameter@ed793db6da1c"
         },
         "drc.floor.Bus.via_drill": {
           "id": "drc.floor.Bus.via_drill",
@@ -680,7 +680,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Bus.via_drill",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.via_drill@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Bus.via_drill@ed793db6da1c"
         },
         "drc.floor.Default.clearance": {
           "id": "drc.floor.Default.clearance",
@@ -688,7 +688,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.clearance",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.clearance@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.clearance@ed793db6da1c"
         },
         "drc.floor.Default.track_width": {
           "id": "drc.floor.Default.track_width",
@@ -696,7 +696,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.track_width",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.track_width@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.track_width@ed793db6da1c"
         },
         "drc.floor.Default.via_diameter": {
           "id": "drc.floor.Default.via_diameter",
@@ -704,7 +704,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.via_diameter",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_diameter@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_diameter@ed793db6da1c"
         },
         "drc.floor.Default.via_drill": {
           "id": "drc.floor.Default.via_drill",
@@ -712,7 +712,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "checks.drc.constraint_floor.net_classes.Default.via_drill",
-          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_drill@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.constraint_floor.net_classes.Default.via_drill@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -739,7 +739,7 @@
           "units": "severity",
           "kind": "policy",
           "manifest_key": "checks.drc.forbidden_severities",
-          "provenance": "manifest.json#checks.drc.forbidden_severities@cce95d0dd3bc"
+          "provenance": "manifest.json#checks.drc.forbidden_severities@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -771,12 +771,12 @@
         "source_sha256": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
         "checked_copy_sha256": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
         "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
-        "constraint_manifest_sha256": "cce95d0dd3bc5dcda213c0af8888a598454945ae9e9b37986da3e22e2442b07d",
+        "constraint_manifest_sha256": "ed793db6da1c85d4b0e5fbff34535bf9855f004581d29208b7b897d30b75d099",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-04T16:31:39.780922+00:00",
+        "generated_utc": "2026-09-04T21:24:26.820896+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-09-04T10:31:39",
+          "date": "2026-09-04T15:24:26",
           "kicad_version": "10.0.5",
           "source": "can_fd_node.kicad_sch",
           "ignored_checks": [],
@@ -803,16 +803,16 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.waiver_location_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.waiver_location_mm.value@ed793db6da1c"
         }
       },
       "finding_count": 0,
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T163134Z-afde6c93/work/erc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T212421Z-c9bff433/work/erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "7defa55f00001ef1fb086aa3cc0a3cb914fcbe34ab4991ce5526987ab6210ebd"
+          "sha256": "6689397269cba9f7ca40eaea18a790dade5eac2d636bf7e6aa814fe9739a81f7"
         }
       ]
     },
@@ -936,7 +936,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@ed793db6da1c"
         },
         "net_topology.BUS_PAIR.max_vias_per_net": {
           "id": "net_topology.BUS_PAIR.max_vias_per_net",
@@ -944,7 +944,7 @@
           "units": "vias",
           "kind": "policy",
           "manifest_key": "net_topology.rules.0.max_vias_per_net",
-          "provenance": "manifest.json#net_topology.rules.0.max_vias_per_net@cce95d0dd3bc"
+          "provenance": "manifest.json#net_topology.rules.0.max_vias_per_net@ed793db6da1c"
         },
         "net_topology.FIELD_OUTPUT_PATHS.max_vias_per_net": {
           "id": "net_topology.FIELD_OUTPUT_PATHS.max_vias_per_net",
@@ -952,7 +952,7 @@
           "units": "vias",
           "kind": "policy",
           "manifest_key": "net_topology.rules.1.max_vias_per_net",
-          "provenance": "manifest.json#net_topology.rules.1.max_vias_per_net@cce95d0dd3bc"
+          "provenance": "manifest.json#net_topology.rules.1.max_vias_per_net@ed793db6da1c"
         },
         "net_topology.SWITCH_NODE.max_vias_per_net": {
           "id": "net_topology.SWITCH_NODE.max_vias_per_net",
@@ -960,7 +960,7 @@
           "units": "vias",
           "kind": "policy",
           "manifest_key": "net_topology.rules.2.max_vias_per_net",
-          "provenance": "manifest.json#net_topology.rules.2.max_vias_per_net@cce95d0dd3bc"
+          "provenance": "manifest.json#net_topology.rules.2.max_vias_per_net@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -970,9 +970,17 @@
     {
       "gate": "PLACEMENT.COURTYARD",
       "title": "No two courtyards overlap",
-      "status": "NOT_APPLICABLE",
-      "reason": "manifest does not declare placement.courtyard; this board does not opt in to this gate",
-      "measurements": {},
+      "status": "PASS",
+      "reason": "no courtyard overlaps on front, back",
+      "measurements": {
+        "sides_checked": [
+          "front",
+          "back"
+        ],
+        "courtyards_examined": 102,
+        "overlapping_pairs": 0,
+        "footprints_without_courtyard": 0
+      },
       "limits": {},
       "finding_count": 0,
       "findings": [],
@@ -1007,7 +1015,7 @@
       "reason": "all 2 committed report(s) bind the canonical digest of all 28 source inputs, and every one still matches",
       "measurements": {
         "source_closure_files": 28,
-        "source_closure_sha256": "e82f63de3bfb0615f141be6cea3d367cf2ea82c0bb7f6d38767a60c7ab98ecf4",
+        "source_closure_sha256": "2df763ee4e46e0ebf87e3e616ae872458902774ef4551398205aea510c80b328",
         "source_sha256": {
           "pcb": "7a3f87bec992d667",
           "schematic": "689e152e4ad4433e"
@@ -1036,7 +1044,7 @@
           "units": "path glob",
           "kind": "policy",
           "manifest_key": "reports.source_closure",
-          "provenance": "manifest.json#reports.source_closure@cce95d0dd3bc"
+          "provenance": "manifest.json#reports.source_closure@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -1115,7 +1123,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "routing.min_segment_mm",
-          "provenance": "manifest.json#routing.min_segment_mm@cce95d0dd3bc"
+          "provenance": "manifest.json#routing.min_segment_mm@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -1174,7 +1182,7 @@
           "units": "stage name",
           "kind": "policy",
           "manifest_key": "simulation.required_stages",
-          "provenance": "manifest.json#simulation.required_stages@cce95d0dd3bc"
+          "provenance": "manifest.json#simulation.required_stages@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -1187,7 +1195,7 @@
       "status": "PASS",
       "reason": "2 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T163134Z-afde6c93/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T163134Z-afde6c93/work/design/can_fd_node.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T212421Z-c9bff433/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260904T212421Z-c9bff433/work/design/can_fd_node.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "copper,l1,top",
@@ -1225,7 +1233,7 @@
           "units": "cli option",
           "kind": "policy",
           "manifest_key": "artifacts.gerber_export_flags",
-          "provenance": "manifest.json#artifacts.gerber_export_flags@cce95d0dd3bc"
+          "provenance": "manifest.json#artifacts.gerber_export_flags@ed793db6da1c"
         },
         "geometry.layer_symmetric_difference_mm2": {
           "id": "geometry.layer_symmetric_difference_mm2",
@@ -1233,7 +1241,7 @@
           "units": "mm2",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.layer_symmetric_difference_mm2.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.layer_symmetric_difference_mm2.value@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -1282,7 +1290,7 @@
           "units": "layer roles",
           "kind": "policy",
           "manifest_key": "stackup.expected",
-          "provenance": "manifest.json#stackup.expected@cce95d0dd3bc"
+          "provenance": "manifest.json#stackup.expected@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -1307,7 +1315,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.contact_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.contact_mm.value@ed793db6da1c"
         },
         "geometry.polygon_chord_error_mm": {
           "id": "geometry.polygon_chord_error_mm",
@@ -1315,7 +1323,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -1345,7 +1353,7 @@
           "units": "pad attribute",
           "kind": "policy",
           "manifest_key": "via_mask.pad_contact.populated_pad_attributes",
-          "provenance": "manifest.json#via_mask.pad_contact.populated_pad_attributes@cce95d0dd3bc"
+          "provenance": "manifest.json#via_mask.pad_contact.populated_pad_attributes@ed793db6da1c"
         },
         "via_mask.mask_dam_rule": {
           "id": "via_mask.mask_dam_rule",
@@ -1353,7 +1361,7 @@
           "units": "policy",
           "kind": "policy",
           "manifest_key": "via_mask.mask_dam_rule",
-          "provenance": "manifest.json#via_mask.mask_dam_rule@cce95d0dd3bc"
+          "provenance": "manifest.json#via_mask.mask_dam_rule@ed793db6da1c"
         }
       },
       "finding_count": 0,
@@ -1387,7 +1395,7 @@
           "units": "mm",
           "kind": "policy",
           "manifest_key": "via_mask.design_target_mm",
-          "provenance": "manifest.json#via_mask.design_target_mm@cce95d0dd3bc"
+          "provenance": "manifest.json#via_mask.design_target_mm@ed793db6da1c"
         },
         "geometry.polygon_chord_error_mm": {
           "id": "geometry.polygon_chord_error_mm",
@@ -1395,7 +1403,7 @@
           "units": "mm",
           "kind": "tolerance",
           "manifest_key": "geometry_profile.tolerances.polygon_chord_error_mm.value",
-          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@cce95d0dd3bc"
+          "provenance": "manifest.json#geometry_profile.tolerances.polygon_chord_error_mm.value@ed793db6da1c"
         },
         "via_mask.metric": {
           "id": "via_mask.metric",
@@ -1403,7 +1411,7 @@
           "units": "field name",
           "kind": "policy",
           "manifest_key": "via_mask.metric",
-          "provenance": "manifest.json#via_mask.metric@cce95d0dd3bc"
+          "provenance": "manifest.json#via_mask.metric@ed793db6da1c"
         }
       },
       "finding_count": 0,

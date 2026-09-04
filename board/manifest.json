@@ -403,6 +403,14 @@
       }
     ]
   },
+  "placement": {
+    "courtyard": {
+      "sides": [
+        "front",
+        "back"
+      ]
+    }
+  },
   "placement_rules": [
     {
       "count": 2,
@@ -613,6 +621,9 @@
     "provenance": "generated/routing.json",
     "search": {
       "acceptance": {
+        "gates": [
+          "design"
+        ],
         "require_zero": [
           "errors",
           "warnings",

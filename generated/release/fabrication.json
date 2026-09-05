@@ -3,12 +3,12 @@
   "board_id": "can_fd_node",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-05T08:44:59.149176+00:00",
-  "source_closure_sha256": "09c92b881f15e1372387f48bb509cb5aabd3505b46d9a926da0ad295b07c94a7",
+  "generated_utc": "2026-09-05T09:38:44.232252+00:00",
+  "source_closure_sha256": "b6013e58b44b121f26c57c40d9f819b7b19472a1a48464115e6b3e5c68a289a2",
   "source_closure_files": 53,
   "source_closure": {
-    "<configuration>": "85c55cfb405e7a858c6b51843388bf398da5e2c7d4b13557197c3598ee591df9",
-    "<toolkit>": "0c7274190de891f20cd9a73b6cc9548f3fdb7642+clean",
+    "<configuration>": "4e62493bce01c274e58ae3e7d5626e70c643cb0412eee1681bfc02232c211373",
+    "<toolkit>": "49c830212ae5bb44e7f161de7ba78103841de55c+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
@@ -66,7 +66,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "0c7274190de891f20cd9a73b6cc9548f3fdb7642",
+    "commit": "49c830212ae5bb44e7f161de7ba78103841de55c",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -95,8 +95,8 @@
     "gerbers/can_fd_node-NPTH.drl": "b1456f1dfbad85780ec4f3810c8ae4fb047860081427d6cd9784498c551c4fd0",
     "gerbers/can_fd_node-PTH.drl": "707d35a1551d5aebbd25df66627c5338530374aa063f84ece7312e5af3f87b68",
     "gerbers/can_fd_node-job.gbrjob": "869b97a6a193c1345457e5cbbcbb81920422a39946c592e77b822c24e281a6f1",
-    "reports/drc.json": "b832ef2d74bb6c0e1074887001129a5f8186f58a8045d75bd998f9991bd0308f",
-    "reports/erc.json": "ab760a5015a9253ea3e44e6e5b132773c7c63450d764884d8b52933519e307d6"
+    "reports/drc.json": "04582d9ccace13dedce2ba93190940d2eeb7e97444230acbc5640605a6cb02eb",
+    "reports/erc.json": "5564e698417c980534ed4ac33daed49ccc2d1da56c8599d7d4eb20bf9de30a2e"
   },
   "excluded_layers": []
 }

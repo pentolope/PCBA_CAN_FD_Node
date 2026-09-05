@@ -189,6 +189,16 @@
       "extra_flags": []
     }
   },
+  "claims": {
+    "approximate": {
+      "default": "permitted-with-label"
+    },
+    "document": "generated/requirements.json",
+    "unsupported": {
+      "default": "blocking",
+      "permitted": []
+    }
+  },
   "connector_contracts": [
     {
       "id": "supply_input",
@@ -326,8 +336,80 @@
     ]
   },
   "constraint_version": "layout-stage-2026-09-02",
+  "derived_documents": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "design.requirements"
+      ],
+      "path": "constraints/requirements.json"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "design.extraction"
+      ],
+      "path": "generated/extraction.json"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "design.rules"
+      ],
+      "path": "generated/requirements.json"
+    }
+  ],
   "documentation_globs": [
     "BRIEF.md"
+  ],
+  "external_dependencies": [
+    {
+      "blocking": false,
+      "id": "system-discharge-test",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "requirement": "at_or_above_the_declared_discharge_level",
+      "statement": "a system-level IEC 61000-4-2 contact discharge at the declared 8 kV on the assembled node; both fitted parts state device-level ratings only",
+      "status": "open"
+    },
+    {
+      "blocking": false,
+      "id": "oscillator-start-up-bench",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "requirement": "within_the_controller_maximum_critical_transconductance",
+      "statement": "oscillator start-up margin on the assembled board; whether a gain margin beyond the controller's stated maximum critical transconductance is needed is a vendor application-note question the analysis does not resolve",
+      "status": "open"
+    },
+    {
+      "blocking": false,
+      "id": "converter-efficiency-measurement",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "requirement": "converter_efficiency_bound",
+      "statement": "the converter's efficiency at this board's own load is at least the assumed 75 percent",
+      "status": "open"
+    },
+    {
+      "blocking": false,
+      "id": "regulator-dropout-measurement",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "requirement": "regulator_dropout_bound",
+      "statement": "the regulator's dropout at the logic-rail load is within the declared bound the rail claims use",
+      "status": "open"
+    },
+    {
+      "blocking": false,
+      "id": "jlcpcb-assembly-preview",
+      "method": "MANUFACTURING_CHECK",
+      "owner": "fabrication order review",
+      "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
+      "status": "open"
+    }
   ],
   "fixture": {
     "attributes_file": ".gitattributes"
@@ -469,6 +551,9 @@
     }
   ],
   "project_root": "..",
+  "provenance": {
+    "evidence_index": "evidence/index.json"
+  },
   "release_generation": {
     "archive": {
       "zip": "can_fd_node-fabrication.zip"
@@ -557,6 +642,20 @@
     ]
   },
   "release_profile": {
+    "declined_domains": [
+      {
+        "domain": "timing",
+        "reason": "no timing interfaces are declared; the bus is judged by rate qualification and oscillator budget, not by a per-net timing budget"
+      },
+      {
+        "domain": "device_parameters",
+        "reason": "device figures live in components/parameters.json with per-figure document citations; the typical-only figures this board leans on (enable threshold, capacitance mismatch) are recorded as claim assumptions"
+      },
+      {
+        "domain": "orientation",
+        "reason": "no part on this board needs a rotation correction; the CPL ships library angles and the fabrication order review checks the preview"
+      }
+    ],
     "id": "jlcpcb-2layer-assembled",
     "mandatory_gates": [
       "ARCH.CONTENTS",
@@ -589,6 +688,12 @@
       "VIA.IN_PAD_CONTACT",
       "VIA.MASK_CLEARANCE_TARGET"
     ],
+    "required_domains": [
+      "claims",
+      "requirements",
+      "simulation",
+      "external_dependencies"
+    ],
     "required_evidence": [
       "constraints/requirements.json",
       "evidence/index.json",
@@ -596,26 +701,6 @@
       "generated/extraction.json",
       "generated/requirements.json",
       "generated/routing.json"
-    ],
-    "required_domains": [
-      "claims",
-      "requirements",
-      "simulation",
-      "external_dependencies"
-    ],
-    "declined_domains": [
-      {
-        "domain": "timing",
-        "reason": "no timing interfaces are declared; the bus is judged by rate qualification and oscillator budget, not by a per-net timing budget"
-      },
-      {
-        "domain": "device_parameters",
-        "reason": "device figures live in components/parameters.json with per-figure document citations; the typical-only figures this board leans on (enable threshold, capacitance mismatch) are recorded as claim assumptions"
-      },
-      {
-        "domain": "orientation",
-        "reason": "no part on this board needs a rotation correction; the CPL ships library angles and the fabrication order review checks the preview"
-      }
     ]
   },
   "reports": {
@@ -640,6 +725,18 @@
     ],
     "source_field": "source",
     "source_hash_field": "source_sha256"
+  },
+  "requirements": {
+    "minimum_methods": {
+      "fault_tolerance": [
+        "ANALYTIC"
+      ],
+      "safe_state": [
+        "ANALYTIC",
+        "STATIC"
+      ]
+    },
+    "register": "constraints/requirements.json"
   },
   "routing": {
     "hygiene": {
@@ -781,102 +878,5 @@
       "require_paste": true
     }
   },
-  "waivers": [],
-  "claims": {
-    "document": "generated/requirements.json",
-    "unsupported": {
-      "default": "blocking",
-      "permitted": []
-    },
-    "approximate": {
-      "default": "permitted-with-label"
-    }
-  },
-  "requirements": {
-    "register": "constraints/requirements.json",
-    "minimum_methods": {
-      "fault_tolerance": [
-        "ANALYTIC"
-      ],
-      "safe_state": [
-        "ANALYTIC",
-        "STATIC"
-      ]
-    }
-  },
-  "external_dependencies": [
-    {
-      "id": "system-discharge-test",
-      "statement": "a system-level IEC 61000-4-2 contact discharge at the declared 8 kV on the assembled node; both fitted parts state device-level ratings only",
-      "method": "PHYSICAL_TEST",
-      "owner": "bench bring-up",
-      "status": "open",
-      "blocking": false,
-      "requirement": "at_or_above_the_declared_discharge_level"
-    },
-    {
-      "id": "oscillator-start-up-bench",
-      "statement": "oscillator start-up margin on the assembled board; whether a gain margin beyond the controller's stated maximum critical transconductance is needed is a vendor application-note question the analysis does not resolve",
-      "method": "PHYSICAL_TEST",
-      "owner": "bench bring-up",
-      "status": "open",
-      "blocking": false,
-      "requirement": "within_the_controller_maximum_critical_transconductance"
-    },
-    {
-      "id": "converter-efficiency-measurement",
-      "statement": "the converter's efficiency at this board's own load is at least the assumed 75 percent",
-      "method": "PHYSICAL_TEST",
-      "owner": "bench bring-up",
-      "status": "open",
-      "blocking": false,
-      "requirement": "converter_efficiency_bound"
-    },
-    {
-      "id": "regulator-dropout-measurement",
-      "statement": "the regulator's dropout at the logic-rail load is within the declared bound the rail claims use",
-      "method": "PHYSICAL_TEST",
-      "owner": "bench bring-up",
-      "status": "open",
-      "blocking": false,
-      "requirement": "regulator_dropout_bound"
-    },
-    {
-      "id": "jlcpcb-assembly-preview",
-      "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
-      "method": "MANUFACTURING_CHECK",
-      "owner": "fabrication order review",
-      "status": "open",
-      "blocking": false
-    }
-  ],
-  "provenance": {
-    "evidence_index": "evidence/index.json"
-  },
-  "derived_documents": [
-    {
-      "path": "constraints/requirements.json",
-      "command": [
-        "python3",
-        "-m",
-        "design.requirements"
-      ]
-    },
-    {
-      "path": "generated/extraction.json",
-      "command": [
-        "python3",
-        "-m",
-        "design.extraction"
-      ]
-    },
-    {
-      "path": "generated/requirements.json",
-      "command": [
-        "python3",
-        "-m",
-        "design.rules"
-      ]
-    }
-  ]
+  "waivers": []
 }

@@ -101,6 +101,7 @@
       "applies_to": [
         "assembly catalogue"
       ],
+      "bytes": 33427,
       "document_id": "JLCPCB parts catalogue snapshot, frozen in components/jlcpcb.json",
       "file": "../components/jlcpcb.json",
       "retrieved": "2026-09-02",

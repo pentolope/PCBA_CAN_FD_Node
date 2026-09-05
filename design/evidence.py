@@ -229,6 +229,13 @@ SOURCES = {
                        "specification",
         "applies_to": ["RVT63V47M6X8"],
     },
+    "jlcpcb_catalogue_snapshot": {
+        "file": "../components/jlcpcb.json",
+        "retrieved": "2026-09-02",
+        "document_id": "JLCPCB parts catalogue snapshot, frozen in "
+                       "components/jlcpcb.json",
+        "applies_to": ["assembly catalogue"],
+    },
 }
 
 
@@ -269,8 +276,13 @@ def verify():
     recorded = load_index()["documents"]
     present = {name for name in os.listdir(DATASHEET_DIR)
                if name.endswith((".pdf", ".json"))}
+    # Entries outside the datasheet directory - a frozen catalogue
+    # snapshot, the fabricator physical inputs - are covered by the
+    # per-entry existence and digest loop below; only datasheet-directory
+    # entries take part in the present/referenced inventory.
     referenced = {os.path.basename(entry["file"])
-                  for entry in recorded.values()}
+                  for entry in recorded.values()
+                  if entry["file"].startswith("datasheets/")}
     problems = []
     for name in sorted(referenced - present):
         problems.append(("missing_file", name))

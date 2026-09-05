@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/drc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-05T01:31:45",
+  "date": "2026-09-05T02:44:57",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -14,10 +14,10 @@
   "unconnected_items": [],
   "violations": [],
   "source_sha256": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
-  "source_closure_sha256": "0a809bd08882ebd732897977427519ef661f765398bf3d1629ed3699c8192fa2",
+  "source_closure_sha256": "09c92b881f15e1372387f48bb509cb5aabd3505b46d9a926da0ad295b07c94a7",
   "source_closure": {
     "<configuration>": "85c55cfb405e7a858c6b51843388bf398da5e2c7d4b13557197c3598ee591df9",
-    "<toolkit>": "5918e5d0225533a2069502017f70b39f6fed6b2e+clean",
+    "<toolkit>": "0c7274190de891f20cd9a73b6cc9548f3fdb7642+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
@@ -49,7 +49,7 @@
     "evidence/datasheets/term_db128v_dorabo.pdf": "c1272cc5b6fb62ce5f694f7c4ecc1b8e2ae63b64510059d490f3fe66ff68dcb8",
     "evidence/datasheets/wst6066a_winsok.pdf": "f9bce77534265a4fdb18e32c330639f00d2dd0ba19a477fc294e78c71fe17223",
     "evidence/datasheets/xtal_8mhz_yxc.pdf": "e476f3d81f4ed7abc16ced1dc1e3f93c69a6d53e7fcbdc6903b91e9d25acd5be",
-    "evidence/index.json": "1adb8b2d07fc9b48049c716048eb06dbbefe0699c1dd9ddab79cdd5985d9b761",
+    "evidence/index.json": "7ca3f76327327bd24c089c48649964f6ec64ae663638020a4ab6c6f146b53961",
     "fab/physical_inputs.json": "331dcc719e6c93268f757ca494914039820ace42dcbacae5b867034088a113af",
     "fab/requirements.json": "903c0e7d893cb5e95a33850cda14b3eb565698ff4195fc23b234f269ad2aeeb9",
     "fab/selection.json": "a6743c97c605b44abf2a4a3baa309c09598b6970faebb0b7d0c1cd3158061f5e",

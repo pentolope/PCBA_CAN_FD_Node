@@ -279,7 +279,7 @@ def routing_transforms():
                        "split_tees", "dedupe", "prune"]}
 
 
-def document():
+def _base_document():
     project = netlist.PROJECT_NAME
     classes = {entry["name"]: {key: value
                                for key, value in entry.items()
@@ -484,6 +484,11 @@ def document():
         },
         "connector_contracts": connector_contracts(),
     }
+
+
+def document():
+    from . import governance
+    return governance.merged(_base_document())
 
 
 def write():

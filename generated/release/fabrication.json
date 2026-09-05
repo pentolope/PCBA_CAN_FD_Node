@@ -3,12 +3,12 @@
   "board_id": "can_fd_node",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-05T09:38:44.232252+00:00",
-  "source_closure_sha256": "b6013e58b44b121f26c57c40d9f819b7b19472a1a48464115e6b3e5c68a289a2",
-  "source_closure_files": 53,
+  "generated_utc": "2026-09-05T10:45:16.956286+00:00",
+  "source_closure_sha256": "6571621530d64c29e518026ed545ad01da235ee02b719361802e9a6a2129127f",
+  "source_closure_files": 54,
   "source_closure": {
-    "<configuration>": "4e62493bce01c274e58ae3e7d5626e70c643cb0412eee1681bfc02232c211373",
-    "<toolkit>": "49c830212ae5bb44e7f161de7ba78103841de55c+clean",
+    "<configuration>": "a0ae4bbfc580f80e2a358551b753895d277f75ed82e5ac7f324e8bc0820065f3",
+    "<toolkit>": "049c12af9efb8dbb7e8e42d650fc87c1ce448329+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
@@ -45,6 +45,7 @@
     "fab/requirements.json": "903c0e7d893cb5e95a33850cda14b3eb565698ff4195fc23b234f269ad2aeeb9",
     "fab/selection.json": "a6743c97c605b44abf2a4a3baa309c09598b6970faebb0b7d0c1cd3158061f5e",
     "fp-lib-table": "004d7ee0614f9c131c91cfcf4b5e785063c3a3da65ff8b7a4f4fc9654e615c6c",
+    "generated/requirements.json": "25baa25b0ed5444945c044dd0cbbddbfb03964d46f0cd87d96ed1f58200550fe",
     "library/CanFdNode.kicad_sym": "4cec094ceba6931227f1105f465ecdfd0c2c5f14570eae4bf5c45999d544eee7",
     "library/CanFdNode.pretty/Crystal_YXC_YSX531SL_5.0x3.2mm.kicad_mod": "faf2cf5d2aac9956685d6c1d50e6170b855f86383573c38298adf6d0fcf89463",
     "library/CanFdNode.pretty/D_SOD-123FL_1.2x1.2mm_P3.2mm.kicad_mod": "0804cc3f421dba4797577a7856ef12ec181fcfef89f09a69b3ee85a94784256f",
@@ -66,7 +67,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "49c830212ae5bb44e7f161de7ba78103841de55c",
+    "commit": "049c12af9efb8dbb7e8e42d650fc87c1ce448329",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -95,8 +96,8 @@
     "gerbers/can_fd_node-NPTH.drl": "b1456f1dfbad85780ec4f3810c8ae4fb047860081427d6cd9784498c551c4fd0",
     "gerbers/can_fd_node-PTH.drl": "707d35a1551d5aebbd25df66627c5338530374aa063f84ece7312e5af3f87b68",
     "gerbers/can_fd_node-job.gbrjob": "869b97a6a193c1345457e5cbbcbb81920422a39946c592e77b822c24e281a6f1",
-    "reports/drc.json": "04582d9ccace13dedce2ba93190940d2eeb7e97444230acbc5640605a6cb02eb",
-    "reports/erc.json": "5564e698417c980534ed4ac33daed49ccc2d1da56c8599d7d4eb20bf9de30a2e"
+    "reports/drc.json": "c2c7e0521526fc3193311f79ddf8f17032c931500a01b7523b19de7475c6452d",
+    "reports/erc.json": "10a3d76bf9f0837968859f6de6975b9160018e5f3b6e2d25deac3825adb88e34"
   },
   "excluded_layers": []
 }

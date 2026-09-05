@@ -562,6 +562,8 @@
       "ARCH.CONTENTS",
       "ARCH.PROVENANCE",
       "BOM.NATIVE_PARITY",
+      "CLAIM.MATRIX",
+      "CLAIM.POLICY",
       "CONTRACT.CONNECTOR",
       "CONTRACT.PLACEMENT",
       "CPL.NATIVE_PARITY",
@@ -569,8 +571,13 @@
       "DRC.CONSTRAINT_FLOOR",
       "DRC.NO_SUPPRESSED_RULES",
       "ERC.AUTHORITATIVE",
+      "EXT.DEPENDENCIES",
       "NET.TOPOLOGY",
+      "PROV.DERIVED_DOCUMENTS",
+      "PROV.EVIDENCE_INTEGRITY",
       "PROV.REPORT_FRESHNESS",
+      "REQ.CLAIM_JOIN",
+      "REQ.REGISTER",
       "ROUTE.GEOMETRY_HYGIENE",
       "ROUTE.PROVENANCE",
       "ROUTE.TINY_SEGMENTS",
@@ -583,10 +590,32 @@
       "VIA.MASK_CLEARANCE_TARGET"
     ],
     "required_evidence": [
+      "constraints/requirements.json",
       "evidence/index.json",
       "fab/selection.json",
+      "generated/extraction.json",
       "generated/requirements.json",
       "generated/routing.json"
+    ],
+    "required_domains": [
+      "claims",
+      "requirements",
+      "simulation",
+      "external_dependencies"
+    ],
+    "declined_domains": [
+      {
+        "domain": "timing",
+        "reason": "no timing interfaces are declared; the bus is judged by rate qualification and oscillator budget, not by a per-net timing budget"
+      },
+      {
+        "domain": "device_parameters",
+        "reason": "device figures live in components/parameters.json with per-figure document citations; the typical-only figures this board leans on (enable threshold, capacitance mismatch) are recorded as claim assumptions"
+      },
+      {
+        "domain": "orientation",
+        "reason": "no part on this board needs a rotation correction; the CPL ships library angles and the fabrication order review checks the preview"
+      }
     ]
   },
   "reports": {
@@ -606,7 +635,8 @@
       "sim/*.json",
       "fab/*.json",
       "components/*.json",
-      "evidence/index.json"
+      "evidence/index.json",
+      "evidence/datasheets/*"
     ],
     "source_field": "source",
     "source_hash_field": "source_sha256"
@@ -751,5 +781,102 @@
       "require_paste": true
     }
   },
-  "waivers": []
+  "waivers": [],
+  "claims": {
+    "document": "generated/requirements.json",
+    "unsupported": {
+      "default": "blocking",
+      "permitted": []
+    },
+    "approximate": {
+      "default": "permitted-with-label"
+    }
+  },
+  "requirements": {
+    "register": "constraints/requirements.json",
+    "minimum_methods": {
+      "fault_tolerance": [
+        "ANALYTIC"
+      ],
+      "safe_state": [
+        "ANALYTIC",
+        "STATIC"
+      ]
+    }
+  },
+  "external_dependencies": [
+    {
+      "id": "system-discharge-test",
+      "statement": "a system-level IEC 61000-4-2 contact discharge at the declared 8 kV on the assembled node; both fitted parts state device-level ratings only",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "status": "open",
+      "blocking": false,
+      "requirement": "at_or_above_the_declared_discharge_level"
+    },
+    {
+      "id": "oscillator-start-up-bench",
+      "statement": "oscillator start-up margin on the assembled board; whether a gain margin beyond the controller's stated maximum critical transconductance is needed is a vendor application-note question the analysis does not resolve",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "status": "open",
+      "blocking": false,
+      "requirement": "within_the_controller_maximum_critical_transconductance"
+    },
+    {
+      "id": "converter-efficiency-measurement",
+      "statement": "the converter's efficiency at this board's own load is at least the assumed 75 percent",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "status": "open",
+      "blocking": false,
+      "requirement": "converter_efficiency_bound"
+    },
+    {
+      "id": "regulator-dropout-measurement",
+      "statement": "the regulator's dropout at the logic-rail load is within the declared bound the rail claims use",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "status": "open",
+      "blocking": false,
+      "requirement": "regulator_dropout_bound"
+    },
+    {
+      "id": "jlcpcb-assembly-preview",
+      "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
+      "method": "MANUFACTURING_CHECK",
+      "owner": "fabrication order review",
+      "status": "open",
+      "blocking": false
+    }
+  ],
+  "provenance": {
+    "evidence_index": "evidence/index.json"
+  },
+  "derived_documents": [
+    {
+      "path": "constraints/requirements.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.requirements"
+      ]
+    },
+    {
+      "path": "generated/extraction.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.extraction"
+      ]
+    },
+    {
+      "path": "generated/requirements.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.rules"
+      ]
+    }
+  ]
 }

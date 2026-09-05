@@ -207,12 +207,13 @@ def resistances():
     return measured
 
 
-def write():
-    os.makedirs(os.path.dirname(EXTRACTION_PATH), exist_ok=True)
-    with open(EXTRACTION_PATH, "w", encoding="utf-8", newline="\n") as handle:
+def write(path=None):
+    target = path or os.environ.get("PCBQA_OUT") or EXTRACTION_PATH
+    os.makedirs(os.path.dirname(target) or ".", exist_ok=True)
+    with open(target, "w", encoding="utf-8", newline="\n") as handle:
         json.dump(document(), handle, indent=2, sort_keys=True)
         handle.write("\n")
-    return EXTRACTION_PATH
+    return target
 
 
 if __name__ == "__main__":

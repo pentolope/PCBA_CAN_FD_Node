@@ -67,8 +67,14 @@ def _evidence(basis, documents, assumptions=(), omissions=(),
         omitted_contributions=list(omissions))
 
 
-def _requirement(name, op, value, source=BRIEF):
-    return claim.requirement(name, source, {"op": op, "value": value})
+def _requirement(name, op, value, source=None):
+    # The source names the statement kind and origin from the register,
+    # so a reader of one claim can see whether its requirement came from
+    # the brief, a datasheet derivation or this design's own declaration
+    # without opening the register - and a bare "BRIEF.md" cannot return.
+    from . import requirements
+    return claim.requirement(name, source or requirements.source_of(name),
+                             {"op": op, "value": value})
 
 
 #: How the requirement's operator turns a conservatively computed number into
@@ -1883,7 +1889,7 @@ def evaluate_supply_availability(parameters):
             "identity": code,
             "claim": _claim(
                 code, "boards", "supply", float(boards), DIRECT,
-                ("components/jlcpcb.json",),
+                ("jlcpcb_catalogue_snapshot",),
                 _requirement("at_or_above_the_planned_build_quantity", ">=",
                              float(netlist.PLANNED_BUILD_QUANTITY)),
                 scope_level="group",
@@ -2064,30 +2070,27 @@ def evaluate_all():
 REPORT_PATH = os.path.join(REPO_ROOT, "generated", "requirements.json")
 
 
-def write_report():
+def write_report(path=None):
     """The whole claim set, as an artifact rather than a console report.
 
-    Each entry carries what was measured, the evidence class it rests on, the
-    documents behind it, the assumptions it was evaluated under and the
-    verdict - so a later reader can see not only that the board passed but
-    what "passed" was allowed to mean.
+    Built through the toolkit's claim-document constructor, so every claim
+    is validated and every verdict re-derived at write time; CLAIM.MATRIX
+    accepts at release exactly what was written here, and
+    PROV.DERIVED_DOCUMENTS proves the committed copy fresh through this
+    same entry point.
     """
+    from . import requirements
+    from pcbqa import evidence as toolkit_evidence
+
     evaluated = evaluate_all()
-    document = {
-        "kind": "board-requirement-evidence",
-        "summary": summarise(evaluated),
-        "results": [
-            {"id": result["id"], "identity": result["identity"],
-             "claim": result["claim"], "verdict": result["verdict"]}
-            for result in sorted(evaluated,
-                                 key=lambda item: (item["id"],
-                                                   item["identity"]))],
-    }
-    os.makedirs(os.path.dirname(REPORT_PATH), exist_ok=True)
-    with open(REPORT_PATH, "w", encoding="utf-8", newline="\n") as handle:
-        json.dump(document, handle, indent=2, sort_keys=True)
-        handle.write("\n")
-    return REPORT_PATH
+    document = toolkit_evidence.claim_document(
+        [toolkit_evidence.claim_result(result["id"], result["identity"],
+                                       result["claim"])
+         for result in evaluated],
+        register=os.path.relpath(requirements.REGISTER_PATH, REPO_ROOT))
+    target = path or os.environ.get("PCBQA_OUT") or REPORT_PATH
+    os.makedirs(os.path.dirname(target) or ".", exist_ok=True)
+    return toolkit_evidence.write_document(target, document)
 
 
 def summarise(results):

@@ -1,0 +1,1133 @@
+{
+  "file_origins": {
+    "board_extraction": "generated/extraction.json",
+    "design_netlist": "design/netlist.py",
+    "jlcpcb_catalogue_snapshot": "components/jlcpcb.json"
+  },
+  "kind": "requirement-register",
+  "requirements": [
+    {
+      "alternatives_considered": [
+        "no floor at all, which would accept a divider whose off level sits in the millivolts and reads noise as signal"
+      ],
+      "kind": "design_decision",
+      "name": "above_a_fifth_of_the_nominal_supply",
+      "rationale": "the brief requires a stated threshold but no floor; a fifth of the minimum supply keeps the off level far enough from the reference that ground shift and coupled noise on field wiring cannot read as asserted",
+      "statement": "each input's guaranteed off threshold at the terminal stays above a fifth of the minimum declared supply",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "above_the_clamping_voltage",
+      "origin": "smaj_mdd",
+      "rationale": "'clamped below the rating of everything behind the input', inverted per part: the highest level the clamp can present is its clamping voltage at rated pulse current, and each exposed part's rating must clear it",
+      "statement": "every part the transient reaches while the input clamp conducts is rated above the clamp's maximum clamping voltage",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "above_the_declared_bus_fault_voltage",
+      "origin": "tcan1042_ti",
+      "rationale": "the brief requires the withstood fault voltage to be stated and to cover a bus line shorted to ground or to the node's own 24 V; the declared figure is the input range's maximum, and both parts on the bus must stand it off",
+      "statement": "the transceiver and the bus protector each stand off the declared bus fault voltage",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "above_the_declared_input_maximum",
+      "origin": "design_netlist",
+      "rationale": "the brief requires 'every part in that path rated above it with margin' over a stated range; the range is this design's declaration (18-30 V, registered as a statement), and each part's rating is read from its own frozen datasheet",
+      "statement": "every part standing across the input rail or in the path from it is rated above the declared input maximum",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "above_the_enable_threshold",
+      "origin": "mp2459_mps",
+      "rationale": "an enable that does not clear its threshold at the input minimum is a board that does not start inside its declared range; the datasheet states only a typical threshold, which the claim records as its assumption",
+      "statement": "the converter's enable divider clears its rising threshold at the declared input minimum",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "above_the_regulator_floor",
+      "origin": "ht75rxx_holtek",
+      "rationale": "the linear regulator only regulates while its input clears its output by its dropout; the datasheet states dropout only at 1 mA, so the figure used is this design's declared bound at the logic load - an assumption registered separately",
+      "statement": "the intermediate rail stays above the logic rail's maximum plus the regulator's declared dropout bound",
+      "still_required": [
+        "PHYSICAL_TEST"
+      ],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "above_the_steady_level_across_the_part",
+      "origin": "design_netlist",
+      "rationale": "the net levels are bounded rail-by-rail from the supply model; transient levels are the clamp claims' business, and this sweep compares steady levels only",
+      "statement": "every capacitor is rated above the highest steady level across it",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "above_the_sum_of_the_channel_ratings",
+      "origin": "term_db128v_dorabo",
+      "rationale": "the field return concentrates every channel's current in the connector; its rating must clear the sum",
+      "statement": "the field connector's contact rating covers the sum of the channel ratings",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "relying on the controller's typical hysteresis, which is not a guaranteed figure and vanishes in the divider ratio"
+      ],
+      "kind": "design_decision",
+      "name": "at_least_one_volt_at_the_terminal",
+      "rationale": "the brief requires stated hysteresis but no figure; one volt at the terminal is the bound this design declares, computed from the controller's guaranteed threshold separation referred back through the divider rather than from the datasheet's typical hysteresis figure",
+      "statement": "each input's guaranteed hysteresis, referred to the terminal, is at least one volt",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_a_characterised_drive",
+      "origin": "wst6066a_winsok",
+      "rationale": "an on-resistance is only a datasheet fact at the gate drive the datasheet characterises; every drop computed from it requires the gate to actually reach that point",
+      "statement": "each FET gate is driven at or above a gate-source voltage its on-resistance is characterised at",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_controller_supply_minimum",
+      "origin": "stm32g431_st",
+      "rationale": "the brief demands working rails without naming figures; the figures are the controller datasheet's characterised window",
+      "statement": "the logic rail stays at or above the controller's characterised supply minimum",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_declared_discharge_level",
+      "origin": "esdcan05_st",
+      "rationale": "the brief requires meeting 'the declared IEC 61000-4-2 level'; the level is this design's declaration (8 kV contact, powered, registered as a statement), and both documents state device-level ratings - a system discharge result for this board remains a physical test",
+      "statement": "the bus protector and the transceiver are each rated at or above the declared IEC 61000-4-2 contact discharge level",
+      "still_required": [
+        "PHYSICAL_TEST"
+      ],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_declared_input_maximum",
+      "origin": "smaj_mdd",
+      "rationale": "a clamp whose stand-off sits below the working rail conducts continuously; the brief's protection requirements imply a stand-off floor at the declared maximum",
+      "statement": "every clamp's stand-off voltage covers the declared input maximum so protection never conducts in normal operation",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#open-choices"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_planned_build_quantity",
+      "origin": "jlcpcb_catalogue_snapshot",
+      "rationale": "the planned build (registered as a statement) is a requirement on availability, not only on the design; the stock figure is the catalogue reading at its recorded retrieval date, not a reservation",
+      "statement": "the catalogue's recorded stock covers the planned build quantity for every ordered part",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_sum_of_the_channel_ratings",
+      "origin": "pptc_1812l200_lute",
+      "rationale": "all four channels at their rated current pass the fuse; its hold current is read from the datasheet's derating table at the declared ambient, not interpolated",
+      "statement": "the resettable fuse holds the sum of the channel ratings at the declared maximum ambient",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_transceiver_interface_minimum",
+      "origin": "tcan1042_ti",
+      "rationale": "the transceiver's logic-side interface has its own supply window, separate from its bus-side supply; both have to be met for the controller and transceiver to exchange levels",
+      "statement": "the logic rail stays at or above the transceiver's I/O supply minimum",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_above_the_transceiver_supply_minimum",
+      "origin": "tcan1042_ti",
+      "rationale": "the brief requires that 'the transceiver shall get the supply voltage its datasheet requires'; the datasheet window's lower edge is the requirement, evaluated with the converter's reference and the feedback divider at their worst corner",
+      "statement": "the intermediate rail stays at or above the transceiver's supply minimum at the tolerance corner that lowers it",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_below_the_controller_supply_maximum",
+      "origin": "stm32g431_st",
+      "rationale": "the upper edge of the same characterised window, at the top of the regulator's accuracy",
+      "statement": "the logic rail stays at or below the controller's characterised supply maximum",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_below_the_minimum_declared_input_supply",
+      "origin": "stm32g431_st",
+      "rationale": "the brief requires a stated threshold; for the input to read an asserted line at the bottom of the declared range, the worst-corner on threshold must sit at or below it",
+      "statement": "each input's guaranteed on threshold at the terminal sits at or below the minimum declared supply",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#functional-requirements"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_below_the_transceiver_qualified_rate",
+      "origin": "tcan1042_ti",
+      "rationale": "the brief requires 'the maximum qualified data-phase rate stated'; the stated rate (registered as a statement) is qualified against the G-variant datasheet's minimum transmitted bit time",
+      "statement": "the declared data-phase rate stays at or below the rate the fitted transceiver variant's bit-timing specification supports",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "at_or_below_the_transceiver_supply_maximum",
+      "origin": "tcan1042_ti",
+      "rationale": "the same datasheet window's upper edge, evaluated at the opposite corner of the reference and divider tolerances",
+      "statement": "the intermediate rail stays at or below the transceiver's supply maximum at the tolerance corner that raises it",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "checking merely 'less than the whole difference', which any working converter satisfies vacuously and which would therefore judge nothing"
+      ],
+      "kind": "design_decision",
+      "name": "below_a_quarter_of_the_whole_input_to_output_difference_at_load",
+      "rationale": "the brief forbids dissipating the full input-to-output difference at load; 'not the full difference' needs a checkable margin, and a quarter is the bound this design declares. The switched topology beats it by construction - the only linear element drops the intermediate-to-logic difference, never input-to-logic",
+      "statement": "the linear stage dissipates less than a quarter of what dissipating the whole input-to-output difference at load would",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "two discrete single-line devices, whose mismatch would be the difference of two independent parts' tolerances and could not be bounded to this level from their datasheets"
+      ],
+      "kind": "design_decision",
+      "name": "below_a_tenth_of_a_picofarad",
+      "rationale": "the brief requires protection 'balanced line to line' without a number; a tenth of a picofarad is the bound this design declares, met by fitting one dual device whose datasheet states the variation between its own two lines - a figure the datasheet gives as a typical, which the claim records",
+      "statement": "the bus protector's line-to-line capacitance mismatch stays below a tenth of a picofarad",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_controller_supply_absolute_maximum",
+      "origin": "stm32g431_st",
+      "rationale": "the same unpowered case bounds where the rail settles: the clamp current through the bleed's high tolerance corner must leave the rail below the controller's absolute maximum",
+      "statement": "the unpowered logic rail, lifted by the input clamps against the bleed, stays below the controller's absolute-maximum supply",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_converter_current_limit",
+      "origin": "mp2459_mps",
+      "rationale": "a peak that reaches the limit turns the limit into the regulator; the design point stays below the datasheet's minimum limit so regulation is by feedback, not by the protection",
+      "statement": "the converter's peak current stays below its own minimum current limit",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_inductor_heat_rating_current",
+      "origin": "ind_swpa5040_sunlord",
+      "rationale": "the thermal rating bounds continuous current; the DC component alone is compared, and the omitted ripple share is recorded on the claim",
+      "statement": "the converter's DC output current stays below the inductor's heat-rating current",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_inductor_saturation_current",
+      "origin": "ind_swpa5040_sunlord",
+      "rationale": "an inductor past saturation stops being the part the converter's stability and current limit were computed with; the peak is the load bound plus half the worst-corner ripple",
+      "statement": "the converter's peak inductor current stays below the inductor's saturation rating at the tolerance corner that maximises ripple",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_switch_breakdown_voltage",
+      "origin": "smf_jingdao",
+      "rationale": "the brief requires inductive turn-off clamped within the switch's rating; the clamp's worst clamping voltage at rated pulse current is what the drain sees, and it must clear the FET's minimum breakdown",
+      "statement": "the output clamp's maximum clamping voltage stays below the switch's minimum breakdown",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_switch_threshold_voltage",
+      "origin": "wst6066a_winsok",
+      "rationale": "the brief requires every output 'off from power-on until firmware drives it'; after reset the controller leaves the port floating, so the pull-down must hold the gate below the FET's minimum threshold against the pin's leakage",
+      "statement": "each output gate, with nothing driving it, stays below the switch's minimum threshold",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "below_the_transceiver_bus_fault_rating",
+      "origin": "esdcan05_st",
+      "rationale": "a protector that clamps above what the transceiver survives protects nothing; the clamp ceiling is the transceiver's fault rating",
+      "statement": "the bus protector clamps below the transceiver's own fault rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "user_requirement",
+      "name": "bus_conductors_adjacent_with_nothing_between",
+      "origin": "BRIEF.md#can-interface-and-termination",
+      "statement": "CANH and CANL occupy adjacent contacts of the bus connector with no other contact between them",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "each_gate_reaches_one_switch_and_its_own_pull_down",
+      "origin": "design_netlist",
+      "rationale": "the brief requires outputs that 'switch independently' and are off from power-on; the netlist condition is one switch and one pull-down per gate net, shared with nothing",
+      "statement": "each output gate net reaches exactly one switch and its own pull-down to the reference",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "each_termination_leg_passes_through_its_own_link",
+      "origin": "design_netlist",
+      "rationale": "the brief requires termination 'switchable to fully removed without unsoldering parts'; with a split termination that is only true if BOTH legs break - pulling both links removes the differential load rather than leaving one line loaded against the centre capacitor",
+      "statement": "each termination leg passes through its own removable link, one per side of the pair",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "equals_the_declared_position_count",
+      "origin": "term_db128v_dorabo",
+      "rationale": "a contract declaring more or fewer positions than the part has is a contract about a different connector",
+      "statement": "each connector's physical position count matches its declared pin order",
+      "still_required": [],
+      "verified_by": [
+        "STATIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "equals_the_declared_transient_clamp",
+      "origin": "smaj_mdd",
+      "rationale": "the brief requires transients 'clamped below the rating of everything behind the input'; the level everything is compared against must be the fitted part's own worst figure, not a chosen number, or the comparison floats free of the hardware",
+      "statement": "the declared transient clamp level equals the fitted input suppressor's maximum clamping voltage at its rated pulse current",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#placement-and-layout"
+      ],
+      "kind": "derived_requirement",
+      "name": "equals_the_package_terminal_count",
+      "origin": "design_netlist",
+      "rationale": "a land pattern with the wrong pad count cannot carry the package; the count is compared against each part's land-pattern document",
+      "statement": "each footprint's pad count matches its package's terminal count",
+      "still_required": [],
+      "verified_by": [
+        "STATIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "every_connector_pin_carries_its_declared_function",
+      "origin": "design_netlist",
+      "rationale": "the connector contracts are the design's declaration of what mates with what; a pin on the wrong net is a mating failure the netlist can catch before any board exists",
+      "statement": "every connector pin lands on the net its declared contract names",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection",
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "every_entering_conductor_carries_a_clamp_or_a_recorded_reason",
+      "origin": "design_netlist",
+      "rationale": "the brief demands ESD protection at the bus connector and transient protection on the input; the design generalises that discipline to every entering conductor so an unprotected line is a named decision, never an omission",
+      "statement": "every conductor entering the board reaches a suppressor, or is recorded exempt with a reason",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "every_input_has_a_pull_down_to_the_reference",
+      "origin": "design_netlist",
+      "rationale": "the brief requires 'a defined state with its terminal open'; the mechanism is each divider's lower element returning to the reference, which is a checkable netlist fact",
+      "statement": "every input divider returns to the reference so an open terminal reads de-asserted",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#test-and-bring-up"
+      ],
+      "kind": "user_requirement",
+      "name": "every_required_net_reaches_a_probe",
+      "origin": "BRIEF.md#test-and-bring-up",
+      "statement": "every rail, both bus lines and the transceiver's TXD/RXD pair reach a test point",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#placement-and-layout"
+      ],
+      "kind": "derived_requirement",
+      "name": "every_terminal_named_by_a_package_map_is_on_a_net_or_declared_no_connect",
+      "origin": "design_netlist",
+      "rationale": "a mapped terminal on no net is either a missing connection or a missing declaration; both are defects the netlist can name",
+      "statement": "every terminal a package map names is on a net or declared no-connect",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "matches_the_declared_through_hole_count",
+      "origin": "design_netlist",
+      "rationale": "through-hole count drives the hand-soldering line of the assembly quote; the policy (registered as a statement) declares it so the quote is priced from the design, not discovered",
+      "statement": "the number of through-hole parts matches the declared assembly policy",
+      "still_required": [],
+      "verified_by": [
+        "STATIC",
+        "MANUFACTURING_CHECK"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#functional-requirements"
+      ],
+      "kind": "user_requirement",
+      "name": "no_controller_pin_on_a_bus_conductor",
+      "origin": "BRIEF.md#functional-requirements",
+      "statement": "no controller pin lands on CANH or CANL; the controller reaches the bus only through the transceiver",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#placement-and-layout"
+      ],
+      "kind": "derived_requirement",
+      "name": "the_extraction_was_taken_from_the_committed_board",
+      "origin": "board_extraction",
+      "rationale": "every copper claim reads the extraction; if the board was edited after the trace, those claims describe copper that is no longer there, so the digest match is the first claim and gates the rest",
+      "statement": "the committed extraction describes the committed board file, by digest",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "judging only the bare resistor tolerance stack, which would silently widen with any part substitution"
+      ],
+      "kind": "design_decision",
+      "name": "within_five_percent_of_the_nominal_termination",
+      "rationale": "the brief requires 'a nominal 120 ohm differential load' without a tolerance; a nominal needs a checkable window. Five percent holds the two-leg stack at every corner of the fitted parts' tolerance and is declared once, so a substitution that widened the stack would fail here instead of shipping",
+      "statement": "the enabled termination presents the nominal 120 ohm differential load within five percent at every tolerance corner",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "no declared drop budget, which would let the board consume the field devices' margin invisibly"
+      ],
+      "kind": "design_decision",
+      "name": "within_one_volt_of_the_declared_input_minimum",
+      "rationale": "the brief requires parts rated over a stated range but sets no budget for what the board's own path may drop; one volt at full load is the bound this design declares, spent across the fuse, the blocking device and the board's copper - first priced from the copper budget, then re-checked against the routed copper's extracted resistance",
+      "statement": "the field supply at the connector stays within one volt of the declared input minimum at full load",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC",
+        "EXTRACTED"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#placement-and-layout"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_budgeted_copper_drop",
+      "origin": "board_extraction",
+      "rationale": "the same check per channel: the extracted conductor resistance times the rated channel current against the budget times that current",
+      "statement": "each output conductor's drop at its rated current stays within the budgeted copper drop",
+      "still_required": [],
+      "verified_by": [
+        "EXTRACTED"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_controller_injection_limit",
+      "origin": "stm32g431_st",
+      "rationale": "on the negative side the controller's own structure clamps the pin at the reference and the series element bounds the injected current, which must stay inside the datasheet's per-pin injection limit",
+      "statement": "each input's negative-extreme injection stays within the controller's per-pin limit",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_controller_input_voltage_rating",
+      "origin": "stm32g431_st",
+      "rationale": "the brief requires each input to survive the maximum rated input continuously; on the positive side the clamp diode holds the pin one forward drop above the logic rail, which must sit inside the pin's tolerant-input rating",
+      "statement": "each input pin stays within its rating at the positive extreme of the declared range",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#functional-requirements"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_controller_maximum_critical_transconductance",
+      "origin": "xtal_8mhz_yxc",
+      "rationale": "the controller can only start a crystal whose critical transconductance is inside what its oscillator can supply; whether a gain margin beyond the stated maximum is required is a vendor application-note question this board does not resolve, so oscillator start-up remains a physical test",
+      "statement": "the crystal's critical transconductance, computed at its worst resistance and capacitance corner, stays within the controller's stated maximum",
+      "still_required": [
+        "PHYSICAL_TEST"
+      ],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#functional-requirements"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_controller_oscillator_range",
+      "origin": "stm32g431_st",
+      "rationale": "the controller's clock tree supports a stated HSE range; a crystal outside it is a part the reference manual does not describe",
+      "statement": "the crystal's frequency sits inside the controller's supported external-oscillator range",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_controller_total_injection_limit",
+      "origin": "stm32g431_st",
+      "rationale": "the per-pin limit is not the whole story: the datasheet also bounds the total, and the worst case is every input at the negative extreme at once",
+      "statement": "the sum of every input's injection stays within the controller's total injection limit",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_converter_output_rating",
+      "origin": "mp2459_mps",
+      "rationale": "the load bound takes the transceiver driving a dominant bit into the lowest load its datasheet characterises, continuously, plus everything behind the regulator",
+      "statement": "the intermediate rail's bounded worst-case load stays within the converter's output current rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_converter_pin_rating",
+      "origin": "mp2459_mps",
+      "rationale": "the enable divider sees the clamped transient; the pin's absolute maximum has to cover the divider's output at that level at the corner that raises it",
+      "statement": "the enable pin stays within its absolute maximum while the input is at the transient clamp level",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#placement-and-layout"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_declared_board_copper_budget",
+      "origin": "board_extraction",
+      "rationale": "every pre-layout rail claim priced the board's conductors from a declared budget because no copper existed yet; the routed copper's traced resistance is compared back against that budget so the price paid is checked rather than trusted",
+      "statement": "each field conductor's extracted resistance stays within the declared board copper budget",
+      "still_required": [],
+      "verified_by": [
+        "EXTRACTED"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "adopting a cable-system capacitance allocation from a CAN standard, which is not frozen evidence in this repository"
+      ],
+      "kind": "design_decision",
+      "name": "within_the_declared_bus_capacitance_budget",
+      "rationale": "the brief requires protection to 'add no more capacitance than the qualified rate allows'; what the rate allows is not a frozen specification figure, so the board declares the budget: five percent of a bit time at the declared data-phase rate through the load the transceiver's datasheet characterises its outputs into",
+      "statement": "the protection adds no more capacitance to the bus than five percent of a data-phase bit time through the transceiver's characterised load",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "adopting a vendor application note's figure, which is not frozen evidence in this repository and could not be cited"
+      ],
+      "kind": "design_decision",
+      "name": "within_the_declared_oscillator_budget",
+      "rationale": "no CAN specification clause is frozen in this repository that states a tolerance for this rate, so the board declares one: the classical requirement that two nodes' clocks not drift more than a fraction of a bit over the longest unsynchronised stretch, halved per node. Initial tolerance, temperature, one year of ageing and the load network's pulling are summed arithmetically",
+      "statement": "the crystal's worst-case frequency error, pulling included, stays within the declared per-node tolerance budget",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_diode_average_current_rating",
+      "origin": "b1100_diodes",
+      "rationale": "the diode conducts for the off fraction of each cycle; its average current is the output current times that fraction at the corner that maximises it",
+      "statement": "the catch diode's average current at worst duty stays within its forward-current rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_fuse_maximum_fault_current",
+      "origin": "pptc_1812l200_lute",
+      "rationale": "the board's own series resistance is milliohms, so the fault current a short draws is set by the installation; the board declares the prospective current the installation must respect (registered as a statement), and the fuse must be rated for it",
+      "statement": "the declared prospective fault current stays within the fuse's maximum interrupt rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC",
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_gate_source_rating",
+      "origin": "nce6003x_nce",
+      "rationale": "the brief requires reverse polarity 'shall not damage the board or latch'; the blocking FET's gate sees the zener's clamp level, and the worst case for the rating is the zener's maximum",
+      "statement": "the reverse-blocking device's gate clamp holds its gate-source voltage within the device's rating at the top of the zener tolerance",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#can-interface-and-termination"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_link_current_rating",
+      "origin": "jumper_shunt_boomele",
+      "rationale": "the links sit in the differential path, so the dominant drive current and the bounded bus-fault current both pass through them; a contact rated below either is a switch that fails closed",
+      "statement": "the termination links carry their normal and bus-fault currents within the link's contact rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_package_dissipation",
+      "origin": "wst6066a_winsok",
+      "rationale": "the brief requires the stated per-channel current 'with all four on'; the package figures used are the datasheet ratings at their own 25 C reference, so this establishes dissipation against the rating, not a junction temperature",
+      "statement": "no package dissipates more than its datasheet rating with every channel conducting at once",
+      "still_required": [
+        "THERMAL_SIM"
+      ],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_regulator_output_rating",
+      "origin": "ht75rxx_holtek",
+      "rationale": "the load bound sums the controller at its datasheet maximum, the transceiver's interface supply, the indicator and the rail bleed",
+      "statement": "the logic rail's bounded worst-case load stays within the regulator's output current rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_resistor_power_rating",
+      "origin": "res_uniroyal",
+      "rationale": "each steady dissipation is bounded with the whole named level across the element, which overstates dividers; the termination legs are additionally bounded under the transceiver-limited bus fault",
+      "statement": "every resistor carrying steady current dissipates within its rating, and the termination legs survive a bus fault",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_switch_continuous_current",
+      "origin": "wst6066a_winsok",
+      "rationale": "the declared per-channel rating (registered as a statement) must sit inside the FET's continuous current rating for the channel rating to be the board's and not the transistor's",
+      "statement": "each channel's rated current stays within the switch's continuous drain rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#power-input-and-protection"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_the_zener_power_rating",
+      "origin": "bzt52c12_mdd",
+      "rationale": "the clamp carries the divider current whenever the input is up; its steady dissipation is bounded at the declared maximum with the series element at its low tolerance corner",
+      "statement": "the gate-clamp zener's dissipation at the declared input maximum stays within its power rating",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "derived_from": [
+        "BRIEF.md#digital-inputs-and-low-side-outputs"
+      ],
+      "kind": "derived_requirement",
+      "name": "within_what_the_rail_bleed_alone_sinks",
+      "origin": "res_uniroyal",
+      "rationale": "with the board unpowered and every input at the positive extreme, the clamp diodes feed the logic rail; the bleed element must sink all of it or the rail floats up on an unpowered board",
+      "statement": "the input clamps' worst-case back-fed current is less than what the rail bleed alone sinks",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    }
+  ],
+  "schema": 1,
+  "statements": [
+    {
+      "alternatives_considered": [
+        "second-side placement, rejected because nothing on this board needs it and it adds a setup to the quote"
+      ],
+      "kind": "design_decision",
+      "name": "assembly_policy",
+      "rationale": "a single placement side and an explicit through-hole count keep the assembly quote priced from the design; the count is judged by its own claim",
+      "statement": "assembly is one reflow of the front side, with the through-hole connectors hand-soldered and counted",
+      "still_required": [],
+      "verified_by": [
+        "MANUFACTURING_CHECK"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "2 Mbit/s data phase, rejected as leaving qualified transceiver capability unstated for no margin gain"
+      ],
+      "kind": "design_decision",
+      "name": "bus_rate_declaration",
+      "rationale": "the brief requires the maximum qualified data-phase rate to be stated; the arbitration rate is the classical CAN ceiling, and the data-phase rate is the one the fitted transceiver variant's datasheet characterises",
+      "statement": "the node is qualified at 1 Mbit/s arbitration and 5 Mbit/s data phase",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "a higher per-channel rating, rejected because the fuse's hold current at the declared ambient would not cover the sum"
+      ],
+      "kind": "design_decision",
+      "name": "channel_current_rating",
+      "rationale": "the brief requires 'the stated per-channel current with all four on' but leaves the figure open; a quarter ampere per channel keeps the four-channel sum inside the resettable fuse's held current at the declared ambient with the fuse read from its derating table",
+      "statement": "each field output is rated at 0.25 A with all four channels conducting at once",
+      "still_required": [],
+      "verified_by": [
+        "ANALYTIC"
+      ]
+    },
+    {
+      "invalidated_by": "a measured efficiency below 75 percent at the board's own load, which would raise the input current above the figures used",
+      "kind": "assumption",
+      "name": "converter_efficiency_bound",
+      "reason": "the input-current bound every input-path figure uses divides the output power by a deliberately pessimistic efficiency; the datasheet's curves sit well above it but are not frozen as parameters",
+      "revisable": true,
+      "statement": "the converter's efficiency is at least 75 percent at the loads this board presents",
+      "still_required": [
+        "PHYSICAL_TEST"
+      ],
+      "verified_by": [
+        "PHYSICAL_TEST"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "15 kV air discharge as the headline figure, rejected because contact discharge is the harsher and better-specified test at the same nominal level"
+      ],
+      "kind": "design_decision",
+      "name": "esd_level_declaration",
+      "rationale": "the brief requires meeting 'the declared level' and leaves the level to the design; 8 kV contact is the level both fitted parts' datasheets state device ratings at or above",
+      "statement": "the declared bus discharge level is 8 kV IEC 61000-4-2 contact, powered",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "a wider 9-36 V industrial range, rejected because the input clamp's stand-off and the converter's maximum rating would both need different parts"
+      ],
+      "kind": "design_decision",
+      "name": "input_range_declaration",
+      "rationale": "the brief requires the continuous 24 V input range to be stated; 18 V is what the field supply may sag to and still be inside the declared range, 30 V is what every part behind the terminal is rated above and what the input clamp stands off",
+      "statement": "the declared continuous input range is 18 to 30 V",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "25 C, rejected as a bench figure that would overstate the fuse's held current in any real enclosure"
+      ],
+      "kind": "design_decision",
+      "name": "maximum_ambient",
+      "rationale": "the resettable fuse's hold current and the controller's supply current are both temperature-dependent; every figure used is read from its datasheet at or above this ambient, so the declared ambient is the temperature the ratings are actually established at",
+      "statement": "the board's ratings are claimed at a maximum ambient of 60 C",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "a transceiver without the G qualification, rejected because the declared data-phase rate could not be stated from its datasheet",
+        "an MCU with external CAN controller, rejected as a second device and a second clock domain the brief's integrated-CAN-FD condition excludes"
+      ],
+      "kind": "design_decision",
+      "name": "mcu_and_transceiver_selection",
+      "rationale": "the brief leaves both open subject to an integrated CAN-FD controller, the declared I/O count, and the stated rate and fault ratings. The STM32G431 carries an FDCAN controller and enough I/O; the TCAN1042's G variant is the one whose datasheet specifies bit timing at a 200 ns transmitted bit, which is what qualifies the declared 5 Mbit/s data phase, and its fault rating covers the node's own 24 V shorted to a bus line",
+      "statement": "the controller is an STM32G431 and the transceiver a TCAN1042 G-variant",
+      "still_required": [],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "assuming a field-wiring resistance to bound the fault current, rejected because nothing in the design controls the wiring"
+      ],
+      "kind": "design_decision",
+      "name": "prospective_fault_current",
+      "rationale": "the fuse cannot be shown to survive more than its own maximum fault current, and the board's own series resistance is far too small to limit a stiff source; the board therefore declares the figure the installation has to respect rather than assuming a wiring resistance that would make the question go away",
+      "statement": "the installation must not present more than 30 A of prospective fault current at the board's terminals",
+      "still_required": [
+        "PHYSICAL_TEST"
+      ],
+      "verified_by": [
+        "DOCUMENTATION"
+      ]
+    },
+    {
+      "invalidated_by": "a measured dropout above the declared bound at the logic load, which would push the regulator out of regulation inside the declared input range",
+      "kind": "assumption",
+      "name": "regulator_dropout_bound",
+      "reason": "the datasheet states dropout only at 1 mA; the logic load is higher, so the bound the intermediate rail is judged against is a declared figure, not a datasheet limit",
+      "revisable": true,
+      "statement": "the regulator's dropout at the logic-rail load is within the declared bound used by the rail claims",
+      "still_required": [
+        "PHYSICAL_TEST"
+      ],
+      "verified_by": [
+        "PHYSICAL_TEST"
+      ]
+    },
+    {
+      "alternatives_considered": [
+        "an analog switch or relay under MCU control, rejected because its on-resistance sits inside the 120 ohm tolerance window and its capacitance inside the bus budget, both of which are already declared tight"
+      ],
+      "kind": "design_decision",
+      "name": "termination_control",
+      "rationale": "the brief leaves manual versus MCU-controlled switching open. Links satisfy 'switchable to fully removed without unsoldering parts' with zero switch elements in the differential path: an electronic switch would put its own resistance and capacitance into the termination and both would need their own qualification against the balance and capacitance bounds",
+      "statement": "termination switches manually, by two removable links, not under MCU control",
+      "still_required": [],
+      "verified_by": [
+        "STATIC"
+      ]
+    }
+  ],
+  "summary": {
+    "assumption": 2,
+    "derived_requirement": 56,
+    "design_decision": 17,
+    "user_requirement": 3
+  },
+  "vocabulary": {
+    "statement_kinds": [
+      "user_requirement",
+      "derived_requirement",
+      "assumption",
+      "design_decision"
+    ],
+    "verification_methods": [
+      "STATIC",
+      "GEOMETRY",
+      "ANALYTIC",
+      "CIRCUIT_SIM",
+      "DIGITAL_SIM",
+      "EXTRACTED",
+      "EM_SIM",
+      "THERMAL_SIM",
+      "MANUFACTURING_CHECK",
+      "PHYSICAL_TEST",
+      "DOCUMENTATION"
+    ]
+  }
+}

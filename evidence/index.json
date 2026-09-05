@@ -97,6 +97,15 @@
       "sha256": "435da2e32ce68b2df1fe14b42aa26f5e841b281aaf423890a3e8c03912e0e2b0",
       "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2310251551_Sunlord-SWPA5040S470MT_C86617.pdf"
     },
+    "jlcpcb_catalogue_snapshot": {
+      "applies_to": [
+        "assembly catalogue"
+      ],
+      "document_id": "JLCPCB parts catalogue snapshot, frozen in components/jlcpcb.json",
+      "file": "../components/jlcpcb.json",
+      "retrieved": "2026-09-02",
+      "sha256": "0428721444bb0f7d13f727e656f0186eb4bc9e67cdfedd42d10c0a5a10d3f54e"
+    },
     "jumper_shunt_boomele": {
       "applies_to": [
         "2.54Short Circuit Cap Closed"

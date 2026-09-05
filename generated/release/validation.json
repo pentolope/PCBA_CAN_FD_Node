@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-09-05T16:26:49.984287+00:00",
-  "source_closure_sha256": "01a48fc66e7fdd651756056719ad676502c77c4e94a338212356b61a54c265c1",
+  "generated_utc": "2026-09-05T20:15:42.473177+00:00",
+  "source_closure_sha256": "3c82107933572eb05100cbc5a0c23c33270623d1660b38ab5db977b301ee4df8",
   "manifest": {
     "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/board/manifest.json",
     "sha256": "4d3d0c1d423a51578f28d45bb90909d4c7c3af0a7d514669960b7a31989481b6",
@@ -13,7 +13,7 @@
     "kicad_cli": "/usr/bin/kicad-cli",
     "validation_implementation": {
       "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/tooling/PCBA_AutoDesignAndTest",
-      "commit": "be3c718edb053353445e3296f6f2482aa8b9949e",
+      "commit": "cb03fa0fc091cbd8af36a42e6b288d32f61ceeb2",
       "working_tree_dirty": false,
       "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
@@ -61,7 +61,7 @@
   "summary": {
     "counts": {
       "PASS": 30,
-      "NOT_APPLICABLE": 16
+      "NOT_APPLICABLE": 27
     },
     "blocking": [],
     "verdict": "ACCEPTED"
@@ -173,8 +173,8 @@
         "fabrication_manifest": "fabrication.json",
         "artifacts_recorded": 16,
         "artifacts_present": 16,
-        "source_closure_sha256": "01a48fc66e7fdd651756056719ad676502c77c4e94a338212356b61a54c265c1",
-        "recorded_source_closure_sha256": "01a48fc66e7fdd651756056719ad676502c77c4e94a338212356b61a54c265c1"
+        "source_closure_sha256": "3c82107933572eb05100cbc5a0c23c33270623d1660b38ab5db977b301ee4df8",
+        "recorded_source_closure_sha256": "3c82107933572eb05100cbc5a0c23c33270623d1660b38ab5db977b301ee4df8"
       },
       "limits": {},
       "finding_count": 0,
@@ -183,7 +183,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/release/fabrication.json",
           "name": "fabrication.json",
-          "sha256": "82f95545049de2eec8c9f91b999bb791d392e13b1b2899851eb68b9bce13b47e"
+          "sha256": "4849b891e400aba84c320b7dccf49501a187777ddf7cad74c71deda3c5cb5905"
         }
       ]
     },
@@ -577,10 +577,10 @@
         "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
         "constraint_manifest_sha256": "4d3d0c1d423a51578f28d45bb90909d4c7c3af0a7d514669960b7a31989481b6",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-05T16:26:35.575061+00:00",
+        "generated_utc": "2026-09-05T20:15:28.763641+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-09-05T10:26:35",
+          "date": "2026-09-05T14:15:28",
           "kicad_version": "10.0.5",
           "source": "can_fd_node.kicad_pcb",
           "ignored_checks": [],
@@ -614,9 +614,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T162632Z-31132f18/work/drc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T201525Z-3507e8e2/work/drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "5fe190fbce8de5740f3abfe3ecafa55a50110b8424166c192b185f7515bdd621"
+          "sha256": "773bdcf0a65ca7cb2650916e5bef24a11a60166c51b2bcca8080961780a3b805"
         }
       ]
     },
@@ -817,10 +817,10 @@
         "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
         "constraint_manifest_sha256": "4d3d0c1d423a51578f28d45bb90909d4c7c3af0a7d514669960b7a31989481b6",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-05T16:26:37.950626+00:00",
+        "generated_utc": "2026-09-05T20:15:30.905200+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-09-05T10:26:37",
+          "date": "2026-09-05T14:15:30",
           "kicad_version": "10.0.5",
           "source": "can_fd_node.kicad_sch",
           "ignored_checks": [],
@@ -854,9 +854,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T162632Z-31132f18/work/erc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T201525Z-3507e8e2/work/erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "46705757eef3465747ddcae4fb13f7e58958e166cc00aed1b86b19ccac0ec200"
+          "sha256": "f56d1f9d45f34021304184b92a03fbcad2c14ce24fae0d7eabe06c5fa131df46"
         }
       ]
     },
@@ -1124,7 +1124,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/extraction.json",
           "name": "generated/extraction.json",
-          "sha256": "1166b7c764d57e0b58fe347c5c13165b8ec22610c774f8a7a80eaebad5eff193"
+          "sha256": "a978779ff3159e704c515292af1717968ccbc686859a9b51dcbba798f322f264"
         },
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/requirements.json",
@@ -1303,7 +1303,7 @@
       "reason": "all 2 committed report(s) bind the canonical digest of all 54 source inputs, and every one still matches",
       "measurements": {
         "source_closure_files": 54,
-        "source_closure_sha256": "01a48fc66e7fdd651756056719ad676502c77c4e94a338212356b61a54c265c1",
+        "source_closure_sha256": "3c82107933572eb05100cbc5a0c23c33270623d1660b38ab5db977b301ee4df8",
         "source_sha256": {
           "pcb": "7a3f87bec992d667",
           "schematic": "689e152e4ad4433e"
@@ -1601,7 +1601,7 @@
       "status": "PASS",
       "reason": "2 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T162632Z-31132f18/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T162632Z-31132f18/work/design/can_fd_node.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T201525Z-3507e8e2/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260905T201525Z-3507e8e2/work/design/can_fd_node.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "copper,l1,top",
@@ -1778,7 +1778,7 @@
       "gate": "VIA.MASK_CLEARANCE_PROCESS",
       "title": "Via to mask opening meets the fab process limit",
       "status": "NOT_APPLICABLE",
-      "reason": "manifest does not declare via_mask.process.limit_mm; this board does not opt in to this gate",
+      "reason": "manifest does not declare via_mask.process.limit_mm or via_mask.process.limit_from_catalog; this board does not opt in to this gate",
       "measurements": {},
       "limits": {},
       "finding_count": 0,
@@ -1828,7 +1828,7 @@
       "gate": "VIA.NATIVE_GERBER_AGREEMENT",
       "title": "Every via agrees between the native board and the export",
       "status": "NOT_APPLICABLE",
-      "reason": "manifest does not declare via_mask.process.limit_mm; this board does not opt in to this gate",
+      "reason": "manifest does not declare via_mask.process.limit_mm or via_mask.process.limit_from_catalog; this board does not opt in to this gate",
       "measurements": {},
       "limits": {},
       "finding_count": 0,
@@ -1847,10 +1847,43 @@
       "evidence": []
     },
     {
+      "gate": "CURRENT.CAPACITY",
+      "title": "Every declared current-carrying conductor is wide enough",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare current.allowed_rise_c, current.basis, current.paths, current.physical_inputs; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
       "gate": "TIMING.PATH_INTEGRITY",
       "title": "Declared electrical paths exist, end to end, across every component",
       "status": "NOT_APPLICABLE",
       "reason": "manifest does not declare timing.interfaces; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "CURRENT.VIA_TRANSITION",
+      "title": "Every layer change on a current path carries the current too",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare current.allowed_rise_c, current.basis, current.paths, current.physical_inputs; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "THERMAL.DISSIPATION",
+      "title": "Every declared dissipation source is accounted for",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare thermal.ambient_c, thermal.parts; this board does not opt in to this gate",
       "measurements": {},
       "limits": {},
       "finding_count": 0,
@@ -1869,6 +1902,50 @@
       "evidence": []
     },
     {
+      "gate": "THERMAL.DERATING",
+      "title": "Each part may dissipate its share continuously at the ambient",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare thermal.ambient_c, thermal.parts; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "THERMAL.JUNCTION",
+      "title": "Junction claims take the form their evidence supports",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare thermal.ambient_c, thermal.parts; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "THERMAL.BOARD_RISE",
+      "title": "The board's own copper carries the heat it is given",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare thermal.ambient_c, thermal.board_rise, thermal.parts; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "PDN.DC_DROP",
+      "title": "Every declared rail delivers inside its drop budget",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare pdn.copper_thickness_mm, pdn.fill_match_fraction, pdn.grid, pdn.rails, pdn.via_resistance_ohm; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
       "gate": "TIMING.INTERCONNECT_SKEW",
       "title": "Passive PCB arrival spread within each declared endpoint group",
       "status": "NOT_APPLICABLE",
@@ -1880,10 +1957,54 @@
       "evidence": []
     },
     {
+      "gate": "PDN.RETURN_PATH",
+      "title": "Every declared rail's return carries its current back",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare pdn.copper_thickness_mm, pdn.fill_match_fraction, pdn.grid, pdn.rails, pdn.via_resistance_ohm; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "SI.PAIR_IMPEDANCE",
+      "title": "Every declared differential pair meets its impedance target",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare differential.coupling_threshold_mm, differential.pairs; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
       "gate": "TIMING.SETUP_HOLD",
       "title": "Device-aware setup and hold margin at each declared receiver",
       "status": "NOT_APPLICABLE",
       "reason": "manifest does not declare timing.device_timing; this board does not opt in to this gate",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "SIM.STAGE_DELTA",
+      "title": "What layout cost each superseded measurement, as an artifact",
+      "status": "NOT_APPLICABLE",
+      "reason": "no scenario declares that it supersedes a pre-layout twin, so there is no stage delta to report",
+      "measurements": {},
+      "limits": {},
+      "finding_count": 0,
+      "findings": [],
+      "evidence": []
+    },
+    {
+      "gate": "NET.REFERENCE_CONTINUITY",
+      "title": "Declared routes run over a reference conductor",
+      "status": "NOT_APPLICABLE",
+      "reason": "manifest does not declare reference_continuity.paths, reference_continuity.reference_nets; this board does not opt in to this gate",
       "measurements": {},
       "limits": {},
       "finding_count": 0,

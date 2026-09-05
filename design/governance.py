@@ -112,8 +112,7 @@ DECLINED_DOMAINS = [{'domain': 'timing',
             'CPL ships library angles and the fabrication order review '
             'checks the preview'}]
 
-EXTRA_SOURCE_CLOSURE = ['evidence/datasheets/*']
-
+EXTRA_SOURCE_CLOSURE = ['evidence/datasheets/*', 'generated/requirements.json']
 
 
 def merged(document):

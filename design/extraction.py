@@ -160,30 +160,31 @@ def document():
 def simulation_models():
     """The extracted models a post-layout scenario names, by alias.
 
-    The manifest declares which conductors those are; this measures them
-    from the board the same way the validation gate does, so a scenario can
-    be run outside the gate and get the same numbers rather than a
-    convenient stand-in.
+    This IS the validation gate's own assembly - the shared entry point
+    `pcbqa.sim.assemble.extracted_models` - not a reimplementation of it,
+    so a scenario run outside the gate gets the same numbers by
+    construction rather than by inspection. The physical inputs are the
+    committed `fab/physical_inputs.json` records, validated the way the
+    gate validates them.
     """
+    from pcbqa.core import load_manifest
+    from pcbqa.sim import assemble
+
     headless.suppress_blocking_ui()
-    geom.configure(chord_error_mm())
-    import pcbnew
-    with open(os.path.join(REPO_ROOT, "board", "manifest.json"), "r",
-              encoding="utf-8") as handle:
-        declared = json.load(handle)["simulation"]["extracted_models"]
-    inputs = physical.document()
-    copper = inputs["copper_thickness_mm"]
-    board = pcbnew.LoadBoard(BOARD_PATH)
-    digest = board_digest()
-    records = []
-    for alias in sorted(declared["paths"]):
-        path = declared["paths"][alias]
-        traced = extract.path_resistance(board, path["net"], path["from_pad"],
-                                         path["to_pad"], copper)
-        records.append(extract.aliased(
-            extract.interconnect_model_from_path(traced, digest, inputs),
-            alias))
-    return records
+    manifest = load_manifest(os.path.join(REPO_ROOT, "board",
+                                          "manifest.json"))
+    return assemble.extracted_models(manifest)
+
+
+def simulation_registry():
+    """The registry the gate judges scenarios with, by construction."""
+    from pcbqa.core import load_manifest
+    from pcbqa.sim import assemble
+
+    headless.suppress_blocking_ui()
+    manifest = load_manifest(os.path.join(REPO_ROOT, "board",
+                                          "manifest.json"))
+    return assemble.registry_for(manifest)
 
 
 def load():

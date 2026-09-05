@@ -13,7 +13,9 @@ TOP = {'claims': {'approximate': {'default': 'permitted-with-label'},
                                     '-m',
                                     'design.requirements'],
                         'path': 'constraints/requirements.json'},
-                       {'command': ['python3', '-m', 'design.extraction'],
+                       {'command': ['python3',
+                                    '-m',
+                                    'design.extraction'],
                         'path': 'generated/extraction.json'},
                        {'command': ['python3', '-m', 'design.rules'],
                         'path': 'generated/requirements.json'}],
@@ -22,52 +24,61 @@ TOP = {'claims': {'approximate': {'default': 'permitted-with-label'},
                             'method': 'PHYSICAL_TEST',
                             'owner': 'bench bring-up',
                             'requirement': 'at_or_above_the_declared_discharge_level',
+                            'review_by': '2027-03-01',
                             'statement': 'a system-level IEC 61000-4-2 '
                                          'contact discharge at the '
-                                         'declared 8 kV on the assembled '
-                                         'node; both fitted parts state '
-                                         'device-level ratings only',
+                                         'declared 8 kV on the '
+                                         'assembled node; both fitted '
+                                         'parts state device-level '
+                                         'ratings only',
                             'status': 'open'},
                            {'blocking': False,
                             'id': 'oscillator-start-up-bench',
                             'method': 'PHYSICAL_TEST',
                             'owner': 'bench bring-up',
                             'requirement': 'within_the_controller_maximum_critical_transconductance',
-                            'statement': 'oscillator start-up margin on '
-                                         'the assembled board; whether a '
-                                         'gain margin beyond the '
-                                         "controller's stated maximum "
-                                         'critical transconductance is '
-                                         'needed is a vendor '
-                                         'application-note question the '
-                                         'analysis does not resolve',
+                            'review_by': '2027-03-01',
+                            'statement': 'oscillator start-up margin '
+                                         'on the assembled board; '
+                                         'whether a gain margin beyond '
+                                         "the controller's stated "
+                                         'maximum critical '
+                                         'transconductance is needed '
+                                         'is a vendor application-note '
+                                         'question the analysis does '
+                                         'not resolve',
                             'status': 'open'},
                            {'blocking': False,
                             'id': 'converter-efficiency-measurement',
                             'method': 'PHYSICAL_TEST',
                             'owner': 'bench bring-up',
                             'requirement': 'converter_efficiency_bound',
-                            'statement': "the converter's efficiency at "
-                                         "this board's own load is at "
-                                         'least the assumed 75 percent',
+                            'review_by': '2027-03-01',
+                            'statement': "the converter's efficiency "
+                                         "at this board's own load is "
+                                         'at least the assumed 75 '
+                                         'percent',
                             'status': 'open'},
                            {'blocking': False,
                             'id': 'regulator-dropout-measurement',
                             'method': 'PHYSICAL_TEST',
                             'owner': 'bench bring-up',
                             'requirement': 'regulator_dropout_bound',
-                            'statement': "the regulator's dropout at the "
-                                         'logic-rail load is within the '
-                                         'declared bound the rail claims '
-                                         'use',
+                            'review_by': '2027-03-01',
+                            'statement': "the regulator's dropout at "
+                                         'the logic-rail load is '
+                                         'within the declared bound '
+                                         'the rail claims use',
                             'status': 'open'},
                            {'blocking': False,
                             'id': 'jlcpcb-assembly-preview',
                             'method': 'MANUFACTURING_CHECK',
                             'owner': 'fabrication order review',
-                            'statement': "JLCPCB's own assembly preview "
-                                         'shows every part at its '
-                                         'intended position and rotation',
+                            'review_by': '2027-03-01',
+                            'statement': "JLCPCB's own assembly "
+                                         'preview shows every part at '
+                                         'its intended position and '
+                                         'rotation',
                             'status': 'open'}],
  'provenance': {'evidence_index': 'evidence/index.json'},
  'requirements': {'minimum_methods': {'fault_tolerance': ['ANALYTIC'],
@@ -89,16 +100,16 @@ REQUIRED_DOMAINS = ['claims', 'requirements', 'simulation', 'external_dependenci
 
 DECLINED_DOMAINS = [{'domain': 'timing',
   'reason': 'no timing interfaces are declared; the bus is judged by '
-            'rate qualification and oscillator budget, not by a per-net '
-            'timing budget'},
+            'rate qualification and oscillator budget, not by a '
+            'per-net timing budget'},
  {'domain': 'device_parameters',
   'reason': 'device figures live in components/parameters.json with '
             'per-figure document citations; the typical-only figures '
             'this board leans on (enable threshold, capacitance '
             'mismatch) are recorded as claim assumptions'},
  {'domain': 'orientation',
-  'reason': 'no part on this board needs a rotation correction; the CPL '
-            'ships library angles and the fabrication order review '
+  'reason': 'no part on this board needs a rotation correction; the '
+            'CPL ships library angles and the fabrication order review '
             'checks the preview'}]
 
 EXTRA_SOURCE_CLOSURE = ['evidence/datasheets/*']

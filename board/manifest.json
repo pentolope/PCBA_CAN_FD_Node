@@ -372,6 +372,7 @@
       "method": "PHYSICAL_TEST",
       "owner": "bench bring-up",
       "requirement": "at_or_above_the_declared_discharge_level",
+      "review_by": "2027-03-01",
       "statement": "a system-level IEC 61000-4-2 contact discharge at the declared 8 kV on the assembled node; both fitted parts state device-level ratings only",
       "status": "open"
     },
@@ -381,6 +382,7 @@
       "method": "PHYSICAL_TEST",
       "owner": "bench bring-up",
       "requirement": "within_the_controller_maximum_critical_transconductance",
+      "review_by": "2027-03-01",
       "statement": "oscillator start-up margin on the assembled board; whether a gain margin beyond the controller's stated maximum critical transconductance is needed is a vendor application-note question the analysis does not resolve",
       "status": "open"
     },
@@ -390,6 +392,7 @@
       "method": "PHYSICAL_TEST",
       "owner": "bench bring-up",
       "requirement": "converter_efficiency_bound",
+      "review_by": "2027-03-01",
       "statement": "the converter's efficiency at this board's own load is at least the assumed 75 percent",
       "status": "open"
     },
@@ -399,6 +402,7 @@
       "method": "PHYSICAL_TEST",
       "owner": "bench bring-up",
       "requirement": "regulator_dropout_bound",
+      "review_by": "2027-03-01",
       "statement": "the regulator's dropout at the logic-rail load is within the declared bound the rail claims use",
       "status": "open"
     },
@@ -407,6 +411,7 @@
       "id": "jlcpcb-assembly-preview",
       "method": "MANUFACTURING_CHECK",
       "owner": "fabrication order review",
+      "review_by": "2027-03-01",
       "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
       "status": "open"
     }

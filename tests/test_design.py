@@ -346,8 +346,7 @@ class Scenarios(unittest.TestCase):
         backend = ngspice.backend_identity()
         if not backend["available"]:
             self.skipTest("no ngspice backend: " + backend["detail"])
-        registry = model_registry.ModelRegistry(
-            extraction.simulation_models())
+        registry = extraction.simulation_registry()
         work = os.path.join(REPO_ROOT, "out", "sim")
         for name, document in sorted(self.documents.items()):
             result = ngspice.run_scenario(

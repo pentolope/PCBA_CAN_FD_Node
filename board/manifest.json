@@ -659,6 +659,26 @@
       {
         "domain": "orientation",
         "reason": "no part on this board needs a rotation correction; the CPL ships library angles and the fabrication order review checks the preview"
+      },
+      {
+        "domain": "thermal",
+        "reason": "the transceiver and regulator dissipations are judged as claims against their stated limits; no theta record has been frozen for the parts on this board"
+      },
+      {
+        "domain": "current_capacity",
+        "reason": "the node draws a fraction of an amp and no conductor on it is sized by capacity; no capacity basis has been sourced"
+      },
+      {
+        "domain": "power_integrity",
+        "reason": "the rails are judged as claims against the regulator's stated output; no rail is poured as a plane whose drop a solve would decide"
+      },
+      {
+        "domain": "differential_pairs",
+        "reason": "this board DOES route a CAN differential pair, and its impedance is not yet judged by SI.PAIR_IMPEDANCE: the pair is held by the bus standard's own termination requirement and by the board's claims, and no cross-section has been declared for the coupled model. Declaring it is the next revision's work and is named here rather than left silent"
+      },
+      {
+        "domain": "reference_continuity",
+        "reason": "no interface on this board declares a return-path requirement today; the differential pair's return is carried by the bus standard's own topology rules"
       }
     ],
     "id": "jlcpcb-2layer-assembled",

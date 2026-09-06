@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/drc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-05T23:38:00",
+  "date": "2026-09-06T01:36:41",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -14,10 +14,10 @@
   "unconnected_items": [],
   "violations": [],
   "source_sha256": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
-  "source_closure_sha256": "09597a8efab9d3d3ff671768c4a35a77156a3aef0334def31af20be101f28daa",
+  "source_closure_sha256": "a119e32a7b3d7e90bf7cce7fe7f08081b7f561ddfe73304e224c40efd2bd9ee2",
   "source_closure": {
     "<configuration>": "43908c9c073149e0cb4b45bce1c0679742d0fdd0cd69cab25c6cb4e5aa0a3eeb",
-    "<toolkit>": "0130082a979a9a27959cc3410fefaa22fe329a51+clean",
+    "<toolkit>": "9e5df2ed6bc878680f7e2525242ddb5de591b946+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",

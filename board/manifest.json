@@ -941,6 +941,7 @@
             "note": "high-K board under natural convection, obtained by simulation in the JESD51-2a environment",
             "standard": "JESD51-7"
           },
+          "regime": "steady_state",
           "source": "components/parameters.json: TCAN1042HGVDR.thermal.rthja_c_per_w",
           "units": "C/W",
           "value": 105.8
@@ -962,6 +963,7 @@
             "note": "the four-layer construction the figure's own stated condition names",
             "standard": "JESD51-7"
           },
+          "regime": "steady_state",
           "source": "components/parameters.json: MP2459GJ-Z.thermal.rthja_c_per_w",
           "units": "C/W",
           "value": 220.0
@@ -977,6 +979,7 @@
         "junction_max_c": 150.0,
         "theta_ja": {
           "document": "ht75rxx_holtek",
+          "regime": "steady_state",
           "source": "components/parameters.json: HT75R33-1A.thermal.rthja_c_per_w",
           "units": "C/W",
           "value": 200.0

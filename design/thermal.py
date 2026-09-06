@@ -92,6 +92,12 @@ def _theta_ja(parameters, reference):
     theta = {
         "value": record["value"],
         "units": "C/W",
+        # Stated, not assumed: the figure is recorded in the frozen
+        # parameters as an R-theta-JA, which is defined at thermal
+        # equilibrium - a transient figure would be a Zth curve and
+        # would not be recorded under that key. The toolkit refuses a
+        # record that does not say which it is.
+        "regime": "steady_state",
         "source": "components/parameters.json: %s.thermal.rthja_c_per_w"
                   % rules._mpn(reference),
         "document": _document(record),

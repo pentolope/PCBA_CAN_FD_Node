@@ -23,7 +23,7 @@ if REPO_ROOT not in sys.path:
 
 from design import (build, cost, evidence, extraction, ksym,  # noqa: E402
                     layout, libraries, manifest, netlist, physical, rules,
-                    simulation)
+                    simulation, thermal)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -410,6 +410,14 @@ class Manifest(unittest.TestCase):
     def setUp(self):
         self.document = manifest.document()
 
+    def _has(self, dotted):
+        cursor = self.document
+        for part in dotted.split("."):
+            if not isinstance(cursor, dict) or part not in cursor:
+                return False
+            cursor = cursor[part]
+        return True
+
     def test_the_committed_manifest_is_the_generated_one(self):
         with open(manifest.MANIFEST_PATH, "r", encoding="utf-8") as handle:
             self.assertEqual(json.load(handle), self.document)
@@ -449,6 +457,110 @@ class Manifest(unittest.TestCase):
                      if pattern.match(reference)]
             self.assertEqual(len(found), rule["count"], rule["id"])
 
+    def test_no_domain_is_both_declared_and_declined(self):
+        """A decline is a decision, and a declared domain has made another.
+
+        The policy machinery refuses a manifest that does both, and it
+        refuses it at validation time - after a rebuild. This says so from
+        the source, where the decline is written.
+        """
+        from pcbqa import policy
+        declined = {entry["domain"]
+                    for entry in
+                    self.document["release_profile"]["declined_domains"]}
+        for domain in sorted(declined):
+            self.assertIn(domain, policy.DOMAINS, domain)
+            for key in policy.DOMAINS[domain]["declared_by"]:
+                self.assertFalse(self._has(key),
+                                 "%s is declined and declares %s"
+                                 % (domain, key))
+
+    def test_every_required_domain_is_one_the_manifest_declares(self):
+        from pcbqa import policy
+        for domain in self.document["release_profile"]["required_domains"]:
+            self.assertIn(domain, policy.DOMAINS, domain)
+            self.assertTrue(
+                any(self._has(key)
+                    for key in policy.DOMAINS[domain]["declared_by"]),
+                "%s is required and declared by nothing" % domain)
+
+    def test_the_continuity_routes_are_the_pair_the_topology_rule_holds(self):
+        """The two declarations describe one pair, or one of them is stale.
+
+        `BUS_PAIR` says the pair takes no via and stays on the front layer;
+        the continuity declaration says the reference stays under it. They
+        are two halves of one requirement, written apart, so this is what
+        stops them describing different conductors.
+        """
+        rule = [entry for entry in self.document["net_topology"]["rules"]
+                if entry["id"] == "BUS_PAIR"][0]
+        nets = re.compile(rule["net_regex"])
+        mapping = netlist.pin_to_net()
+
+        def pads(pattern):
+            expression = re.compile(pattern)
+            return sorted(pin for pin in mapping if expression.match(pin))
+
+        paths = self.document["reference_continuity"]["paths"]
+        self.assertEqual(len(paths), 2)
+        for name, path in sorted(paths.items()):
+            step, = path["steps"]
+            self.assertEqual(step["kind"], "copper", name)
+            self.assertTrue(nets.match(step["net"]), name)
+            for key, rule_key in (("from", "source_pad_regex"),
+                                  ("to", "load_pad_regex")):
+                self.assertTrue(
+                    set(pads(step[key])) <= set(pads(rule[rule_key])),
+                    "%s: %s is not one of the pads BUS_PAIR names"
+                    % (name, key))
+        self.assertEqual(
+            sorted(pad for path in paths.values() for step in path["steps"]
+                   for key in ("from", "to") for pad in pads(step[key])),
+            sorted(pads(rule["source_pad_regex"])
+                   + pads(rule["load_pad_regex"])),
+            "the routes and the topology rule cover different pads")
+
+    def test_every_continuity_route_ends_on_pads_that_carry_its_net(self):
+        mapping = netlist.pin_to_net()
+        for name, path in self.document["reference_continuity"][
+                "paths"].items():
+            for step in path["steps"]:
+                for key in ("from", "to"):
+                    pattern = re.compile(step[key])
+                    matched = [pin for pin in mapping
+                               if pattern.match(pin)]
+                    self.assertEqual(len(matched), 1,
+                                     "%s: %s" % (name, key))
+                    self.assertEqual(mapping[matched[0]], step["net"],
+                                     "%s: %s" % (name, key))
+
+    def test_the_reference_net_is_the_one_the_back_layer_pours(self):
+        poured = {entry["plane_net"]
+                  for entry in self.document["stackup"]["expected"]}
+        for net in self.document["reference_continuity"]["reference_nets"]:
+            self.assertIn(net, poured, net)
+        self.assertEqual(
+            self.document["reference_continuity"]["reference_nets"],
+            [netlist.GROUND_NET])
+
+    def test_the_catalog_pin_is_the_state_the_fabrication_was_selected_at(
+            self):
+        """A cited limit is pinned to the reviewed catalogue or it is not one.
+
+        The same digest the process selection recorded and the physical
+        inputs already carry: three citations of one catalogue state, which
+        can only stay one state if they are checked against each other.
+        """
+        with open(os.path.join(REPO_ROOT, "fab", "selection.json"),
+                  "r", encoding="utf-8") as handle:
+            selection = json.load(handle)
+        pinned = self.document["catalog"]["normalized_sha256"]
+        self.assertEqual(pinned, selection["approved_normalized_sha256"])
+        self.assertEqual(pinned,
+                         physical.approved_snapshot()["normalized_sha256"])
+        for record in physical.document()["copper_thickness_mm"].values():
+            self.assertEqual(record["digest"], pinned)
+
     def test_every_topology_rule_names_pads_the_netlist_holds(self):
         mapping = netlist.pin_to_net()
         for rule in self.document["net_topology"]["rules"]:
@@ -462,6 +574,78 @@ class Manifest(unittest.TestCase):
                 for pin in matched:
                     self.assertTrue(nets.match(mapping[pin]),
                                     "%s: %s" % (rule["id"], pin))
+
+
+class Thermal(unittest.TestCase):
+    """The dissipation inventory, and where each of its numbers came from."""
+
+    def setUp(self):
+        self.parameters = rules.load_parameters()
+        self.document = thermal.document(self.parameters)
+        self.parts = self.document["parts"]
+
+    def test_the_ambient_is_the_one_the_board_s_ratings_are_claimed_at(self):
+        self.assertEqual(self.document["ambient_c"], netlist.AMBIENT_MAX_C)
+
+    def test_every_declared_part_carries_a_junction_path_and_a_maximum(self):
+        """Both, or the part may not be derated at all.
+
+        A thermal resistance with no junction maximum has nothing to be
+        judged against, and a junction maximum with no resistance gives no
+        rise to judge; the gate refuses either, and so does this.
+        """
+        for reference, part in sorted(self.parts.items()):
+            self.assertIn("junction_max_c", part, reference)
+            self.assertIn("theta_ja", part, reference)
+            self.assertEqual(part["theta_ja"]["units"], "C/W", reference)
+            self.assertGreater(part["dissipation_w"], 0.0, reference)
+
+    def test_every_thermal_figure_is_the_parameter_store_s(self):
+        for reference, part in sorted(self.parts.items()):
+            spec = rules._spec(self.parameters, reference)["thermal"]
+            self.assertEqual(part["theta_ja"]["value"],
+                             spec["rthja_c_per_w"]["value"], reference)
+            self.assertEqual(part["junction_max_c"],
+                             spec["tj_max_c"]["value"], reference)
+            for document in part["documents"]:
+                self.assertIn(document, evidence.load_index()["documents"],
+                              reference)
+
+    def test_the_regulator_s_share_is_the_one_its_own_claim_is_made_from(self):
+        """One number, two consumers: the claim and the thermal declaration.
+
+        The claim judges the linear stage against its package rating at 25
+        C; the declaration derates the same dissipation at 60 C. If the two
+        ever disagree the board is making two statements about one part.
+        """
+        with open(os.path.join(REPO_ROOT, "generated", "requirements.json"),
+                  "r", encoding="utf-8") as handle:
+            document = json.load(handle)
+        claimed = [entry for entry in document["results"]
+                   if entry["id"]
+                   == "linear_stage_within_its_package_dissipation"]
+        self.assertEqual(len(claimed), 1)
+        self.assertAlmostEqual(claimed[0]["claim"]["quantity"]["value"],
+                               self.parts["U4"]["dissipation_w"], places=12)
+
+    def test_the_parts_left_out_have_no_steady_state_figure_to_leave_in(self):
+        """The exclusions are a fact about the datasheets, not a preference.
+
+        Every switching FET on this board publishes its thermal resistance
+        under a ten-second test condition. If one of them ever gains a
+        steady-state figure, this test fails and the part belongs in the
+        inventory.
+        """
+        switches = sorted({netlist.PARTS[reference]["mpn"]
+                           for reference in netlist.PARTS
+                           if reference.startswith("Q")})
+        self.assertTrue(switches)
+        for mpn in switches:
+            thermal_group = self.parameters["parts"][mpn].get("thermal", {})
+            self.assertNotIn("rthja_c_per_w", thermal_group, mpn)
+            self.assertIn("power_max_w", thermal_group, mpn)
+        for reference in self.parts:
+            self.assertNotIn(netlist.PARTS[reference]["mpn"], switches)
 
 
 class Board(unittest.TestCase):

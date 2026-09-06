@@ -16,7 +16,7 @@ import json
 import os
 import sys
 
-from . import build, layout, netlist, simulation
+from . import build, layout, netlist, physical, simulation, thermal
 
 MANIFEST_PATH = os.path.join(layout.REPO_ROOT, "board", "manifest.json")
 
@@ -33,6 +33,7 @@ MANDATORY_GATES = (
     "DRC.CONSTRAINT_FLOOR",
     "DRC.NO_SUPPRESSED_RULES",
     "ERC.AUTHORITATIVE",
+    "NET.REFERENCE_CONTINUITY",
     "NET.TOPOLOGY",
     "PROV.REPORT_FRESHNESS",
     "ROUTE.GEOMETRY_HYGIENE",
@@ -42,9 +43,14 @@ MANDATORY_GATES = (
     "SIM.STAGE_COVERAGE",
     "STACK.GERBER_PARITY",
     "STACK.NATIVE_VS_MANIFEST",
+    "THERMAL.DERATING",
+    "THERMAL.DISSIPATION",
+    "THERMAL.JUNCTION",
     "VIA.ANNULUS_MASK_OVERLAP",
     "VIA.IN_PAD_CONTACT",
+    "VIA.MASK_CLEARANCE_PROCESS",
     "VIA.MASK_CLEARANCE_TARGET",
+    "VIA.NATIVE_GERBER_AGREEMENT",
 )
 
 REQUIRED_EVIDENCE = (
@@ -168,6 +174,65 @@ def net_topology_rules():
          "max_vias_per_net": 0,
          "permitted_layers": ["F.Cu"]},
     ]
+
+
+#: The pair's two routes, connector contact to transceiver pin. The same
+#: two conductors `BUS_PAIR` constrains to one layer and no vias, asked the
+#: other half of the question: the topology rule says the pair does not
+#: leave the front layer, and this says the reference stays under it while
+#: it is there. A test binds the endpoints to the topology rule so the two
+#: cannot drift apart.
+BUS_PAIR_ROUTES = (
+    ("can_h", "CANH", r"^J2\.3$", r"^U2\.7$"),
+    ("can_l", "CANL", r"^J2\.2$", r"^U2\.6$"),
+)
+
+#: How much of one bus route may run with no reference conductor beneath
+#: it, totalled over the route. Not a measurement of what the board does -
+#: it is what the board will accept, and it is set by where the reference
+#: cannot be rather than by what the router happened to leave:
+#:
+#: * the pour keeps its declared clearance around the bus connector's own
+#:   through-hole pads, so the first stretch off the contact has no
+#:   reference under it whatever the routing does - about 1.5 mm; and
+#: * one back-layer conductor crosses under the pair near the transceiver,
+#:   and the pour clears it on both sides - a 0.25 mm track with 0.2 mm
+#:   clearance either side is 0.65 mm of interruption.
+#:
+#: 2.5 mm covers the connector's antipad and one crossing. It does not
+#: cover two, and it does not cover a route that has wandered off the pour
+#: altogether, which is the point: a limit that only ever restates the
+#: measurement forbids nothing.
+BUS_PAIR_MAX_UNREFERENCED_MM = 2.5
+
+
+def reference_continuity():
+    """Where the bus pair's return current is required to be.
+
+    A differential pair's return is not a budget item that can be traded
+    against something else - it is either under the pair or it is somewhere
+    worse, adding loop area to a signal whose whole immunity argument rests
+    on the two conductors seeing the same interference. The pour on the
+    back layer is that reference, and this declaration is what makes "the
+    pour is under the pair" a checked statement rather than an intention
+    recorded in a comment.
+    """
+    return {
+        "reference_nets": [netlist.GROUND_NET],
+        "why":
+            "the bus pair's return runs in the back-layer reference pour "
+            "the whole way from the connector to the transceiver; the "
+            "keepouts that hold that stretch of pour are drawn by the "
+            "layout for this reason, and this is the check that they did",
+        "paths": {
+            name: {
+                "max_unreferenced_mm": BUS_PAIR_MAX_UNREFERENCED_MM,
+                "steps": [{"kind": "copper", "net": net,
+                           "from": source, "to": load}],
+            }
+            for name, net, source, load in BUS_PAIR_ROUTES
+        },
+    }
 
 
 def stackup_expected():
@@ -353,7 +418,37 @@ def _base_document():
                 "annulus_strict_overlaps counts positive shared area only",
             "mask_dam_rule": "contact",
             "design_target_mm": 0.15,
+            # The board's own 0.15 mm target is the tighter of the two and
+            # is what the layout was drawn to. This names the fabricator's
+            # published floor as well, so the vias are judged against the
+            # process that will actually make them rather than against one
+            # number this repository chose - and the same declaration turns
+            # on the export check, which asks whether the Gerbers the
+            # fabricator receives describe the same via the board does.
+            "process": {
+                "name": "JLCPCB PCB capabilities",
+                "rule": "soldermask opening to neighbouring copper",
+                "interpretation":
+                    "a via annulus is copper that is not the opening's own "
+                    "pad, so this published clearance is the process floor "
+                    "for the annulus_to_opening_mm metric this board "
+                    "already measures",
+                "limit_from_catalog": {
+                    "from_catalog": "soldermask_opening_to_trace_mm"},
+            },
         },
+        "catalog": {
+            "normalized_sha256": physical.approved_snapshot()[
+                "normalized_sha256"],
+            "why":
+                "the catalogue state fab/selection.json resolved this "
+                "board's fabrication against, and the one fab/"
+                "physical_inputs.json already cites for the finished "
+                "copper; a limit cited from any other state would judge "
+                "the board against rules it was never selected under",
+        },
+        "reference_continuity": reference_continuity(),
+        "thermal": thermal.document(),
         "artifacts": {
             "gerber_dir": "generated/release/gerbers",
             "bom": "generated/release/bom.csv",

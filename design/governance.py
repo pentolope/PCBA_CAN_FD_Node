@@ -96,7 +96,9 @@ EXTRA_MANDATORY_GATES = ['CLAIM.MATRIX',
 
 EXTRA_REQUIRED_EVIDENCE = ['constraints/requirements.json', 'generated/extraction.json']
 
-REQUIRED_DOMAINS = ['claims', 'requirements', 'simulation', 'external_dependencies']
+REQUIRED_DOMAINS = ['claims', 'requirements', 'simulation',
+                    'external_dependencies', 'thermal',
+                    'reference_continuity']
 
 DECLINED_DOMAINS = [{'domain': 'timing',
   'reason': 'no timing interfaces are declared; the bus is judged by '
@@ -111,16 +113,12 @@ DECLINED_DOMAINS = [{'domain': 'timing',
   'reason': 'no part on this board needs a rotation correction; the '
             'CPL ships library angles and the fabrication order review '
             'checks the preview'},
- {'domain': 'thermal',
-  'reason': 'the transceiver and regulator dissipations are judged as claims against their stated limits; no theta record has been frozen for the parts on this board'},
  {'domain': 'current_capacity',
-  'reason': 'the node draws a fraction of an amp and no conductor on it is sized by capacity; no capacity basis has been sourced'},
+  'reason': "the field supply carries a full amp to the connector and its two layer changes are exactly the conductors a capacity check would decide, so this is a real question for this board and not an absent one. It stays declined for one reason: a capacity basis is an empirical curve fit with a standard, an edition and a fitted window behind it, and none has been sourced. Inventing coefficients to get an answer would be worse than not having one"},
  {'domain': 'power_integrity',
   'reason': "the rails are judged as claims against the regulator's stated output; no rail is poured as a plane whose drop a solve would decide"},
  {'domain': 'differential_pairs',
-  'reason': "this board DOES route a CAN differential pair, and its impedance is not yet judged by SI.PAIR_IMPEDANCE: the pair is held by the bus standard's own termination requirement and by the board's claims, and no cross-section has been declared for the coupled model. Declaring it is the next revision's work and is named here rather than left silent"},
- {'domain': 'reference_continuity',
-  'reason': "no interface on this board declares a return-path requirement today; the differential pair's return is carried by the bus standard's own topology rules"}]
+  'reason': "this board DOES route a CAN differential pair, and its impedance is not yet judged by SI.PAIR_IMPEDANCE: the pair is held by the bus standard's own termination requirement and by the board's claims, and no cross-section has been declared for the coupled model. Declaring it is the next revision's work and is named here rather than left silent. The fabricator publishes a stackup for four and six layers and offers controlled impedance from four layers up, so for this two-layer board there is no published cross-section to declare one from"}]
 
 EXTRA_SOURCE_CLOSURE = ['evidence/datasheets/*', 'generated/requirements.json']
 

@@ -1260,6 +1260,7 @@
         },
         "rthja_c_per_w": {
           "basis": "direct",
+          "condition": "measured on JESD51-7, 4-layer PCB",
           "document": "mp2459_mps",
           "package": "TSOT23-6",
           "value": 220.0

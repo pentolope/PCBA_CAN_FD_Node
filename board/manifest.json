@@ -151,6 +151,10 @@
     0.0,
     0.0
   ],
+  "catalog": {
+    "normalized_sha256": "e504b0de30d419179ecef39b27a688fa09b89a8e83cdfeec4d4eec95dbe73258",
+    "why": "the catalogue state fab/selection.json resolved this board's fabrication against, and the one fab/physical_inputs.json already cites for the finished copper; a limit cited from any other state would judge the board against rules it was never selected under"
+  },
   "checks": {
     "drc": {
       "constraint_floor": {
@@ -559,6 +563,36 @@
   "provenance": {
     "evidence_index": "evidence/index.json"
   },
+  "reference_continuity": {
+    "paths": {
+      "can_h": {
+        "max_unreferenced_mm": 2.5,
+        "steps": [
+          {
+            "from": "^J2\\.3$",
+            "kind": "copper",
+            "net": "CANH",
+            "to": "^U2\\.7$"
+          }
+        ]
+      },
+      "can_l": {
+        "max_unreferenced_mm": 2.5,
+        "steps": [
+          {
+            "from": "^J2\\.2$",
+            "kind": "copper",
+            "net": "CANL",
+            "to": "^U2\\.6$"
+          }
+        ]
+      }
+    },
+    "reference_nets": [
+      "GND"
+    ],
+    "why": "the bus pair's return runs in the back-layer reference pour the whole way from the connector to the transceiver; the keepouts that hold that stretch of pour are drawn by the layout for this reason, and this is the check that they did"
+  },
   "release_generation": {
     "archive": {
       "zip": "can_fd_node-fabrication.zip"
@@ -661,12 +695,8 @@
         "reason": "no part on this board needs a rotation correction; the CPL ships library angles and the fabrication order review checks the preview"
       },
       {
-        "domain": "thermal",
-        "reason": "the transceiver and regulator dissipations are judged as claims against their stated limits; no theta record has been frozen for the parts on this board"
-      },
-      {
         "domain": "current_capacity",
-        "reason": "the node draws a fraction of an amp and no conductor on it is sized by capacity; no capacity basis has been sourced"
+        "reason": "the field supply carries a full amp to the connector and its two layer changes are exactly the conductors a capacity check would decide, so this is a real question for this board and not an absent one. It stays declined for one reason: a capacity basis is an empirical curve fit with a standard, an edition and a fitted window behind it, and none has been sourced. Inventing coefficients to get an answer would be worse than not having one"
       },
       {
         "domain": "power_integrity",
@@ -674,11 +704,7 @@
       },
       {
         "domain": "differential_pairs",
-        "reason": "this board DOES route a CAN differential pair, and its impedance is not yet judged by SI.PAIR_IMPEDANCE: the pair is held by the bus standard's own termination requirement and by the board's claims, and no cross-section has been declared for the coupled model. Declaring it is the next revision's work and is named here rather than left silent"
-      },
-      {
-        "domain": "reference_continuity",
-        "reason": "no interface on this board declares a return-path requirement today; the differential pair's return is carried by the bus standard's own topology rules"
+        "reason": "this board DOES route a CAN differential pair, and its impedance is not yet judged by SI.PAIR_IMPEDANCE: the pair is held by the bus standard's own termination requirement and by the board's claims, and no cross-section has been declared for the coupled model. Declaring it is the next revision's work and is named here rather than left silent. The fabricator publishes a stackup for four and six layers and offers controlled impedance from four layers up, so for this two-layer board there is no published cross-section to declare one from"
       }
     ],
     "id": "jlcpcb-2layer-assembled",
@@ -696,6 +722,7 @@
       "DRC.NO_SUPPRESSED_RULES",
       "ERC.AUTHORITATIVE",
       "EXT.DEPENDENCIES",
+      "NET.REFERENCE_CONTINUITY",
       "NET.TOPOLOGY",
       "PROV.DERIVED_DOCUMENTS",
       "PROV.EVIDENCE_INTEGRITY",
@@ -709,15 +736,22 @@
       "SIM.STAGE_COVERAGE",
       "STACK.GERBER_PARITY",
       "STACK.NATIVE_VS_MANIFEST",
+      "THERMAL.DERATING",
+      "THERMAL.DISSIPATION",
+      "THERMAL.JUNCTION",
       "VIA.ANNULUS_MASK_OVERLAP",
       "VIA.IN_PAD_CONTACT",
-      "VIA.MASK_CLEARANCE_TARGET"
+      "VIA.MASK_CLEARANCE_PROCESS",
+      "VIA.MASK_CLEARANCE_TARGET",
+      "VIA.NATIVE_GERBER_AGREEMENT"
     ],
     "required_domains": [
       "claims",
       "requirements",
       "simulation",
-      "external_dependencies"
+      "external_dependencies",
+      "thermal",
+      "reference_continuity"
     ],
     "required_evidence": [
       "constraints/requirements.json",
@@ -889,6 +923,69 @@
       }
     ]
   },
+  "thermal": {
+    "ambient_c": 60.0,
+    "parts": {
+      "U2": {
+        "detail": "this board is two layers and the figure was obtained on a four-layer JEDEC board, which is why what follows is a margin against that path rather than a junction temperature for this one",
+        "dissipation_w": 0.42284159458296033,
+        "documents": [
+          "tcan1042_ti"
+        ],
+        "junction_max_c": 150.0,
+        "theta_ja": {
+          "conditions": "D (SOIC) package, high-K board",
+          "document": "tcan1042_ti",
+          "measured_on": {
+            "copper_layers": 4,
+            "note": "high-K board under natural convection, obtained by simulation in the JESD51-2a environment",
+            "standard": "JESD51-7"
+          },
+          "source": "components/parameters.json: TCAN1042HGVDR.thermal.rthja_c_per_w",
+          "units": "C/W",
+          "value": 105.8
+        },
+        "why": "dominant-state supply current on both rails, taken as continuous; the share that leaves through the bus load is not subtracted"
+      },
+      "U3": {
+        "detail": "this board is two layers and the figure was obtained on a four-layer JEDEC board, which is why what follows is a margin against that path rather than a junction temperature for this one",
+        "dissipation_w": 0.1998677760769223,
+        "documents": [
+          "mp2459_mps"
+        ],
+        "junction_max_c": 125.0,
+        "theta_ja": {
+          "conditions": "measured on JESD51-7, 4-layer PCB",
+          "document": "mp2459_mps",
+          "measured_on": {
+            "copper_layers": 4,
+            "note": "the four-layer construction the figure's own stated condition names",
+            "standard": "JESD51-7"
+          },
+          "source": "components/parameters.json: MP2459GJ-Z.thermal.rthja_c_per_w",
+          "units": "C/W",
+          "value": 220.0
+        },
+        "why": "the whole converter loss at the assumed 75 percent efficiency, charged to the controller rather than split with the inductor and the catch diode"
+      },
+      "U4": {
+        "detail": "the datasheet states one figure per package and no test board, so there is nothing to compare this board's copper against",
+        "dissipation_w": 0.06762304255574958,
+        "documents": [
+          "ht75rxx_holtek"
+        ],
+        "junction_max_c": 150.0,
+        "theta_ja": {
+          "document": "ht75rxx_holtek",
+          "source": "components/parameters.json: HT75R33-1A.thermal.rthja_c_per_w",
+          "units": "C/W",
+          "value": 200.0
+        },
+        "why": "the drop from the intermediate rail to the logic rail at the logic rail's bounded maximum load"
+      }
+    },
+    "why": "the three parts with a steady-state junction-to-ambient figure in their datasheets. The low-side switches and the blocking FET are not here: their datasheets state a junction-to-ambient resistance measured over ten seconds on a 1 inch2 2 oz board, which is not a continuous path, and this board will not derate a continuously conducting channel against a transient figure. Their dissipation stays judged against the package rating, and the register still records that a thermal analysis is owed for them. The passives are judged individually against their own power ratings."
+  },
   "tools": {
     "kicad_cli": "kicad-cli"
   },
@@ -902,6 +999,14 @@
         "SMD"
       ],
       "require_paste": true
+    },
+    "process": {
+      "interpretation": "a via annulus is copper that is not the opening's own pad, so this published clearance is the process floor for the annulus_to_opening_mm metric this board already measures",
+      "limit_from_catalog": {
+        "from_catalog": "soldermask_opening_to_trace_mm"
+      },
+      "name": "JLCPCB PCB capabilities",
+      "rule": "soldermask opening to neighbouring copper"
     }
   },
   "waivers": []

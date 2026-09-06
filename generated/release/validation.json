@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-09-06T14:39:00.229295+00:00",
-  "source_closure_sha256": "ccbbcf745cb1e74f23f38a1694d85d9006938258636712da032e5e7b24d980c9",
+  "generated_utc": "2026-09-06T20:22:47.145400+00:00",
+  "source_closure_sha256": "df04f457b6515e9a7e8215f0e60507b81e5be8ea69ec39bccab183d708a09bcb",
   "manifest": {
     "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/board/manifest.json",
     "sha256": "1035dc9974a18da039ec32996725343e9e9d04ae1478fdbfda94ec956a5ff105",
@@ -13,7 +13,7 @@
     "kicad_cli": "/usr/bin/kicad-cli",
     "validation_implementation": {
       "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/tooling/PCBA_AutoDesignAndTest",
-      "commit": "5fc450eca8405d44e4c23b0332a5fe0ad938b966",
+      "commit": "6b46d84b4a67cdd23ccabfed5f945ee7400e68d7",
       "working_tree_dirty": false,
       "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
@@ -173,8 +173,8 @@
         "fabrication_manifest": "fabrication.json",
         "artifacts_recorded": 16,
         "artifacts_present": 16,
-        "source_closure_sha256": "ccbbcf745cb1e74f23f38a1694d85d9006938258636712da032e5e7b24d980c9",
-        "recorded_source_closure_sha256": "ccbbcf745cb1e74f23f38a1694d85d9006938258636712da032e5e7b24d980c9"
+        "source_closure_sha256": "df04f457b6515e9a7e8215f0e60507b81e5be8ea69ec39bccab183d708a09bcb",
+        "recorded_source_closure_sha256": "df04f457b6515e9a7e8215f0e60507b81e5be8ea69ec39bccab183d708a09bcb"
       },
       "limits": {},
       "finding_count": 0,
@@ -183,7 +183,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/generated/release/fabrication.json",
           "name": "fabrication.json",
-          "sha256": "1f98acc760f6d85797f845eb8569e36d09e8bf6a1aea0811c11088c834fba3fa"
+          "sha256": "3c5114a592f5712652fb86a1680234ebfb208fea51c18271d41b333fe7829038"
         }
       ]
     },
@@ -577,10 +577,10 @@
         "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
         "constraint_manifest_sha256": "1035dc9974a18da039ec32996725343e9e9d04ae1478fdbfda94ec956a5ff105",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-06T14:38:38.702988+00:00",
+        "generated_utc": "2026-09-06T20:22:25.032499+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-09-06T08:38:38",
+          "date": "2026-09-06T14:22:24",
           "kicad_version": "10.0.5",
           "source": "can_fd_node.kicad_pcb",
           "ignored_checks": [],
@@ -614,9 +614,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T143835Z-d9d4df1a/work/drc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T202221Z-ff39ad6c/work/drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "12030b44f72d4fe25b42e0a6806e79965063828fc3d2af63b599e13e4b4593db"
+          "sha256": "1e7fc21447793a10038b75897bbefbf02f54903ed73084f3d9271a517169887a"
         }
       ]
     },
@@ -817,10 +817,10 @@
         "rules_sha256": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
         "constraint_manifest_sha256": "1035dc9974a18da039ec32996725343e9e9d04ae1478fdbfda94ec956a5ff105",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-06T14:38:40.989031+00:00",
+        "generated_utc": "2026-09-06T20:22:27.415906+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-09-06T08:38:40",
+          "date": "2026-09-06T14:22:27",
           "kicad_version": "10.0.5",
           "source": "can_fd_node.kicad_sch",
           "ignored_checks": [],
@@ -854,9 +854,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T143835Z-d9d4df1a/work/erc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T202221Z-ff39ad6c/work/erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "b12a84a085f90f0e53188d952520c09c3ca451585c18431c9864019c5a476303"
+          "sha256": "061b1c6f862c168fd9190148daea4b39e14c859a8fe76a151a5f0d2f41e85c95"
         }
       ]
     },
@@ -1303,7 +1303,7 @@
       "reason": "all 2 committed report(s) bind the canonical digest of all 54 source inputs, and every one still matches",
       "measurements": {
         "source_closure_files": 54,
-        "source_closure_sha256": "ccbbcf745cb1e74f23f38a1694d85d9006938258636712da032e5e7b24d980c9",
+        "source_closure_sha256": "df04f457b6515e9a7e8215f0e60507b81e5be8ea69ec39bccab183d708a09bcb",
         "source_sha256": {
           "pcb": "7a3f87bec992d667",
           "schematic": "689e152e4ad4433e"
@@ -1601,7 +1601,7 @@
       "status": "PASS",
       "reason": "2 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T143835Z-d9d4df1a/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T143835Z-d9d4df1a/work/design/can_fd_node.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T202221Z-ff39ad6c/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/06_PCBA_CAN_FD_Node/out/can_fd_node/20260906T202221Z-ff39ad6c/work/design/can_fd_node.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "copper,l1,top",

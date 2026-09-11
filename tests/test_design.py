@@ -21,9 +21,9 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from design import (build, cost, evidence, extraction, ksym,  # noqa: E402
-                    layout, libraries, manifest, netlist, physical, rules,
-                    simulation, thermal)
+from design import (assembly, build, cost, evidence,  # noqa: E402
+                    extraction, ksym, layout, libraries, manifest,
+                    netlist, physical, rules, simulation, thermal)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -574,6 +574,96 @@ class Manifest(unittest.TestCase):
                 for pin in matched:
                     self.assertTrue(nets.match(mapping[pin]),
                                     "%s: %s" % (rule["id"], pin))
+
+
+    def test_every_implemented_domain_is_declared_or_declined(self):
+        from pcbqa import policy
+        profile = self.document["release_profile"]
+        declined = {entry["domain"] for entry in profile["declined_domains"]}
+        for domain, spec in sorted(policy.DOMAINS.items()):
+            if any(self._has(key) for key in spec["declared_by"]):
+                continue
+            self.assertIn(domain, declined,
+                          "%s is neither declared nor declined" % domain)
+
+
+class Assembly(unittest.TestCase):
+    def setUp(self):
+        self.document = manifest.document()["assembly"]
+        self.parameters = rules.load_parameters()
+
+    def test_every_placed_footprint_is_a_part_or_declared_furniture(self):
+        records = self.document["parts"]
+        furniture = self.document["furniture"]
+        for reference, part in sorted(assembly.placed().items()):
+            if part["mpn"]:
+                self.assertIn(part["mpn"], records, reference)
+                self.assertNotIn(reference, furniture, reference)
+            else:
+                self.assertIn(reference, furniture, reference)
+
+    def test_the_hand_solder_set_is_the_connectors_the_contracts_name(self):
+        contracts = {entry["reference"]
+                     for entry in manifest.connector_contracts()}
+        self.assertEqual(set(self.document["process"]["hand_solder"]),
+                         contracts)
+
+    def test_the_hand_solder_count_is_the_one_the_netlist_policy_states(self):
+        self.assertEqual(
+            len(self.document["process"]["hand_solder"]),
+            netlist.ASSEMBLY_POLICY["through_hole_soldered_parts"])
+        self.assertEqual(len(self.document["process"]["sides"]),
+                         netlist.ASSEMBLY_POLICY["placement_sides"])
+
+    def test_every_waiver_answers_a_conflict_the_records_state(self):
+        peak = self.document["process"]["peak_temp_c"]
+        for waiver in self.document["process_waivers"]:
+            record = self.document["parts"][waiver["part"]]
+            self.assertEqual(waiver["requirement"], "peak_temp")
+            self.assertLess(record["peak_temp_max_c"], peak, waiver["part"])
+            self.assertEqual(record["process"], "hand_solder_only")
+
+    def test_every_conflict_the_records_state_carries_a_waiver(self):
+        peak = self.document["process"]["peak_temp_c"]
+        waived = {waiver["part"] for waiver in
+                  self.document["process_waivers"]}
+        for part, record in sorted(self.document["parts"].items()):
+            if record.get("peak_temp_max_c", peak) < peak:
+                self.assertIn(part, waived, part)
+
+    def test_no_reflowed_part_states_a_peak_below_the_declared_one(self):
+        peak = self.document["process"]["peak_temp_c"]
+        for part, record in sorted(self.document["parts"].items()):
+            if record.get("process") == "hand_solder_only":
+                continue
+            self.assertGreaterEqual(record.get("peak_temp_max_c", peak), peak,
+                                    part)
+
+    def test_every_declared_pass_count_admits_the_declared_process(self):
+        passes = self.document["process"]["reflow_passes"]
+        for part, record in sorted(self.document["parts"].items()):
+            self.assertGreaterEqual(record.get("max_reflow_passes", passes),
+                                    passes, part)
+
+    def test_every_assembly_figure_cites_a_document_that_covers_its_part(
+            self):
+        cited = 0
+        for mpn, spec in sorted(self.parameters["parts"].items()):
+            for name, figure in sorted((spec.get("assembly") or {}).items()):
+                source = evidence.SOURCES[figure["document"]]
+                self.assertIn(mpn, source["applies_to"],
+                              "%s.%s" % (mpn, name))
+                cited += 1
+        self.assertEqual(cited, 27)
+
+    def test_every_figure_the_records_state_is_the_parameter_store_s(self):
+        for mpn, record in sorted(self.document["parts"].items()):
+            figures = (self.parameters["parts"][mpn].get("assembly") or {})
+            for key in ("peak_temp_max_c", "max_reflow_passes"):
+                if key in record:
+                    self.assertEqual(record[key], figures[key]["value"], mpn)
+                else:
+                    self.assertNotIn(key, figures, mpn)
 
 
 class Thermal(unittest.TestCase):

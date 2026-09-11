@@ -16,7 +16,8 @@ import json
 import os
 import sys
 
-from . import build, layout, netlist, physical, simulation, thermal
+from . import (assembly, build, layout, netlist, physical, simulation,
+               thermal)
 
 MANIFEST_PATH = os.path.join(layout.REPO_ROOT, "board", "manifest.json")
 
@@ -25,10 +26,12 @@ RELEASE_PROFILE_ID = "jlcpcb-2layer-assembled"
 MANDATORY_GATES = (
     "ARCH.CONTENTS",
     "ARCH.PROVENANCE",
+    "ASM.PROCESS",
     "BOM.NATIVE_PARITY",
     "CONTRACT.CONNECTOR",
     "CONTRACT.PLACEMENT",
     "CPL.NATIVE_PARITY",
+    "DFA.PASTE",
     "DRC.AUTHORITATIVE",
     "DRC.CONSTRAINT_FLOOR",
     "DRC.NO_SUPPRESSED_RULES",
@@ -495,13 +498,14 @@ def _base_document():
                  "min_count": 1},
             ],
         },
-        "assembly": {
-            "schematic_fields": ["LCSC", "MPN", "Manufacturer"],
-            "required_part_fields": ["LCSC"],
-            "bom_fields": {"designators": "Designator", "value": "Comment",
-                           "footprint": "Footprint", "quantity": "Quantity",
-                           "LCSC": "LCSC Part #"},
-            "schematic_export": {
+        "assembly": dict(
+            assembly.document(),
+            schematic_fields=["LCSC", "MPN", "Manufacturer"],
+            required_part_fields=["LCSC"],
+            bom_fields={"designators": "Designator", "value": "Comment",
+                        "footprint": "Footprint", "quantity": "Quantity",
+                        "LCSC": "LCSC Part #"},
+            schematic_export={
                 "fields": ["Reference", "Value", "Footprint", "${DNP}",
                            "${EXCLUDE_FROM_BOM}", "LCSC", "MPN",
                            "Manufacturer"],
@@ -515,8 +519,8 @@ def _base_document():
                 "exclude_label": "ExcludeFromBOM",
                 "true_tokens": ["1", "true", "yes", "x", "dnp"],
             },
-            "compared_part_fields": ["LCSC", "MPN", "Manufacturer"],
-        },
+            compared_part_fields=["LCSC", "MPN", "Manufacturer"],
+        ),
         "release_generation": {
             "lock_file_globs": ["*.lck", "~*.lck", ".#*", "*-lock",
                                 "*.kicad_prl-lock"],

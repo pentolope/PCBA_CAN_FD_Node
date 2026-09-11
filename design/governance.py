@@ -71,6 +71,33 @@ TOP = {'claims': {'approximate': {'default': 'permitted-with-label'},
                                          'the rail claims use',
                             'status': 'open'},
                            {'blocking': False,
+                            'id': 'assembly-process-confirmation',
+                            'method': 'MANUFACTURING_CHECK',
+                            'owner': 'fabrication order review',
+                            'review_by': '2027-03-01',
+                            'statement': 'the assembler builds this '
+                                         'board to the declared '
+                                         'process: one lead-free '
+                                         'reflow pass peaking no '
+                                         'higher than 245 C, top side '
+                                         'only, no-clean, with the '
+                                         'through-hole connectors '
+                                         'hand-soldered after reflow',
+                            'status': 'open'},
+                           {'blocking': False,
+                            'id': 'part-supply-at-order',
+                            'method': 'MANUFACTURING_CHECK',
+                            'owner': 'fabrication order review',
+                            'review_by': '2027-03-01',
+                            'statement': 'every fitted part is still '
+                                         'supplied at order time; the '
+                                         'lifecycle domain is declined '
+                                         'because no source this board '
+                                         'freezes states a lifecycle, '
+                                         'so the question is answered '
+                                         'by the order itself',
+                            'status': 'open'},
+                           {'blocking': False,
                             'id': 'jlcpcb-assembly-preview',
                             'method': 'MANUFACTURING_CHECK',
                             'owner': 'fabrication order review',
@@ -98,9 +125,11 @@ EXTRA_REQUIRED_EVIDENCE = ['constraints/requirements.json', 'generated/extractio
 
 REQUIRED_DOMAINS = ['claims', 'requirements', 'simulation',
                     'external_dependencies', 'thermal',
-                    'reference_continuity']
+                    'reference_continuity', 'assembly_process']
 
-DECLINED_DOMAINS = [{'domain': 'timing',
+DECLINED_DOMAINS = [{'domain': 'lifecycle',
+  'reason': "a lifecycle status is a person's reading of a statement about supply, and neither source this board can freeze makes one: the committed catalogue snapshot carries stock, price and library type, and the per-part endpoint the toolkit freezes adds an on-sale flag. Every entry a snapshot could hold today would therefore be `unestablished`, which is not a state a release stands on, and reading a stock count as `active` is the false confidence the snapshot exists to prevent. The availability half is already judged from that stock - the build quantity is checked against it in design/cost.py - and the lifecycle half is carried as the open part-supply-at-order dependency the fabrication order review owns"},
+ {'domain': 'timing',
   'reason': 'no timing interfaces are declared; the bus is judged by '
             'rate qualification and oscillator budget, not by a '
             'per-net timing budget'},

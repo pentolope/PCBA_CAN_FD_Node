@@ -1,6 +1,13 @@
 {
   "parts": {
     "0603WAF1000T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -33,6 +40,13 @@
       "supply_pins": []
     },
     "0603WAF1002T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -65,6 +79,13 @@
       "supply_pins": []
     },
     "0603WAF1003T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -97,6 +118,13 @@
       "supply_pins": []
     },
     "0603WAF1243T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -129,6 +157,13 @@
       "supply_pins": []
     },
     "0603WAF2002T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -161,6 +196,13 @@
       "supply_pins": []
     },
     "0603WAF2372T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -193,6 +235,13 @@
       "supply_pins": []
     },
     "0603WAF2701T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -225,6 +274,13 @@
       "supply_pins": []
     },
     "0603WAF4700T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -257,6 +313,13 @@
       "supply_pins": []
     },
     "0603WAF4703T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -289,6 +352,13 @@
       "supply_pins": []
     },
     "0603WAF5602T5E": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_uniroyal",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -321,6 +391,13 @@
       "supply_pins": []
     },
     "1812L200/33GR": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "pptc_1812l200_lute",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resettable_fuse": {
@@ -504,6 +581,13 @@
       }
     },
     "B1100-13-F": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "b1100_diodes",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "diode": {
@@ -617,6 +701,13 @@
       "supply_pins": []
     },
     "CC0603KRX7R0BB103": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "capacitance_f": {
           "basis": "direct",
@@ -645,6 +736,13 @@
       "supply_pins": []
     },
     "CC0603KRX7R0BB104": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "capacitance_f": {
           "basis": "direct",
@@ -673,6 +771,13 @@
       "supply_pins": []
     },
     "CC0603KRX7R0BB472": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "capacitance_f": {
           "basis": "direct",
@@ -701,6 +806,13 @@
       "supply_pins": []
     },
     "CC0603KRX7R8BB105": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "capacitance_f": {
           "basis": "direct",
@@ -729,6 +841,13 @@
       "supply_pins": []
     },
     "CC0805KKX7R7BB106": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "capacitance_f": {
           "basis": "direct",
@@ -757,6 +876,13 @@
       "supply_pins": []
     },
     "CC1206KKX7R0BB105": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "capacitance_f": {
           "basis": "direct",
@@ -1056,6 +1182,13 @@
       }
     },
     "KH-2.54PH180-1X2P-L11.5": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "header1x2_kinghelm",
+          "value": 220.0
+        }
+      },
       "connector": {
         "current_max_a": {
           "basis": "direct",
@@ -1085,6 +1218,13 @@
       "supply_pins": []
     },
     "KH-2.54PH180-1X5P-L11.5": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "header1x5_kinghelm",
+          "value": 220.0
+        }
+      },
       "connector": {
         "current_max_a": {
           "basis": "direct",
@@ -1114,6 +1254,18 @@
       "supply_pins": []
     },
     "KT-0603R": {
+      "assembly": {
+        "max_reflow_passes": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 2
+        },
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "led": {
@@ -1144,6 +1296,13 @@
       "supply_pins": []
     },
     "MP2459GJ-Z": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "mp2459_mps",
+          "value": 260.0
+        }
+      },
       "converter": {
         "current_limit_min_a": {
           "basis": "direct",
@@ -1355,6 +1514,18 @@
       }
     },
     "RMCF2512FT60R4": {
+      "assembly": {
+        "max_reflow_passes": {
+          "basis": "direct",
+          "document": "res_rmcf_stackpole",
+          "value": 3
+        },
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "res_rmcf_stackpole",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "resistor": {
@@ -1422,6 +1593,13 @@
       "supply_pins": []
     },
     "SMAJ30CA": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "smaj_mdd",
+          "value": 260.0
+        }
+      },
       "digital_inputs": {},
       "digital_outputs": {},
       "supply": {},
@@ -1745,6 +1923,13 @@
       "supply_pins": []
     },
     "TCAN1042HGVDR": {
+      "assembly": {
+        "peak_temp_max_c": {
+          "basis": "direct",
+          "document": "tcan1042_ti",
+          "value": 260.0
+        }
+      },
       "bus": {
         "characterised_load_ohm": {
           "basis": "direct",

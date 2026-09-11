@@ -3,18 +3,18 @@
   "board_id": "can_fd_node",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-07T02:41:13.821353+00:00",
-  "source_closure_sha256": "0dd4346545ef1a9e3f7d724334a44878a0b886fd84b884c4075899f60bbc04a3",
+  "generated_utc": "2026-09-11T02:13:14.071985+00:00",
+  "source_closure_sha256": "77b7ddb47fcf1eadff13c9453e0c47903041ae6bb2fac3e94fed670e3e5ace9f",
   "source_closure_files": 54,
   "source_closure": {
-    "<configuration>": "43908c9c073149e0cb4b45bce1c0679742d0fdd0cd69cab25c6cb4e5aa0a3eeb",
-    "<toolkit>": "7e75b0c8f0e7fd09376e1b71b223a8b8efdffc08+clean",
+    "<configuration>": "065f73cb483d5c0826d19c08b7faa72198977aae115dd528b7355c85c7805b50",
+    "<toolkit>": "225152338acde8ebaf2b7272c3a47d6a660342fa+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
     "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
     "can_fd_node.kicad_sch": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
     "components/jlcpcb.json": "0428721444bb0f7d13f727e656f0186eb4bc9e67cdfedd42d10c0a5a10d3f54e",
-    "components/parameters.json": "a85809aed712e34b8f6c3656d2179c9395836cdc84a01f0ba742985664672afb",
+    "components/parameters.json": "5eb91d8302f68a1e454582fe717765e8f7450e10d3cb02a6f093195aac03b5b0",
     "constraints/requirements.json": "2502bdf683cf67972d1a6a9fd34024589ad14c0d838b522daa06f881bd76a13c",
     "evidence/datasheets/1n4148w_semtech.pdf": "54de8e4089bb8221cf6cf191ee3acc2bdb20c9933cf59e7b5de3ef4ee291ce3f",
     "evidence/datasheets/b1100_diodes.pdf": "bb2ebed332baff12b8b69ea21019b00f00cede3fb76c961ba84fa29ac5c7de38",
@@ -63,11 +63,11 @@
     "sym-lib-table": "a4628ee7f19d819f9d8bd8c1460dd0acef272e9c0de759c0139ac6d50cc2dfc2"
   },
   "tools": {
-    "kicad": "10.0.5",
+    "kicad": "10.0.6",
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "7e75b0c8f0e7fd09376e1b71b223a8b8efdffc08",
+    "commit": "225152338acde8ebaf2b7272c3a47d6a660342fa",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -83,21 +83,21 @@
   ],
   "artifacts": {
     "bom.csv": "eddb7af9275294405e3000e47dc8fb2517b814306e1546bc1fdd36577c1b4ebb",
-    "can_fd_node-fabrication.zip": "c15f0560a7713ed92242be3a1bead5ea963eb551e700929775166df63eff109f",
+    "can_fd_node-fabrication.zip": "e406c4eff4efa263dc6b42e301c6cd9441f4d540b135744a798e35444061cded",
     "cpl.csv": "b36a63977ca23097a0d60b0399dd7ba6ed791dd2c0f6b185c3a4d2ff31c321d1",
-    "gerbers/can_fd_node-B_Cu.gbr": "262ee7d428094bdf8f899a52b4ad3e81ae6aaf9ab577abf8839697630f61a764",
-    "gerbers/can_fd_node-B_Mask.gbr": "3ef2f9ff4bbdbcb62f90ccf107e37bdfd20d9765340080fb3f6267e78c601297",
-    "gerbers/can_fd_node-B_Silkscreen.gbr": "0d9e456ef8f0aaf2421c7f01fc897270d166f4f1675132579178140873975447",
-    "gerbers/can_fd_node-Edge_Cuts.gbr": "087597ff6630029d952f575b4ef4a0bce6bf62a394904edf4a447c8e8be3aa1b",
-    "gerbers/can_fd_node-F_Cu.gbr": "5f4ae2a9be3f94963280461eb40656980cc6ed58d27c0c06f5a8be3af80fbbce",
-    "gerbers/can_fd_node-F_Mask.gbr": "11b027aea1ce00ac8d0693b67d6916cc0c2b1bff3369854b73a4947c0a6c1aec",
-    "gerbers/can_fd_node-F_Paste.gbr": "779ed385e67ef69c70e280869a95d443d5ced68eb50963229e678c2ced068a1a",
-    "gerbers/can_fd_node-F_Silkscreen.gbr": "00c5ffb5b508640212926f6b796c9db74c06bad26f18fdf223f1259e4c709f27",
-    "gerbers/can_fd_node-NPTH.drl": "b1456f1dfbad85780ec4f3810c8ae4fb047860081427d6cd9784498c551c4fd0",
-    "gerbers/can_fd_node-PTH.drl": "707d35a1551d5aebbd25df66627c5338530374aa063f84ece7312e5af3f87b68",
-    "gerbers/can_fd_node-job.gbrjob": "869b97a6a193c1345457e5cbbcbb81920422a39946c592e77b822c24e281a6f1",
-    "reports/drc.json": "3bb1082e563f435b077161197a49abdb29594af1eada01a5a57e3c7ed669ac78",
-    "reports/erc.json": "a7cbb40f27800a617a9183044004c88b14a869ce37322693e7057eb56a9eabc0"
+    "gerbers/can_fd_node-B_Cu.gbr": "98c2c87826ec500e0015e7cccc1b944dd1ae5ee7c8e6a3475f43d33e1432c3d6",
+    "gerbers/can_fd_node-B_Mask.gbr": "a2fda32562b2a0ed083ba2084602f646f4abb7fe0a94b5499c23044852005b61",
+    "gerbers/can_fd_node-B_Silkscreen.gbr": "77a954aff1fc594d85371db2c70c5d6369c4187b4e26e0cb4aeeb1b8d786d0be",
+    "gerbers/can_fd_node-Edge_Cuts.gbr": "f6550317aa2d399b2b7eb39fb48d19e254bec95d1211dcd0d756abd88c67f2cc",
+    "gerbers/can_fd_node-F_Cu.gbr": "4078c1ad1c002d445e92f2e82a1dd2f842caed3a8d663a42cfb25b8e7e5cd9c1",
+    "gerbers/can_fd_node-F_Mask.gbr": "86c2379834746b3ea759f45a828bfc4b0bc6bae0626d0f47d1b610c60bd7b247",
+    "gerbers/can_fd_node-F_Paste.gbr": "56f980d317cc00b669c0dd4e692e1f206f35b50021d69b755ad929ff9b62f777",
+    "gerbers/can_fd_node-F_Silkscreen.gbr": "a88de4986e72dfb5d2491a6260c48d66907629448a9194390779c0d6ea425c74",
+    "gerbers/can_fd_node-NPTH.drl": "8d8a8d1e8e76b43f873ee272c96831a0fe3b9803cb572b72dd99f8c88f0cda2f",
+    "gerbers/can_fd_node-PTH.drl": "a71784137c11df7a9db300d3c440bbd6894ad310a2824ba5ca209ca6434ba096",
+    "gerbers/can_fd_node-job.gbrjob": "45d7d8f226f8215e3e3428062c790c6dd27116bfe580f93a512086986830db2f",
+    "reports/drc.json": "ff1bb3832b4ce73d03c48b1aa7d0a14a733043ec8de90ab5f9da6f4a9db17804",
+    "reports/erc.json": "775499b63291ca350a7e17f7e6f05010b348a59904f28fc0116b7804b92f3040"
   },
   "excluded_layers": []
 }

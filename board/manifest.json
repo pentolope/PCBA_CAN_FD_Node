@@ -879,6 +879,10 @@
         "reason": "the rails are judged as claims against the regulator's stated output; no rail is poured as a plane whose drop a solve would decide"
       },
       {
+        "domain": "flow_repeatability",
+        "reason": "the study this domain asks for is a distribution over the declared route search, and the search this board declares does not reproduce this board under the router the tree carries: run from the generated placement, all three declared orderings were refused, each because the router's own signal copper split the V24 pour into islands the DRC then counted as unconnected. The committed copper was accepted by KiCadRoutingTools 0.21.5 under KiCad 10.0.5, and the tree carries 0.22.0 under 10.0.6, so a study run now would sample a search that does not produce the copper being released and would report a distribution over a different flow. The copper itself is judged by measurement on every run - a fresh DRC, ERC and schematic parity over the board in the tree - and ROUTE.PROVENANCE holds it to the record that accepted it; what cannot be stated today is the accept rate. Protecting the pour's neck so the search reproduces the board is the next revision's work and is named here rather than left silent"
+      },
+      {
         "domain": "differential_pairs",
         "reason": "this board DOES route a CAN differential pair, and its impedance is not yet judged by SI.PAIR_IMPEDANCE: the pair is held by the bus standard's own termination requirement and by the board's claims, and no cross-section has been declared for the coupled model. Declaring it is the next revision's work and is named here rather than left silent. The fabricator publishes a stackup for four and six layers and offers controlled impedance from four layers up, so for this two-layer board there is no published cross-section to declare one from"
       }

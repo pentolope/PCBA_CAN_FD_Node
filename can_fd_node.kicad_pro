@@ -62,13 +62,17 @@
         "clearance": 0.2,
         "track_width": 0.3,
         "via_diameter": 0.6,
-        "via_drill": 0.3,
-        "nets": [
-          "CANH",
-          "CANL"
-        ]
+        "via_drill": 0.3
       }
-    ]
+    ],
+    "netclass_assignments": {
+      "CANH": [
+        "Bus"
+      ],
+      "CANL": [
+        "Bus"
+      ]
+    }
   },
   "pcbnew": {
     "last_paths": {},

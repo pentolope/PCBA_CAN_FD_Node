@@ -42,6 +42,8 @@ DESIGN_RULES = {
 #: isolation barrier to declare a third class for - but the bus pair is
 #: given its own class so the router draws it at a width and spacing chosen
 #: for a coupled pair rather than at the default for ordinary signals.
+BUS_CLASS = "Bus"
+
 NET_CLASSES = [
     {
         "name": "Default",
@@ -51,7 +53,7 @@ NET_CLASSES = [
         "via_drill": 0.3,
     },
     {
-        "name": "Bus",
+        "name": BUS_CLASS,
         "clearance": 0.2,
         "track_width": 0.3,
         "via_diameter": 0.6,
@@ -63,11 +65,12 @@ NET_CLASSES = [
 BUS_CLASS_NETS = ("CANH", "CANL")
 
 
+def netclass_assignments():
+    return {net: [BUS_CLASS] for net in BUS_CLASS_NETS}
+
+
 def project_document(root_sheet_uuid):
     classes = [dict(entry) for entry in NET_CLASSES]
-    for entry in classes:
-        if entry["name"] == "Bus":
-            entry["nets"] = list(BUS_CLASS_NETS)
     return {
         "board": {
             "design_settings": {
@@ -100,7 +103,10 @@ def project_document(root_sheet_uuid):
         "libraries": {"pinned_footprint_libs": [], "pinned_symbol_libs": []},
         "meta": {"filename": netlist.PROJECT_NAME + ".kicad_pro",
                  "version": 3},
-        "net_settings": {"classes": classes},
+        "net_settings": {
+            "classes": classes,
+            "netclass_assignments": netclass_assignments(),
+        },
         "pcbnew": {"last_paths": {}, "page_layout_descr_file": ""},
         "schematic": {"legacy_lib_dir": "", "legacy_lib_list": []},
         "sheets": [[root_sheet_uuid, "Root"]],
@@ -108,11 +114,14 @@ def project_document(root_sheet_uuid):
     }
 
 
-def write_project():
+def generate_project_text():
     root_uuid = str(schematic._uuid("sheet", netlist.PROJECT_NAME))
+    return json.dumps(project_document(root_uuid), indent=2) + "\n"
+
+
+def write_project():
     with open(project_path(), "w", encoding="utf-8", newline="\n") as handle:
-        json.dump(project_document(root_uuid), handle, indent=2)
-        handle.write("\n")
+        handle.write(generate_project_text())
     return (project_path(),)
 
 

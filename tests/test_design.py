@@ -90,9 +90,33 @@ class DesignSource(unittest.TestCase):
     def test_the_committed_design_files_are_the_generated_ones(self):
         with open(build.schematic_path(), "r", encoding="utf-8") as handle:
             self.assertEqual(handle.read(), build.generate_schematic_text())
+        with open(build.project_path(), "r", encoding="utf-8") as handle:
+            self.assertEqual(handle.read(), build.generate_project_text())
         for path, text in libraries.artifacts().items():
             with open(path, "r", encoding="utf-8") as handle:
                 self.assertEqual(handle.read(), text, path)
+
+    def test_no_netclass_declares_membership_in_its_own_entry(self):
+        document = json.loads(build.generate_project_text())
+        for entry in document["net_settings"]["classes"]:
+            self.assertNotIn("nets", entry, entry["name"])
+
+    def test_every_constrained_netclass_resolves_to_the_nets_it_names(self):
+        document = json.loads(build.generate_project_text())
+        settings = document["net_settings"]
+        declared = {entry["name"] for entry in settings["classes"]}
+        assigned = {}
+        for net, classes in settings["netclass_assignments"].items():
+            self.assertIn(net, netlist.NETS)
+            for name in classes:
+                self.assertIn(name, declared)
+                assigned.setdefault(name, set()).add(net)
+        for entry in settings["classes"]:
+            if entry["name"] == "Default":
+                continue
+            self.assertTrue(assigned.get(entry["name"]), entry["name"])
+        self.assertEqual(assigned[build.BUS_CLASS],
+                         set(build.BUS_CLASS_NETS))
 
     def test_every_part_the_bom_carries_names_a_footprint(self):
         for reference, part in netlist.PARTS.items():

@@ -3,15 +3,15 @@
   "board_id": "can_fd_node",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-11T02:13:14.071985+00:00",
-  "source_closure_sha256": "77b7ddb47fcf1eadff13c9453e0c47903041ae6bb2fac3e94fed670e3e5ace9f",
+  "generated_utc": "2026-09-12T00:24:26.576118+00:00",
+  "source_closure_sha256": "dca0f7939fd5b83e32a6f121e61421580c5880260edd1d4fe1d93bc902209afd",
   "source_closure_files": 54,
   "source_closure": {
-    "<configuration>": "065f73cb483d5c0826d19c08b7faa72198977aae115dd528b7355c85c7805b50",
-    "<toolkit>": "225152338acde8ebaf2b7272c3a47d6a660342fa+clean",
+    "<configuration>": "ef75eb1b6697218c6431adeddf1093351d9b47081626d3344fae576f910c24fd",
+    "<toolkit>": "e8abb572428100dca3e8da9fed3f07fb9420f55e+clean",
     "can_fd_node.kicad_pcb": "7a3f87bec992d6673f9ef64096387c765847a694611b3c2e0053deefe0893f18",
     "can_fd_node.kicad_prl": "6b976046b959e495e842db0bbb7c593bcd3dd65b9960042588e99416219aae71",
-    "can_fd_node.kicad_pro": "22cd3d5a3e4ade343201a5115419d2c54131cd0e3ecc7e3f73ebb4c4f803b221",
+    "can_fd_node.kicad_pro": "6d47386b9ac0c4b2475c5630852a69e7adaf7f04e6f4bb2ce73e674fda027e7b",
     "can_fd_node.kicad_sch": "689e152e4ad4433ed63730d1ef453697219cb52dcda45cb8f8eb1b1942b042fd",
     "components/jlcpcb.json": "0428721444bb0f7d13f727e656f0186eb4bc9e67cdfedd42d10c0a5a10d3f54e",
     "components/parameters.json": "5eb91d8302f68a1e454582fe717765e8f7450e10d3cb02a6f093195aac03b5b0",
@@ -67,7 +67,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "225152338acde8ebaf2b7272c3a47d6a660342fa",
+    "commit": "e8abb572428100dca3e8da9fed3f07fb9420f55e",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -83,9 +83,9 @@
   ],
   "artifacts": {
     "bom.csv": "eddb7af9275294405e3000e47dc8fb2517b814306e1546bc1fdd36577c1b4ebb",
-    "can_fd_node-fabrication.zip": "e406c4eff4efa263dc6b42e301c6cd9441f4d540b135744a798e35444061cded",
+    "can_fd_node-fabrication.zip": "543715d7eb3e7b4f163ea725320c614c4b24188397b37de5a55f14d3716a9643",
     "cpl.csv": "b36a63977ca23097a0d60b0399dd7ba6ed791dd2c0f6b185c3a4d2ff31c321d1",
-    "gerbers/can_fd_node-B_Cu.gbr": "98c2c87826ec500e0015e7cccc1b944dd1ae5ee7c8e6a3475f43d33e1432c3d6",
+    "gerbers/can_fd_node-B_Cu.gbr": "40a4069c0914400fbb3c7c3a7f410c748f0217719b3799cc14ab7b7df96970ba",
     "gerbers/can_fd_node-B_Mask.gbr": "a2fda32562b2a0ed083ba2084602f646f4abb7fe0a94b5499c23044852005b61",
     "gerbers/can_fd_node-B_Silkscreen.gbr": "77a954aff1fc594d85371db2c70c5d6369c4187b4e26e0cb4aeeb1b8d786d0be",
     "gerbers/can_fd_node-Edge_Cuts.gbr": "f6550317aa2d399b2b7eb39fb48d19e254bec95d1211dcd0d756abd88c67f2cc",
@@ -96,8 +96,8 @@
     "gerbers/can_fd_node-NPTH.drl": "8d8a8d1e8e76b43f873ee272c96831a0fe3b9803cb572b72dd99f8c88f0cda2f",
     "gerbers/can_fd_node-PTH.drl": "a71784137c11df7a9db300d3c440bbd6894ad310a2824ba5ca209ca6434ba096",
     "gerbers/can_fd_node-job.gbrjob": "45d7d8f226f8215e3e3428062c790c6dd27116bfe580f93a512086986830db2f",
-    "reports/drc.json": "ff1bb3832b4ce73d03c48b1aa7d0a14a733043ec8de90ab5f9da6f4a9db17804",
-    "reports/erc.json": "775499b63291ca350a7e17f7e6f05010b348a59904f28fc0116b7804b92f3040"
+    "reports/drc.json": "7220bf8fe857d3064f05b4f2ff4a34ef68964c2e65f2a14d8a95a09e4eb70d92",
+    "reports/erc.json": "1982dfe1a25b444b13327ea99dc21a5255e6e3be7e7c731ea3dc4db47fa83567"
   },
   "excluded_layers": []
 }
